@@ -1,0 +1,38 @@
+@use 'styles/base/variables.scss';
+
+// base
+@use "../common/styles/base/resets.scss";
+@use "../common/styles/base/typography.scss";
+@use "../common/styles/base/display.scss";
+@use "../common/styles/base/margins.scss";
+@use "../common/styles/base/errors.scss";
+
+// layout
+@use "../common/styles/layout/container.scss";
+@use "../common/styles/layout/row.scss";
+@use "../common/styles/layout/flex.scss";
+@use "../common/styles/layout/header.scss";
+@use "../common/styles/layout/header-menu.scss";
+@use "../common/styles/layout/footer.scss";
+@use "../common/styles/layout/welcome-popup.scss";
+
+// components
+@use "../common/styles/components/btn.scss";
+@use "../common/styles/components/card.scss";
+@use "../common/styles/components/carousel-navigation.scss";
+
+// blocks
+@use "../common/styles/blocks/background-block.scss";
+@use "../common/styles/blocks/carousel-block.scss";
+@use "../common/styles/blocks/empty-block.scss";
+@use "../common/styles/blocks/form-block.scss";
+@use "../common/styles/blocks/generic-header-block.scss";
+@use "../common/styles/blocks/image-block.scss";
+@use "../common/styles/blocks/masonry-gallery-block.scss";
+@use "../common/styles/blocks/newsletter-subscribe-block.scss";
+@use "../common/styles/blocks/references-block.scss";
+@use "../common/styles/blocks/video-block.scss";
+@use "../common/styles/blocks/scrollable-video-block.scss";
+
+@use 'styles/base/darktheme.scss';
+/* poll test */

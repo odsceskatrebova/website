@@ -1,0 +1,7 @@
+<div class="newsletter-subscribe-block {{ data.classes }}" id="{{ data.id }}" {{ sulu_block_preview(data) }}>
+    <div class="message">
+        {{ data.text | raw }}
+    </div>
+    {% set formData = data | merge({ id: null, classes: ''}) %}
+    {% include 'blocks/form-block.html.twig' with { data: formData } %}
+</div>

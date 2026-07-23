@@ -1,0 +1,67 @@
+<header class="{{ (content.heroHeader is defined and content.heroHeader) ? 'hero' : '' }} {{ (content.darkHeroBackground is defined and content.darkHeroBackground) ? 'dark-section' : '' }}">
+    <div class="container">
+        <a class="logo" href="/{{ app.request.locale }}">
+            {{ config.logo ? config.logo|raw : '' }}
+        </a>
+        <nav>
+            {% for link in sulu_page_navigation_root_flat('header', 3, {
+              'title': 'title',
+              'uuid': 'object.resource.uuid',
+            }) %}
+                <sulu-link href="{{ link.uuid }}" class="btn fill secondary">{{ link.title }}</sulu-link>
+            {% endfor %}
+        </nav>
+        <div class="actions">
+            {% if config.ctaLink and config.ctaText %}
+                <sulu-link href="{{ config.ctaLink.uuid }}" class="btn fill primary">{{ config.ctaText | default(config.ctaLink.title) }}</sulu-link>
+            {% endif %}
+            <div class="btn outline menu-toggle" aria-label="Menu">
+              <span class="lines">
+                <span class="line top"></span>
+                <span class="line middle"></span>
+                <span class="line bottom"></span>
+                <span class="line dia"></span>
+              </span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="header-background {{ (content.heroHeader is defined and content.heroHeader) ? 'hero' : '' }}"></div>
+
+<div class="header-menu-wrapper">
+    <div class="header-menu-background"></div>
+    <nav class="header-menu">
+        <div class="header-menu-nav">
+            {% for link in sulu_page_navigation_root_flat('header', 3, {
+              'title': 'title',
+              'uuid': 'object.resource.uuid',
+            }) %}
+                <sulu-link href="{{ link.uuid }}">{{ link.title }}</sulu-link>
+            {% endfor %}
+        </div>
+        {% if config.mainContact %}
+            <div class="header-menu-contact">
+                {{ config.mainContact|raw }}
+            </div>
+        {% endif %}
+        <div class="header-menu-footer">
+            {% if config.footerSocialIcons %}
+                <div class="social-icons">
+                    {% for icon in config.footerSocialIcons %}
+                        <a href="{{ icon.link }}">{{ icon.icon ? icon.icon|raw : '' }}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if localizations|length > 1 %}
+                <div class="lang-selector">
+                    {% for loc in localizations %}
+                        <a href="{{ loc.url }}" class="{{ loc.locale == app.locale ? 'active' : '' }}">
+                            {{ loc.locale }}
+                        </a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </nav>
+</div>

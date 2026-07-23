@@ -1,0 +1,104 @@
+@use './variables.scss';
+
+
+@each $key, $breakpoint in variables.$breakpoints {
+  @for $i from -40 to 40 {
+    @media (min-width: $breakpoint) {
+
+      $sizeKey: '-#{$i}';
+      @if $key != 'mobile' { $sizeKey: '-#{$key}-#{$i}'; }
+      $autoKey: '-auto';
+      @if $key != 'mobile' { $autoKey: '-#{$key}-auto'; }
+
+      @if $i >= 0 {
+        #{'.pb' + $sizeKey} {
+          padding-bottom: #{ $i * variables.$paddingBase } !important;
+        }
+        #{'.pt' + $sizeKey} {
+          padding-top: #{ $i * variables.$paddingBase } !important
+        }
+        #{'.pl' + $sizeKey} {
+          padding-left: #{ $i * variables.$paddingBase } !important
+        }
+
+        #{'.pr' + $sizeKey} {
+          padding-right: #{ $i * variables.$paddingBase } !important
+        }
+
+        #{'.px' + $sizeKey} {
+          padding-left: #{ $i * variables.$paddingBase } !important;
+          padding-right: #{ $i * variables.$paddingBase } !important;
+        }
+
+        #{'.py' + $sizeKey} {
+          padding-top: #{ $i * variables.$paddingBase } !important;
+          padding-bottom: #{ $i * variables.$paddingBase } !important;
+        }
+
+        #{'.pa' + $sizeKey} {
+          padding: #{ $i * variables.$paddingBase } !important;
+        }
+      }
+
+      #{'.mb' + $sizeKey} {
+        margin-bottom: #{ $i * variables.$paddingBase } !important
+      }
+
+      #{'.mt' + $sizeKey} {
+        margin-top: #{ $i * variables.$paddingBase } !important
+      }
+
+      #{'.ml' + $sizeKey} {
+        margin-left: #{ $i * variables.$paddingBase } !important
+      }
+
+      #{'.mr' + $sizeKey} {
+        margin-right: #{ $i * variables.$paddingBase } !important
+      }
+
+      #{'.mx' + $sizeKey} {
+        margin-left: #{ $i * variables.$paddingBase } !important;
+        margin-right: #{ $i * variables.$paddingBase } !important;
+      }
+
+      #{'.my' + $sizeKey} {
+        margin-top: #{ $i * variables.$paddingBase } !important;
+        margin-bottom: #{ $i * variables.$paddingBase } !important;
+      }
+
+      #{'.ma' + $sizeKey} {
+        margin: #{ $i * variables.$paddingBase } !important;
+      }
+
+      #{'.mb' + $autoKey} {
+        margin-bottom: auto !important;
+      }
+
+      #{'.mt' + $autoKey} {
+        margin-top: auto !important;
+      }
+
+      #{'.ml' + $autoKey} {
+        margin-left: auto !important;
+      }
+
+      #{'.mr' + $autoKey} {
+        margin-right: auto !important;
+      }
+
+      #{'.mx' + $autoKey} {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      #{'.my' + $autoKey} {
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+      }
+
+      #{'.ma' + $autoKey} {
+        margin: auto !important;
+      }
+    }
+  }
+}

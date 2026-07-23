@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>divider-block</key>
+
+    <meta>
+        <title lang="en">Divider</title>
+    </meta>
+
+    <properties>
+        <property name="height" type="number" colspan="6">
+            <meta><title lang="en">size [rem]</title></meta>
+            <params>
+                <param name="min" value="0"/>
+                <param name="max" value="20"/>
+            </params>
+        </property>
+        <property name="html_id" type="text_line" colspan="6">
+            <meta><title lang="en">ID</title></meta>
+        </property>
+    </properties>
+
+</template>

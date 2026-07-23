@@ -1,0 +1,104 @@
+version: '3.4'
+
+services:
+    proxy:
+        image: nginx:1.25-alpine
+        container_name: odsct-proxy
+        restart: unless-stopped
+        networks:
+            - odsct
+        ports:
+            - "80:80"
+        volumes:
+            - ./public:/srv/public:ro
+            - ./proxy/nginx.conf:/etc/nginx/nginx.conf:ro
+            - ./proxy/proxy-common.conf:/etc/nginx/proxy-common.conf:ro
+
+    postgres:
+        image: postgres:15
+        container_name: odsct-postgres
+        restart: unless-stopped
+        networks:
+            - odsct
+        environment:
+            POSTGRES_DB: odsct
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: secret
+        volumes:
+            - ./volumes/db_data:/var/lib/postgresql/data:rw
+
+    mailer:
+        image: axllent/mailpit
+        container_name: odsct-mailer
+        restart: unless-stopped
+        networks:
+            - odsct
+        environment:
+            MP_SMTP_AUTH_ACCEPT_ANY: 1
+            MP_SMTP_AUTH_ALLOW_INSECURE: 1
+
+    adminer:
+        image: adminer
+        container_name: odsct-adminer
+        restart: unless-stopped
+        networks:
+            - odsct
+        depends_on:
+            - postgres
+        environment:
+            ADMINER_DEFAULT_SERVER: postgres:5432
+
+    web:
+        build:
+            context: .
+            target: build
+        container_name: odsct-web
+        restart: unless-stopped
+        networks:
+            - odsct
+        volumes:
+            - ./:/srv:rw
+        depends_on:
+            - proxy
+            - postgres
+            - mailer
+            - adminer
+        environment:
+            DATABASE_URL: postgresql://root:secret@postgres:5432/odsct?serverVersion=15&charset=utf8
+            MAILER_DSN: smtp://mailer:1025
+            TRUSTED_PROXIES: "127.0.0.1,172.16.0.0/12"
+            APP_ENV: dev
+            APP_DEBUG: "true"
+            PHP_MEMORY_LIMIT: 512M
+        command:
+            - /bin/bash
+            - -c
+            - |
+                composer install --prefer-dist --no-progress --no-interaction
+                bin/console cache:clear
+                bin/console doctrine:database:create --no-interaction --if-not-exists
+                bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration
+                bin/console messenger:setup-transports --no-interaction
+                php-fpm
+
+    asset-builder:
+        build:
+            context: .
+            target: node
+        container_name: odsct-asset-builder
+        restart: unless-stopped
+        networks:
+            - odsct
+        command:
+            - /bin/bash
+            - -c
+            - |
+                npm install
+                npm run dev
+        volumes:
+            - ./:/app:rw
+        depends_on:
+            - web
+
+networks:
+    odsct:

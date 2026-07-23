@@ -1,0 +1,9 @@
+{% if data.contentSnippet %}
+  {% set content = data.contentSnippet.content %}
+  {% set view = dataView.contentSnippet.content %}
+
+  <div id="{{ data.id }}" class="{{ data.classes }}" {{ sulu_block_preview(data) }}>
+    {% include 'blocks/content-loop.html.twig' with { blocks: content, blocksView: view } %}
+  </div>
+
+{% endif %}

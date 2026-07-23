@@ -1,0 +1,83 @@
+@use 'sass:math';
+
+.form {
+  position: relative;
+  padding: 0;
+
+  .vue-form-block {
+    position: relative;
+
+    .config {
+      display: none;
+    }
+
+    .success-text {
+      font-weight: 700;
+    }
+
+    .display-header {
+      padding: 0 1.5rem .5rem;
+    }
+
+    p.display-text {
+      padding: 0 1.5rem .5rem;
+    }
+
+    .gdpr-notice {
+      padding: .5rem 0;
+      font-size: .875rem;
+    }
+
+    .form-fields {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -.5rem;
+
+      .form-field-wrap {
+        padding: 0 .5rem;
+        box-sizing: border-box;
+        width: 100%;
+
+        @for $i from 1 through 12 {
+          &.col-#{$i} {
+            width: math.percentage(math.div($i, 12));
+          }
+        }
+
+        @media (min-width: 768px) {
+          @for $i from 1 through 12 {
+            &.col-tablet-#{$i} {
+              width: math.percentage(math.div($i, 12));
+            }
+          }
+        }
+
+        @media (min-width: 1200px) {
+          @for $i from 1 through 12 {
+            &.col-desktop-#{$i} {
+              width: math.percentage(math.div($i, 12));
+            }
+          }
+        }
+      }
+    }
+
+    .website {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .button-space {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: .5rem;
+
+      &--inline {
+        display: inline-flex;
+      }
+    }
+  }
+}

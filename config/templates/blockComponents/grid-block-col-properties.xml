@@ -1,0 +1,170 @@
+<?xml version="1.0" ?>
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <property name="sulu-display-name" type="text_line" colspan="6">
+        <meta>
+            <title lang="en">Sulu display name</title>
+        </meta>
+        <tag name="sulu.block_preview" priority="512"/>
+    </property>
+    <property name="classes" type="text_line" colspan="6">
+        <meta><title lang="en">classes</title></meta>
+    </property>
+
+    <property name="col" type="select" colspan="3">
+        <meta><title lang="en">col</title></meta>
+        <tag name="sulu.block_preview" priority="128"/>
+        <params>
+            <param name="default_value" value="col-12"/>
+            <param name="values" type="collection">
+                <param name="col-1"><meta><title lang="en">col-1</title></meta></param>
+                <param name="col-2"><meta><title lang="en">col-2</title></meta></param>
+                <param name="col-3"><meta><title lang="en">col-3</title></meta></param>
+                <param name="col-4"><meta><title lang="en">col-4</title></meta></param>
+                <param name="col-5"><meta><title lang="en">col-5</title></meta></param>
+                <param name="col-6"><meta><title lang="en">col-6</title></meta></param>
+                <param name="col-7"><meta><title lang="en">col-7</title></meta></param>
+                <param name="col-8"><meta><title lang="en">col-8</title></meta></param>
+                <param name="col-9"><meta><title lang="en">col-9</title></meta></param>
+                <param name="col-10"><meta><title lang="en">col-10</title></meta></param>
+                <param name="col-11"><meta><title lang="en">col-11</title></meta></param>
+                <param name="col-12"><meta><title lang="en">col-12</title></meta></param>
+                <param name="col-13"><meta><title lang="en">col-13</title></meta></param>
+                <param name="col-14"><meta><title lang="en">col-14</title></meta></param>
+                <param name="col-tablet-1"><meta><title lang="en">col-tablet-1</title></meta></param>
+                <param name="col-tablet-2"><meta><title lang="en">col-tablet-2</title></meta></param>
+                <param name="col-tablet-3"><meta><title lang="en">col-tablet-3</title></meta></param>
+                <param name="col-tablet-4"><meta><title lang="en">col-tablet-4</title></meta></param>
+                <param name="col-tablet-5"><meta><title lang="en">col-tablet-5</title></meta></param>
+                <param name="col-tablet-6"><meta><title lang="en">col-tablet-6</title></meta></param>
+                <param name="col-tablet-7"><meta><title lang="en">col-tablet-7</title></meta></param>
+                <param name="col-tablet-8"><meta><title lang="en">col-tablet-8</title></meta></param>
+                <param name="col-tablet-9"><meta><title lang="en">col-tablet-9</title></meta></param>
+                <param name="col-tablet-10"><meta><title lang="en">col-tablet-10</title></meta></param>
+                <param name="col-tablet-11"><meta><title lang="en">col-tablet-11</title></meta></param>
+                <param name="col-tablet-12"><meta><title lang="en">col-tablet-12</title></meta></param>
+                <param name="col-tablet-13"><meta><title lang="en">col-tablet-13</title></meta></param>
+                <param name="col-tablet-14"><meta><title lang="en">col-tablet-14</title></meta></param>
+                <param name="col-desktop-1"><meta><title lang="en">col-desktop-1</title></meta></param>
+                <param name="col-desktop-2"><meta><title lang="en">col-desktop-2</title></meta></param>
+                <param name="col-desktop-3"><meta><title lang="en">col-desktop-3</title></meta></param>
+                <param name="col-desktop-4"><meta><title lang="en">col-desktop-4</title></meta></param>
+                <param name="col-desktop-5"><meta><title lang="en">col-desktop-5</title></meta></param>
+                <param name="col-desktop-6"><meta><title lang="en">col-desktop-6</title></meta></param>
+                <param name="col-desktop-7"><meta><title lang="en">col-desktop-7</title></meta></param>
+                <param name="col-desktop-8"><meta><title lang="en">col-desktop-8</title></meta></param>
+                <param name="col-desktop-9"><meta><title lang="en">col-desktop-9</title></meta></param>
+                <param name="col-desktop-10"><meta><title lang="en">col-desktop-10</title></meta></param>
+                <param name="col-desktop-11"><meta><title lang="en">col-desktop-11</title></meta></param>
+                <param name="col-desktop-12"><meta><title lang="en">col-desktop-12</title></meta></param>
+                <param name="col-desktop-13"><meta><title lang="en">col-desktop-13</title></meta></param>
+                <param name="col-desktop-14"><meta><title lang="en">col-desktop-14</title></meta></param>
+            </param>
+        </params>
+    </property>
+    <property name="order" type="select" colspan="3">
+        <meta><title lang="en">order</title></meta>
+        <params>
+            <param name="default_value" value=""/>
+            <param name="values" type="collection">
+                <param name=""><meta><title lang="en">---</title></meta></param>
+                <param name="order-tablet-1"><meta><title lang="en">order-tablet-1</title></meta></param>
+                <param name="order-tablet-2"><meta><title lang="en">order-tablet-2</title></meta></param>
+                <param name="order-tablet-3"><meta><title lang="en">order-tablet-3</title></meta></param>
+                <param name="order-tablet-4"><meta><title lang="en">order-tablet-4</title></meta></param>
+                <param name="order-tablet-5"><meta><title lang="en">order-tablet-5</title></meta></param>
+                <param name="order-tablet-6"><meta><title lang="en">order-tablet-6</title></meta></param>
+                <param name="order-tablet-7"><meta><title lang="en">order-tablet-7</title></meta></param>
+                <param name="order-tablet-8"><meta><title lang="en">order-tablet-8</title></meta></param>
+                <param name="order-tablet-9"><meta><title lang="en">order-tablet-9</title></meta></param>
+                <param name="order-tablet-10"><meta><title lang="en">order-tablet-10</title></meta></param>
+                <param name="order-tablet-11"><meta><title lang="en">order-tablet-11</title></meta></param>
+                <param name="order-tablet-12"><meta><title lang="en">order-tablet-12</title></meta></param>
+                <param name="order-desktop-1"><meta><title lang="en">order-desktop-1</title></meta></param>
+                <param name="order-desktop-2"><meta><title lang="en">order-desktop-2</title></meta></param>
+                <param name="order-desktop-3"><meta><title lang="en">order-desktop-3</title></meta></param>
+                <param name="order-desktop-4"><meta><title lang="en">order-desktop-4</title></meta></param>
+                <param name="order-desktop-5"><meta><title lang="en">order-desktop-5</title></meta></param>
+                <param name="order-desktop-6"><meta><title lang="en">order-desktop-6</title></meta></param>
+                <param name="order-desktop-7"><meta><title lang="en">order-desktop-7</title></meta></param>
+                <param name="order-desktop-8"><meta><title lang="en">order-desktop-8</title></meta></param>
+                <param name="order-desktop-9"><meta><title lang="en">order-desktop-9</title></meta></param>
+                <param name="order-desktop-10"><meta><title lang="en">order-desktop-10</title></meta></param>
+                <param name="order-desktop-11"><meta><title lang="en">order-desktop-11</title></meta></param>
+                <param name="order-desktop-12"><meta><title lang="en">order-desktop-12</title></meta></param>
+            </param>
+        </params>
+    </property>
+    <property name="row" type="select" colspan="3">
+        <meta><title lang="en">rowspan</title></meta>
+        <params>
+            <param name="default_value" value=""/>
+            <param name="values" type="collection">
+                <param name=""><meta><title lang="en">---</title></meta></param>
+                <param name="row-1"><meta><title lang="en">row-1</title></meta></param>
+                <param name="row-2"><meta><title lang="en">row-2</title></meta></param>
+                <param name="row-3"><meta><title lang="en">row-3</title></meta></param>
+                <param name="row-4"><meta><title lang="en">row-4</title></meta></param>
+                <param name="row-5"><meta><title lang="en">row-5</title></meta></param>
+                <param name="row-tablet-1"><meta><title lang="en">row-tablet-1</title></meta></param>
+                <param name="row-tablet-2"><meta><title lang="en">row-tablet-2</title></meta></param>
+                <param name="row-tablet-3"><meta><title lang="en">row-tablet-3</title></meta></param>
+                <param name="row-tablet-4"><meta><title lang="en">row-tablet-4</title></meta></param>
+                <param name="row-tablet-5"><meta><title lang="en">row-tablet-5</title></meta></param>
+                <param name="row-desktop-1"><meta><title lang="en">row-desktop-1</title></meta></param>
+                <param name="row-desktop-2"><meta><title lang="en">row-desktop-2</title></meta></param>
+                <param name="row-desktop-3"><meta><title lang="en">row-desktop-3</title></meta></param>
+                <param name="row-desktop-4"><meta><title lang="en">row-desktop-4</title></meta></param>
+                <param name="row-desktop-5"><meta><title lang="en">row-desktop-5</title></meta></param>
+            </param>
+        </params>
+    </property>
+    <property name="colStart" type="select" colspan="3">
+        <meta><title lang="en">Col start</title></meta>
+        <params>
+            <param name="default_value" value=""/>
+            <param name="values" type="collection">
+                <param name=""><meta><title lang="en">---</title></meta></param>
+                <param name="col-start-1"><meta><title lang="en">col-start-1</title></meta></param>
+                <param name="col-start-2"><meta><title lang="en">col-start-2</title></meta></param>
+                <param name="col-start-3"><meta><title lang="en">col-start-3</title></meta></param>
+                <param name="col-start-4"><meta><title lang="en">col-start-4</title></meta></param>
+                <param name="col-start-5"><meta><title lang="en">col-start-5</title></meta></param>
+                <param name="col-start-6"><meta><title lang="en">col-start-6</title></meta></param>
+                <param name="col-start-7"><meta><title lang="en">col-start-7</title></meta></param>
+                <param name="col-start-8"><meta><title lang="en">col-start-8</title></meta></param>
+                <param name="col-start-9"><meta><title lang="en">col-start-9</title></meta></param>
+                <param name="col-start-10"><meta><title lang="en">col-start-10</title></meta></param>
+                <param name="col-start-11"><meta><title lang="en">col-start-11</title></meta></param>
+                <param name="col-start-12"><meta><title lang="en">col-start-12</title></meta></param>
+                <param name="col-start-tablet-1"><meta><title lang="en">col-start-tablet-1</title></meta></param>
+                <param name="col-start-tablet-2"><meta><title lang="en">col-start-tablet-2</title></meta></param>
+                <param name="col-start-tablet-3"><meta><title lang="en">col-start-tablet-3</title></meta></param>
+                <param name="col-start-tablet-4"><meta><title lang="en">col-start-tablet-4</title></meta></param>
+                <param name="col-start-tablet-5"><meta><title lang="en">col-start-tablet-5</title></meta></param>
+                <param name="col-start-tablet-6"><meta><title lang="en">col-start-tablet-6</title></meta></param>
+                <param name="col-start-tablet-7"><meta><title lang="en">col-start-tablet-7</title></meta></param>
+                <param name="col-start-tablet-8"><meta><title lang="en">col-start-tablet-8</title></meta></param>
+                <param name="col-start-tablet-9"><meta><title lang="en">col-start-tablet-9</title></meta></param>
+                <param name="col-start-tablet-10"><meta><title lang="en">col-start-tablet-10</title></meta></param>
+                <param name="col-start-tablet-11"><meta><title lang="en">col-start-tablet-11</title></meta></param>
+                <param name="col-start-tablet-12"><meta><title lang="en">col-start-tablet-12</title></meta></param>
+                <param name="col-start-desktop-1"><meta><title lang="en">col-start-desktop-1</title></meta></param>
+                <param name="col-start-desktop-2"><meta><title lang="en">col-start-desktop-2</title></meta></param>
+                <param name="col-start-desktop-3"><meta><title lang="en">col-start-desktop-3</title></meta></param>
+                <param name="col-start-desktop-4"><meta><title lang="en">col-start-desktop-4</title></meta></param>
+                <param name="col-start-desktop-5"><meta><title lang="en">col-start-desktop-5</title></meta></param>
+                <param name="col-start-desktop-6"><meta><title lang="en">col-start-desktop-6</title></meta></param>
+                <param name="col-start-desktop-7"><meta><title lang="en">col-start-desktop-7</title></meta></param>
+                <param name="col-start-desktop-8"><meta><title lang="en">col-start-desktop-8</title></meta></param>
+                <param name="col-start-desktop-9"><meta><title lang="en">col-start-desktop-9</title></meta></param>
+                <param name="col-start-desktop-10"><meta><title lang="en">col-start-desktop-10</title></meta></param>
+                <param name="col-start-desktop-11"><meta><title lang="en">col-start-desktop-11</title></meta></param>
+                <param name="col-start-desktop-12"><meta><title lang="en">col-start-desktop-12</title></meta></param>
+            </param>
+        </params>
+    </property>
+
+</properties>

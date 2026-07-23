@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>form-block</key>
+
+    <meta>
+        <title lang="en">Form block</title>
+    </meta>
+
+    <properties>
+        <property name="ctaText" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">CTA text</title>
+            </meta>
+        </property>
+        <property name="ctaInline" type="checkbox" colspan="2">
+            <meta>
+                <title lang="en">CTA inline</title>
+            </meta>
+            <params>
+                <param name="type" value="toggler"/>
+                <param name="default_value" value="false"/>
+            </params>
+        </property>
+        <property name="ctaColor" type="single_select">
+            <meta>
+                <title lang="en">CTA color</title>
+            </meta>
+            <params>
+                <param name="default_value" value="primary"/>
+                <param name="values" type="collection">
+                    <param name="white"><meta><title lang="en">White</title></meta></param>
+                    <param name="black"><meta><title lang="en">Black</title></meta></param>
+                    <param name="primary"><meta><title lang="en">Primary</title></meta></param>
+                    <param name="accent"><meta><title lang="en">Accent</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="debugMode" type="checkbox" colspan="2">
+            <meta>
+                <title lang="en">Debug mode</title>
+            </meta>
+            <params>
+                <param name="type" value="toggler"/>
+                <param name="default_value" value="false"/>
+            </params>
+        </property>
+        <property name="classes" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">Classes</title>
+            </meta>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">Id</title>
+            </meta>
+        </property>
+        <property name="formTemplate" type="single_snippet_selection">
+            <meta>
+                <title lang="en">Form template</title>
+            </meta>
+            <params>
+                <param name="types" value="form"/>
+                <param name="default" value="form"/>
+                <param name="loadExcerpt" value="true"/>
+            </params>
+        </property>
+    </properties>
+
+</template>

@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>grid-block</key>
+
+    <meta>
+        <title lang="en">Grid block</title>
+    </meta>
+
+    <properties>
+
+        <xi:include href="../blockComponents/grid-block-properties.xml" xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:property)"/>
+
+        <block name="cols">
+            <meta>
+                <title lang="en">cols</title>
+            </meta>
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title lang="en">Add col</title>
+                    </meta>
+                </param>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+                <type name="col">
+                    <meta>
+                        <title lang="en">col</title>
+                    </meta>
+                    <properties>
+
+                        <xi:include href="../blockComponents/grid-block-col-properties.xml" xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:property)"/>
+
+                        <block name="content">
+                            <meta>
+                                <title lang="en">Content</title>
+                            </meta>
+                            <params>
+                                <param name="add_button_text">
+                                    <meta>
+                                        <title lang="en">Add content</title>
+                                    </meta>
+                                </param>
+                                <param name="block_id_generator" value="true"/>
+                            </params>
+                            <types>
+
+                                <xi:include href="../blockComponents/grid-block-types.xml" xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                            </types>
+                        </block>
+                    </properties>
+                </type>
+            </types>
+        </block>
+
+    </properties>
+
+</template>

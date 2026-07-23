@@ -1,0 +1,26 @@
+{% set blockLink = (data.link_override is defined and data.link_override is not empty) ? data.link_override : data.link  %}
+{% set blockLink = (data.anchor) ? blockLink ~ '#' ~ data.anchor : blockLink %}
+{% set blockTarget = (data.link_target) ? '_blank' : '_self'  %}
+{% set openingTag = (blockLink) ? 'a href="' ~ blockLink ~ '" target="' ~ blockTarget ~ '"' : 'div'  %}
+{% set closingTag = (blockLink) ? 'a' : 'div'  %}
+
+<{{ openingTag | raw }}
+   class="btn {{ data.style }} {{ data.color }} {{ data.size }} {{ data.class }}"
+   {{ sulu_block_preview(data) }}>
+<div class="content {{ data.flexDirection }}">
+  <div class="loader"></div>
+  {% if data.text %}
+    <span>{{ data.text | raw }}</span>
+  {% else %}
+    {% for block in data.content %}
+      {% if block.type == 'text' %}
+        <span>
+          {{ block.text | raw }}
+        </span>
+      {% elseif block.type == 'image-block' %}
+        {% include 'blocks/image-block.html.twig' with { data: block, placement: placement } %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>
+</{{ closingTag }}>

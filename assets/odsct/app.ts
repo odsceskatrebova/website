@@ -1,0 +1,28 @@
+// Odsct entry point
+import '@mdi/font/css/materialdesignicons.css';
+import '@fontsource/roboto/100.css';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/700.css';
+import '@fontsource/roboto/900.css';
+import './app.scss';
+import '@common/js/layout/header.ts';
+import '@common/js/layout/carousel.ts';
+import '@common/js/layout/row-edge.ts';
+import '@common/js/layout/smooth-scroll.ts';
+import '@common/js/layout/welcome-popup.ts';
+import '@common/js/blocks/video-block.ts';
+import '@common/js/blocks/scrollable-video-block.ts';
+import { pinia } from '@common/vue/plugins/pinia';
+import { i18n } from '@common/vue/plugins/i18n';
+import { createGalleryView } from '@common/vue/apps/GalleryView.ts';
+import { createToastBar } from '@common/vue/apps/ToastBar';
+import { createCookieBar } from '@common/vue/apps/CookieBar';
+import { createFormBlock } from '@common/vue/apps/FormBlock';
+import { createCookieSettings } from '@common/vue/apps/CookieSettings';
+
+createGalleryView();
+createToastBar(pinia, i18n);
+createCookieBar(pinia, i18n);
+createFormBlock();
+createCookieSettings(pinia, i18n);

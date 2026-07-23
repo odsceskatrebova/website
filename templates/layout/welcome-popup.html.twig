@@ -1,0 +1,14 @@
+<div class="welcome-popup-dialog" data-snippet-id="{{ welcomePopup.resource.id }}">
+  <div class="close-background"></div>
+  <div class="card-wrapper">
+    <div class="card">
+      <div class="close-button">
+        <i class="mdi mdi-close"></i>
+      </div>
+      {% include 'blocks/content-loop.html.twig' with {
+          blocks: welcomePopup.content.content,
+          blocksView: welcomePopup.view.content ?? {}
+      } %}
+    </>
+  </>
+</div>

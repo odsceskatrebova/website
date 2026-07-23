@@ -1,0 +1,16 @@
+{% set aspectRatio = data.aspectRatio %}
+<div
+  class="empty-block mobile"
+  style="aspect-ratio: {{ aspectRatio }};"
+  {{ sulu_block_preview(data) }}
+></div>
+{% set aspectRatio = (data.aspectRatioTablet) ? data.aspectRatioTablet : aspectRatio %}
+<div
+  class="empty-block tablet"
+  style="aspect-ratio: {{ aspectRatio }};"
+></div>
+{% set aspectRatio = (data.aspectRatioDesktop) ? data.aspectRatioDesktop : aspectRatio %}
+<div
+  class="empty-block desktop"
+  style="aspect-ratio: {{ aspectRatio }};"
+></div>

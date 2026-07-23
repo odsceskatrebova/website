@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>image-block</key>
+
+    <meta>
+        <title lang="en">Image</title>
+    </meta>
+
+    <properties>
+        <property name="image" type="single_media_selection" colspan="4">
+            <meta>
+                <title lang="en">image</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="imageTablet" type="single_media_selection" colspan="4">
+            <meta>
+                <title lang="en">image tablet</title>
+            </meta>
+        </property>
+        <property name="imageDesktop" type="single_media_selection" colspan="4">
+            <meta>
+                <title lang="en">image desktop</title>
+            </meta>
+        </property>
+        <property name="registerToGallery" type="checkbox" colspan="3">
+            <meta>
+                <title lang="en">register to gallery</title>
+            </meta>
+            <params>
+                <param name="type" value="toggler"/>
+                <param name="default_value" value="false"/>
+            </params>
+        </property>
+        <property name="maxWidth" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">max width [rem]</title>
+            </meta>
+        </property>
+        <property name="maxHeight" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">max height [rem]</title>
+            </meta>
+        </property>
+        <property name="classes" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">Classes</title>
+            </meta>
+        </property>
+        <property name="aspectRatio" type="number" colspan="4">
+            <meta>
+                <title lang="en">Aspect ratio</title>
+            </meta>
+            <params>
+                <param name="min" value=".2"/>
+                <param name="max" value="5"/>
+            </params>
+        </property>
+        <property name="roundCorners" type="checkbox" colspan="2">
+            <meta>
+                <title lang="en">Round corners</title>
+            </meta>
+            <params>
+                <param name="default_value" value="false"/>
+                <param name="type" value="toggler"/>
+            </params>
+        </property>
+        <property name="outline" type="checkbox" colspan="2">
+            <meta><title lang="en">outline</title></meta>
+        </property>
+    </properties>
+
+</template>

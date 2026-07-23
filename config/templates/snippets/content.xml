@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>content</key>
+
+    <meta>
+        <title lang="en">Content</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+            </meta>
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <block name="content" default-type="text-block">
+            <meta>
+                <title lang="en">Content</title>
+            </meta>
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title lang="en">Add content</title>
+                    </meta>
+                </param>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+                <type ref="text-block" />
+                <type ref="image-block" />
+                <type ref="grid-block" />
+                <type ref="background-block" />
+                <type ref="content-snippet-block" />
+                <type ref="flex-block" />
+                <type ref="button-block" />
+                <type ref="video-block" />
+                <type ref="card-block" />
+                <type ref="carousel-gallery-block" />
+                <type ref="divider-block" />
+                <type ref="empty-block" />
+                <type ref="form-block" />
+                <type ref="generic-header-block" />
+                <type ref="masonry-gallery-block" />
+                <type ref="newsletter-subscribe-block" />
+                <type ref="timeline-block" />
+            </types>
+        </block>
+    </properties>
+
+</template>

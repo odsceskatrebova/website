@@ -1,0 +1,25 @@
+<div id="{{ data.id }}" class="masonry-gallery-block {{ data.classes }}" {{ sulu_block_preview(data) }}>
+    {% for image in data.images %}
+        <picture class="image {{ image.large ? 'large' : '' }}">
+            {% if 'svg' in image.image.fileVersion.mimeType %}
+                <img
+                        src="{{ image.image.thumbnails['full'] }}"
+                />
+            {% else %}
+                <source
+                        srcset="{{ image.image.thumbnails['full-page.webp'] }}, {{ image.image.thumbnails['full-page@2x.webp'] }} 2x"
+                        media="(min-width: 120rem)"
+                >
+                <source
+                        srcset="{{ image.image.thumbnails['full-desktop.webp'] }}, {{ image.image.thumbnails['full-desktop@2x.webp'] }} 2x"
+                        media="(min-width: 73rem)"
+                >
+                <source
+                        srcset="{{ image.image.thumbnails['full-tablet.webp'] }}, {{ image.image.thumbnails['full-tablet@2x.webp'] }} 2x"
+                        media="(min-width: 55rem)"
+                >
+                <img srcset="{{ image.image.thumbnails['full.webp'] }}, {{ image.image.thumbnails['full@2x.webp'] }} 2x"/>
+            {% endif %}
+        </picture>
+    {% endfor %}
+</div>

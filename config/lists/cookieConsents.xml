@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<list xmlns="http://schemas.sulu.io/list-builder/list">
+    <key>cookieConsents</key>
+
+    <properties>
+        <property name="id" visibility="no" translation="sulu_admin.id">
+            <field-name>id</field-name>
+            <entity-name>App\Entity\CookieConsent</entity-name>
+        </property>
+
+        <property name="createdAt" visibility="always" searchability="yes" translation="app.createdAt">
+            <field-name>createdAt</field-name>
+            <entity-name>App\Entity\CookieConsent</entity-name>
+        </property>
+
+        <property name="ip" visibility="yes" translation="app.ip">
+            <field-name>ip</field-name>
+            <entity-name>App\Entity\CookieConsent</entity-name>
+        </property>
+
+        <property name="preferences" visibility="yes" translation="app.preferences">
+            <field-name>preferences</field-name>
+            <entity-name>App\Entity\CookieConsent</entity-name>
+        </property>
+
+        <property name="userAgent" visibility="yes" translation="app.userAgent">
+            <field-name>userAgent</field-name>
+            <entity-name>App\Entity\CookieConsent</entity-name>
+        </property>
+    </properties>
+</list>

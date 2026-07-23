@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>card-block</key>
+
+    <meta>
+        <title lang="en">Card block</title>
+    </meta>
+
+    <properties>
+        <property name="background" type="single_media_selection" colspan="4">
+            <meta>
+                <title lang="en">Background</title>
+            </meta>
+        </property>
+        <property name="backgroundTablet" type="single_media_selection" colspan="4">
+            <meta>
+                <title lang="en">Background tablet</title>
+            </meta>
+        </property>
+        <property name="aspectRatio" type="number" colspan="4">
+            <meta>
+                <title lang="en">Aspect ratio</title>
+            </meta>
+            <params>
+                <param name="min" value=".2"/>
+                <param name="max" value="5"/>
+            </params>
+        </property>
+        <property name="link" type="link" colspan="6">
+            <meta>
+                <title lang="en">Link</title>
+            </meta>
+        </property>
+        <property name="darkSection" type="checkbox" colspan="3">
+            <meta>
+                <title lang="en">dark-section = white text</title>
+            </meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">Classes</title>
+            </meta>
+        </property>
+
+        <block name="content" default-type="text-block">
+            <meta>
+                <title lang="en">Content</title>
+            </meta>
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title lang="en">Add content</title>
+                    </meta>
+                </param>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+                <type ref="button-block" />
+                <type ref="text-block" />
+                <type ref="image-block" />
+                <type ref="flex-block" />
+                <type ref="video-block" />
+            </types>
+        </block>
+    </properties>
+
+</template>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale|split('_')[0] }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript">
+        window.appLocale = "{{ app.request.locale }}";
+        window.websitePaths = {};
+    </script>
+
+    {# websiteConfigSnippet is global configuration accessible from website admin, mainly used for global functionality and content for footer and header of website #}
+    {% set config = sulu_snippet_load_by_area('websiteConfig') %}
+    {% set configView = config.view ?? null %}
+    {% set config = config.content ?? null %}
+
+    {% block meta %}
+        {{ include('@SuluWebsite/Extension/seo.html.twig', {
+            seo: extension.seo|default([]),
+            content: content|default([]),
+            localizations: localizations|default([]),
+            shadowBaseLocale: shadowBaseLocale|default(),
+        }) }}
+    {% endblock %}
+
+    {% block style %}{{ vite_entry_link_tags('odsct') }}{% endblock %}
+</head>
+<body>
+    {% if not config %}
+        <div class="error-box">
+            WEBSITE CONFIG SNIPPET IS REQUIRED —
+            create config snippet and add it as default config snippet in webspace
+        </div>
+    {% else %}
+        {% include 'layout/header.html.twig' %}
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        {% include 'layout/footer.html.twig' %}
+
+        {% set welcomePopup = sulu_snippet_load_by_area('welcomePopup') %}
+        {% if welcomePopup %}
+            {% include 'layout/welcome-popup.html.twig' with { welcomePopup: welcomePopup } %}
+        {% endif %}
+
+        <div id="vue-gallery-app"></div>
+        <div id="vue-toast-bar-app"></div>
+        <div id="vue-cookie-bar-app"></div>
+        <div class="js-cookie-settings-app"></div>
+    {% endif %}
+
+    {% block javascripts %}{{ vite_entry_script_tags('odsct') }}{% endblock %}
+    {% if app.request.attributes.get('preview') %}
+      <script src="{{ asset('bundles/sulupreviewnav/website.js') }}"></script>
+    {% endif %}
+</body>
+</html>

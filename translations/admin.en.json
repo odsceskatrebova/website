@@ -1,0 +1,14 @@
+{
+    "app.leads": "Leads",
+    "app.createdAt": "Created At",
+    "app.source": "Source",
+    "app.name": "Name",
+    "app.email": "Email",
+    "app.phone": "Phone",
+    "app.message": "Message",
+    "app.payload": "Payload",
+    "app.cookieConsents": "Cookie Consents",
+    "app.ip": "IP Address",
+    "app.preferences": "Preferences",
+    "app.userAgent": "User Agent"
+}

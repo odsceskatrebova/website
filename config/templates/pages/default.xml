@@ -6,7 +6,7 @@
     <key>default</key>
 
     <view>pages/default</view>
-    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+    <controller>Sulu\Content\UserInterface\Controller\Website\ContentController::indexAction</controller>
     <cacheLifetime>604800</cacheLifetime>
 
     <meta>
@@ -27,7 +27,7 @@
             <tag name="sulu.rlp.part"/>
         </property>
 
-        <property name="url" type="resource_locator" mandatory="true">
+        <property name="url" type="route" mandatory="true">
             <meta>
                 <title lang="en">Resourcelocator</title>
                 <title lang="de">Adresse</title>
@@ -36,11 +36,83 @@
             <tag name="sulu.rlp"/>
         </property>
 
-        <property name="article" type="text_editor">
+        <section name="openGraph">
             <meta>
-                <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
+                <title lang="en">Open graph</title>
+            </meta>
+            <properties>
+                <property name="ogImage" type="single_media_selection" colspan="6">
+                    <meta><title lang="en">OG image</title></meta>
+                </property>
+            </properties>
+        </section>
+
+        <section name="pageCard">
+            <meta>
+                <title lang="en">Page card</title>
+                <info_text lang="en">How this page appears as a link card in lists.</info_text>
+            </meta>
+            <properties>
+                <property name="displayTitle" type="text_line" colspan="6">
+                    <meta>
+                        <title lang="en">Display title</title>
+                    </meta>
+                </property>
+                <property name="perex" type="text_area" colspan="6">
+                    <meta>
+                        <title lang="en">Perex</title>
+                    </meta>
+                </property>
+                <property name="coverImage" type="single_media_selection" colspan="6">
+                    <meta><title lang="en">Cover image</title></meta>
+                </property>
+            </properties>
+        </section>
+
+        <property name="heroHeader" type="checkbox" colspan="3">
+            <meta><title lang="en">Hero header</title></meta>
+        </property>
+
+        <property name="darkHeroBackground" type="checkbox" colspan="3">
+            <meta>
+                <title lang="en">Dark hero background</title>
+                <info_text lang="en">Makes header text white</info_text>
             </meta>
         </property>
+
+        <block name="content" default-type="text-block">
+            <meta>
+                <title lang="en">Content</title>
+                <title lang="de">Inhalt</title>
+            </meta>
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title lang="en">Add content</title>
+                    </meta>
+                </param>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+                <type ref="text-block" />
+                <type ref="image-block" />
+                <type ref="grid-block" />
+                <type ref="background-block" />
+                <type ref="content-snippet-block" />
+                <type ref="flex-block" />
+                <type ref="button-block" />
+                <type ref="video-block" />
+                <type ref="scrollable-video-block" />
+                <type ref="card-block" />
+                <type ref="carousel-gallery-block" />
+                <type ref="divider-block" />
+                <type ref="empty-block" />
+                <type ref="form-block" />
+                <type ref="generic-header-block" />
+                <type ref="masonry-gallery-block" />
+                <type ref="newsletter-subscribe-block" />
+                <type ref="timeline-block" />
+            </types>
+        </block>
     </properties>
 </template>

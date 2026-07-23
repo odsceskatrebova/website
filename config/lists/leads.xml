@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<list xmlns="http://schemas.sulu.io/list-builder/list">
+    <key>leads</key>
+
+    <properties>
+        <property name="id" visibility="no" translation="sulu_admin.id">
+            <field-name>id</field-name>
+            <entity-name>App\Entity\Lead</entity-name>
+        </property>
+
+        <property name="createdAt" visibility="always" searchability="yes" translation="app.createdAt">
+            <field-name>createdAt</field-name>
+            <entity-name>App\Entity\Lead</entity-name>
+        </property>
+
+        <property name="name" visibility="yes" translation="app.name">
+            <field-name>name</field-name>
+            <entity-name>App\Entity\Lead</entity-name>
+        </property>
+
+        <property name="email" visibility="yes" translation="app.email">
+            <field-name>email</field-name>
+            <entity-name>App\Entity\Lead</entity-name>
+        </property>
+
+        <property name="phone" visibility="yes" translation="app.phone">
+            <field-name>phone</field-name>
+            <entity-name>App\Entity\Lead</entity-name>
+        </property>
+
+        <property name="source" visibility="yes" translation="app.source">
+            <field-name>source</field-name>
+            <entity-name>App\Entity\Lead</entity-name>
+        </property>
+    </properties>
+</list>

@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>button-block</key>
+
+    <meta>
+        <title lang="en">Button</title>
+    </meta>
+
+    <properties>
+        <property name="sulu-display-name" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">Sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="class" type="text_line" colspan="6">
+            <meta><title lang="en">class</title></meta>
+        </property>
+
+        <property name="link" type="link" colspan="4">
+            <meta><title lang="en">Link</title></meta>
+            <params>
+                <param name="enable_anchor" value="true"/>
+            </params>
+        </property>
+        <property name="link_override" type="text_line" colspan="5">
+            <meta><title lang="en">Link override</title></meta>
+        </property>
+        <property name="anchor" type="text_line" colspan="3">
+            <meta><title lang="en">Anchor</title></meta>
+        </property>
+
+        <property name="size" type="single_select" colspan="3">
+            <meta><title lang="en">Size</title></meta>
+            <tag name="sulu.block_preview" priority="2048"/>
+            <params>
+                <param name="default_value" value="default"/>
+                <param name="values" type="collection">
+                    <param name="default"><meta><title lang="en">default</title></meta></param>
+                    <param name="small"><meta><title lang="en">small</title></meta></param>
+                    <param name="large"><meta><title lang="en">large</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="style" type="single_select" colspan="3">
+            <meta><title lang="en">Style</title></meta>
+            <tag name="sulu.block_preview" priority="1024"/>
+            <params>
+                <param name="default_value" value="default"/>
+                <param name="values" type="collection">
+                    <param name="default"><meta><title lang="en">default</title></meta></param>
+                    <param name="outline"><meta><title lang="en">outline</title></meta></param>
+                    <param name="fill"><meta><title lang="en">fill</title></meta></param>
+                    <param name="circle"><meta><title lang="en">circle</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="color" type="single_select" colspan="3">
+            <meta><title lang="en">Color</title></meta>
+            <tag name="sulu.block_preview" priority="516"/>
+            <params>
+                <param name="default_value" value="default"/>
+                <param name="values" type="collection">
+                    <param name="default"><meta><title lang="en">default</title></meta></param>
+                    <param name="white"><meta><title lang="en">white</title></meta></param>
+                    <param name="black"><meta><title lang="en">black</title></meta></param>
+                    <param name="primary"><meta><title lang="en">primary</title></meta></param>
+                    <param name="accent"><meta><title lang="en">accent</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="flexDirection" type="single_select" colspan="3">
+            <meta><title lang="en">Direction</title></meta>
+            <params>
+                <param name="default_value" value="flex-row"/>
+                <param name="values" type="collection">
+                    <param name="flex-row"><meta><title lang="en">row</title></meta></param>
+                    <param name="flex-column"><meta><title lang="en">column</title></meta></param>
+                </param>
+            </params>
+        </property>
+
+        <property name="text" type="text_line" colspan="6">
+            <meta><title lang="en">text</title></meta>
+        </property>
+        <property name="link_target" type="checkbox" colspan="2">
+            <meta><title lang="en">Target blank</title></meta>
+        </property>
+
+        <block name="content" default-type="text">
+            <meta>
+                <title lang="en">Content</title>
+            </meta>
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title lang="en">Add content</title>
+                    </meta>
+                </param>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+                <type name="text">
+                    <meta>
+                        <title lang="en">text</title>
+                    </meta>
+                    <properties>
+                        <property name="text" type="text_line">
+                            <meta><title lang="en">text</title></meta>
+                            <tag name="sulu.block_preview" priority="1024"/>
+                            <tag name="sulu.search.field" />
+                        </property>
+                    </properties>
+                </type>
+
+                <type ref="image-block" />
+            </types>
+        </block>
+
+    </properties>
+
+</template>

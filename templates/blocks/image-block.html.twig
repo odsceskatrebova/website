@@ -1,0 +1,72 @@
+{% if data.image %}
+    {% set maxWidth = data.maxWidth ? 'max-width: ' ~ data.maxWidth ~ 'rem;' : '' %}
+    {% set maxHeight = data.maxHeight ? 'max-height: ' ~ data.maxHeight ~ 'rem;' : '' %}
+    {% set aspectRatio = data.aspectRatio ? 'aspect-ratio: ' ~ data.aspectRatio ~ ';' : '' %}
+    <picture
+            class="image-block {{ data.classes }}"
+            {{ sulu_block_preview(data) }}
+    >
+        {% if 'svg' in data.image.fileVersion.mimeType %}
+            <img
+                    src="{{ data.image.thumbnails['full'] }}"
+                    class="{{ data.classes }} {{ ( data.roundCorners ) ? 'round-corners' : '' }} {{ ( data.outline ) ? 'outline' : '' }}"
+                    style="{{ maxWidth }} {{ maxHeight }} {{ aspectRatio }}"
+                    alt="{{ data.image.title }}"
+                    title="{{ data.image.description|default(data.image.title) }}"
+                    {% if data.registerToGallery %}
+                        data-gallery="{{ data.image.thumbnails['full'] }}"
+                    {% endif %}
+            />
+        {% else %}
+            {% if data.imageDesktop %}
+                <source
+                srcset="{{ data.imageDesktop.thumbnails['full-page.webp'] }}, {{ data.imageDesktop.thumbnails['full-page@2x.webp'] }} 2x"
+                media="(min-width: 120rem)"
+                >
+                <source
+                        srcset="{{ data.imageDesktop.thumbnails['full-desktop.webp'] }}, {{ data.imageDesktop.thumbnails['full-desktop@2x.webp'] }} 2x"
+                        media="(min-width: 73rem)"
+                >
+            {% elseif data.imageTablet %}
+                <source
+                srcset="{{ data.imageTablet.thumbnails['full-page.webp'] }}, {{ data.imageTablet.thumbnails['full-page@2x.webp'] }} 2x"
+                media="(min-width: 120rem)"
+                >
+                <source
+                        srcset="{{ data.imageTablet.thumbnails['full-desktop.webp'] }}, {{ data.imageTablet.thumbnails['full-desktop@2x.webp'] }} 2x"
+                        media="(min-width: 73rem)"
+                >
+            {% else %}
+                <source
+                srcset="{{ data.image.thumbnails['full-page.webp'] }}, {{ data.image.thumbnails['full-page@2x.webp'] }} 2x"
+                media="(min-width: 120rem)"
+                >
+                <source
+                        srcset="{{ data.image.thumbnails['full-desktop.webp'] }}, {{ data.image.thumbnails['full-desktop@2x.webp'] }} 2x"
+                        media="(min-width: 73rem)"
+                >
+            {% endif %}
+            {% if data.imageTablet %}
+                <source
+                        srcset="{{ data.imageTablet.thumbnails['full-tablet.webp'] }}, {{ data.imageTablet.thumbnails['full-tablet@2x.webp'] }} 2x"
+                        media="(min-width: 55rem)"
+                >
+            {% else %}
+                <source
+                        srcset="{{ data.image.thumbnails['full-tablet.webp'] }}, {{ data.image.thumbnails['full-tablet@2x.webp'] }} 2x"
+                        media="(min-width: 55rem)"
+                >
+            {% endif %}
+            <img
+                    srcset="{{ data.image.thumbnails['full.webp'] }}, {{ data.image.thumbnails['full@2x.webp'] }} 2x"
+                    class="{{ data.classes }} {{ ( data.roundCorners ) ? 'round-corners' : '' }} {{ ( data.outline ) ? 'outline' : '' }}"
+                    style="{{ maxWidth }} {{ maxHeight }} {{ aspectRatio }}"
+                    alt="{{ data.image.title }}"
+                    title="{{ data.image.description|default(data.image.title) }}"
+                    {% if data.registerToGallery %}
+                        data-gallery="{{ data.image.thumbnails['full'] }}"
+                    {% endif %}
+            />
+        {% endif %}
+    </picture>
+{% endif %}

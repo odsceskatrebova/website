@@ -1,0 +1,63 @@
+@use "../base/variables.scss";
+
+.card {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  text-decoration: none;
+  background: #FFFFFF;
+  padding: 1rem;
+  border-radius: variables.$borderRadius;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.primary {
+    background: variables.$primaryColor;
+  }
+
+  &.accent {
+    background: variables.$accentColor;
+  }
+
+  &.background-soft {
+    background: variables.$backgroundSoftColor;
+  }
+
+  picture.background-image {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .content {
+    position: relative;
+    z-index: 16;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (min-width: variables.$tablet) {
+    padding: 1.75rem;
+
+  }
+
+  @media (min-width: variables.$tablet) {
+    padding: 2.5rem;
+
+  }
+}
+

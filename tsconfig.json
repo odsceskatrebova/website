@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "baseUrl": ".",
+    "noEmit": true,
+    "paths": {
+      "@/*": ["assets/common/*"],
+      "@odsct/*": ["assets/odsct/*"],
+      "@common/*": ["assets/common/*"]
+    },
+    "resolveJsonModule": true,
+    "allowJs": false,
+    "strict": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+  },
+  "include": ["assets/**/*.ts", "assets/**/*.vue"],
+  "exclude": ["dist", "node_modules", "vendor", "vite.config.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+}

@@ -1,0 +1,7 @@
+{% extends 'email/base.html.twig' %}
+
+{% block content %}
+    <h1>{{ 'form.subscribeConfirmationEmail.title'|trans({}, 'email', lang) }}</h1>
+    <p>{{ 'form.subscribeConfirmationEmail.paragraph'|trans({}, 'email', lang) }}</p>
+    <p>{{ 'form.subscribeConfirmationEmail.unsubscribe'|trans({}, 'email', lang) }}</p>
+{% endblock %}

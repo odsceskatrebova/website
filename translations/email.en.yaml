@@ -1,0 +1,20 @@
+form:
+    formEmailToStaff:
+        subject: "New form submission from %host%"
+        title: "New form submission from %host%"
+        datetime: "Date sent: %date%"
+    formConfirmationEmail:
+        subject: "Thank you for your message"
+        title: "Thank you for your message"
+        paragraph: "We will get back to you as soon as possible."
+    subscribeConfirmationEmail:
+        subject: "You have been subscribed to our newsletter"
+        title: "Welcome to our newsletter"
+        paragraph: "This email confirms that you have been added to our newsletter list."
+        unsubscribe: "If this was a mistake, please let us know and we will unsubscribe you."
+
+footer:
+    paragraph: ""
+    greetings:
+        line1: "With kind regards,"
+        line2: "The team"

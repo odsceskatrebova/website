@@ -1,0 +1,93 @@
+@use 'sass:color';
+
+/*
+ * Fonts
+ */
+
+$defaultFont: "roboto", Arial, sans-serif !default;
+
+/*
+ * Colors
+ */
+
+$lightGrey: #F0F5F2 !default;
+$lightBlue: #F2FAFC !default;
+$green: #3F785E !default;
+$lightGreen: #4CF5A8 !default;
+
+$grey: #6A6969 !default;
+$darkGrey: #555555 !default;
+
+$textColor: $darkGrey !default;
+$textHighlightColor: #000000 !default;
+
+$background: #FFFFFF !default;
+$cardBackground: $lightBlue !default;
+
+$accent: $green !default;
+
+$btnHover: #1A1A1A !default;
+
+$boxShadow: 0 1.125rem 2rem #1111158C !default;
+$btnShadow: 0 .5rem 1rem #11111533 !default;
+
+$lineColor: color.adjust($grey, $alpha: -.84) !default;
+
+/*
+ * Theme — mapped to CSS custom properties via theme.scss
+ */
+
+$primaryColor: #1B5E8A !default;
+$contrastToPrimaryColor: #FFFFFF !default;
+$accentColor: #5BB8D4 !default;
+$contrastToAccentColor: #0D2B3E !default;
+$backgroundSoftColor: #EBF5FB !default;
+$footerBackgroundColor: #0D2B3E !default;
+$footerBackgroundImage: none !default;
+$contrastToFooterBackgroundColor: #D6EAF8 !default;
+$menuBackground: none !default;
+
+/*
+ * Dark theme
+ */
+
+$darkBackground: #151515 !default;
+$darkTextColor: $lightGrey !default;
+$darkTextHighlightColor: #FFFFFF !default;
+$darkBtnHover: $lightBlue !default;
+$darkAccent: $lightGreen !default;
+
+/*
+ * Angles
+ */
+
+$btnAngle: -17deg !default;
+$greenLineAngle: -27deg !default;
+
+/*
+ * Sizes
+ */
+
+$pageMaxWidth: 168rem !default;
+$containerMaxWidth: 120rem !default;
+$textMaxWidth: 50rem !default;
+
+// dont forget to change block templates styles when changing breakpoints
+$padding: 1.5rem !default;
+$tablet: 55rem !default;
+$tabletPadding: 2rem !default;
+$desktop: 73rem !default;
+$desktopPadding: 3rem !default;
+
+$borderRadius: 2rem !default;
+$btnBorderRadius: .3rem !default;
+$gap: 1rem !default;
+
+$breakpoints: (
+  'mobile': 0,
+  'tablet': $tablet,
+  'desktop': $desktop,
+) !default;
+
+$gapBase: .5rem !default;
+$paddingBase: .5rem !default;

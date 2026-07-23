@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <property name="sulu-display-name" type="text_line" colspan="6">
+        <meta>
+            <title lang="en">Sulu display name</title>
+        </meta>
+        <tag name="sulu.block_preview" priority="512"/>
+    </property>
+    <property name="id" type="text_line" colspan="6">
+        <meta><title lang="en">id</title></meta>
+    </property>
+
+    <property name="align" type="single_select" colspan="3">
+        <meta><title lang="en">align - vertical</title></meta>
+        <params>
+            <param name="default_value" value="align-center"/>
+            <param name="values" type="collection">
+                <param name="align-center"><meta><title lang="en">center</title></meta></param>
+                <param name="align-start"><meta><title lang="en">start</title></meta></param>
+                <param name="align-end"><meta><title lang="en">end</title></meta></param>
+                <param name="align-stretch"><meta><title lang="en">stretch and use class expand manually </title></meta></param>
+                <param name="align-stretch-first"><meta><title lang="en">stretch and expand first child</title></meta></param>
+                <param name="align-stretch-last"><meta><title lang="en">stretch and expand last child</title></meta></param>
+            </param>
+        </params>
+    </property>
+    <property name="gap" type="single_select" colspan="3">
+        <meta><title lang="en">gap</title></meta>
+        <params>
+            <param name="default_value" value="gap-1"/>
+            <param name="values" type="collection">
+                <param name="gap-1"><meta><title lang="en">default</title></meta></param>
+                <param name="gap-0"><meta><title lang="en">gap 0</title></meta></param>
+                <param name="gap-2"><meta><title lang="en">gap 2</title></meta></param>
+                <param name="gap-3"><meta><title lang="en">gap 3</title></meta></param>
+                <param name="gap-4"><meta><title lang="en">gap 4</title></meta></param>
+                <param name="gap-5"><meta><title lang="en">gap 5</title></meta></param>
+            </param>
+        </params>
+    </property>
+    <property name="colWidth" type="single_select" colspan="3">
+        <meta><title lang="en">Number of cols</title></meta>
+        <params>
+            <param name="default_value" value=""/>
+            <param name="values" type="collection">
+                <param name=""><meta><title lang="en">default</title></meta></param>
+                <param name="row-10"><meta><title lang="en">10 cols</title></meta></param>
+                <param name="row-14"><meta><title lang="en">14 cols</title></meta></param>
+            </param>
+        </params>
+    </property>
+
+    <property name="dense" type="checkbox" colspan="1">
+        <meta><title lang="en">dense</title></meta>
+    </property>
+    <property name="visualise" type="checkbox" colspan="1">
+        <meta><title lang="en">visualise</title></meta>
+    </property>
+    <property name="classes" type="text_line" colspan="6">
+        <meta><title lang="en">classes</title></meta>
+    </property>
+
+</properties>

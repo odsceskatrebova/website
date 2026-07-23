@@ -1,0 +1,14 @@
+<div class="generic-header-block {{ data.classes | default('') }}" {{ sulu_block_preview(data) }}>
+  <div class="breadcrumbs">
+    {% for item in sulu_breadcrumb(uuid) %}
+      <sulu-link href="{{ item.uuid }}">{{ item.title }}</sulu-link>
+      {% if not loop.last %}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" />
+        </svg>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <h1>{{ data.titleOverride | default(content.title) }}</h1>
+  <p v-if="content.perex">{{ content.perex }}</p>
+</div>

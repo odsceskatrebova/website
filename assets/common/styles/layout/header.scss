@@ -1,0 +1,393 @@
+@use '../base/variables';
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  z-index: 69000;
+  color: variables.$contrastToPrimaryColor;
+
+  .container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+    height: 6rem;
+    gap: 1rem;
+
+    .btn {
+      height: 3rem;
+      padding: .5rem 1.5rem;
+    }
+
+    .logo {
+      display: block;
+      color: variables.$contrastToPrimaryColor;
+
+      svg {
+        display: block;
+        max-width: 8rem;
+      }
+    }
+
+    nav {
+      justify-content: end;
+      align-items: center;
+      display: none;
+      gap: .5rem;
+      transition: opacity .3s;
+
+      .outline {
+        color: variables.$contrastToPrimaryColor;
+        border-color: color-mix(in srgb, #{variables.$contrastToPrimaryColor} 20%, transparent);
+
+        &:hover {
+          border-color: color-mix(in srgb, #{variables.$contrastToPrimaryColor} 48%, transparent);
+        }
+      }
+    }
+
+    .actions {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      gap: 1rem;
+
+      .fill {
+        background: variables.$accentColor;
+        color: variables.$contrastToAccentColor;
+
+        &:hover {
+          background: color-mix(in srgb, #{variables.$accentColor} 95%, #{variables.$contrastToAccentColor});
+        }
+      }
+
+      .outline {
+        color: variables.$contrastToPrimaryColor;
+        border-color: color-mix(in srgb, #{variables.$contrastToPrimaryColor} 20%, transparent);
+
+        &:hover {
+          border-color: color-mix(in srgb, #{variables.$contrastToPrimaryColor} 48%, transparent);
+        }
+      }
+    }
+  }
+
+  &.hero {
+    position: absolute;
+    top: 2rem;
+    background: transparent;
+    color: black;
+
+    .container {
+
+      .logo {
+        color: black;
+      }
+
+      nav {
+
+        .outline {
+          color: black;
+          border-color: color-mix(in srgb, black 20%, transparent);
+
+          &:hover {
+            border-color: color-mix(in srgb, black 48%, transparent);
+          }
+        }
+      }
+
+      .actions {
+
+        .fill {
+          background: variables.$accentColor;
+          color: variables.$contrastToAccentColor;
+
+          &:hover {
+            background: color-mix(in srgb, #{variables.$accentColor} 95%, #{variables.$contrastToAccentColor});
+          }
+        }
+
+        .outline {
+          color: black;
+          border-color: color-mix(in srgb, black 20%, transparent);
+
+          &:hover {
+            border-color: color-mix(in srgb, black 48%, transparent);
+          }
+        }
+      }
+    }
+
+    .btn.menu-toggle {
+
+      .lines {
+
+        .line {
+          background: black;
+        }
+      }
+    }
+
+    &.menu-open {
+      color: variables.$contrastToPrimaryColor;
+
+      .container {
+        .logo {
+          color: variables.$contrastToPrimaryColor;
+        }
+      }
+
+      .btn.menu-toggle {
+
+        .lines {
+
+          .line {
+            background: variables.$contrastToPrimaryColor;
+          }
+        }
+      }
+    }
+
+    &.dark-section {
+      color: white;
+
+      .container {
+
+        .logo {
+          color: white;
+        }
+
+        nav {
+
+          .outline {
+            color: white;
+            border-color: color-mix(in srgb, white 20%, transparent);
+
+            &:hover {
+              border-color: color-mix(in srgb, white 48%, transparent);
+            }
+          }
+        }
+
+        .actions {
+
+          .fill {
+            background: variables.$accentColor;
+            color: variables.$contrastToAccentColor;
+
+            &:hover {
+              background: color-mix(in srgb, #{variables.$accentColor} 95%, #{variables.$contrastToAccentColor});
+            }
+          }
+
+          .outline {
+            color: white;
+            border-color: color-mix(in srgb, white 20%, transparent);
+
+            &:hover {
+              border-color: color-mix(in srgb, white 48%, transparent);
+            }
+          }
+        }
+      }
+
+      .btn.menu-toggle {
+
+        .lines {
+
+          .line {
+            background: white;
+          }
+        }
+      }
+
+      &.menu-open {
+        color: variables.$contrastToPrimaryColor;
+
+        .container {
+          .logo {
+            color: variables.$contrastToPrimaryColor;
+          }
+        }
+
+        .btn.menu-toggle {
+
+          .lines {
+
+            .line {
+              background: variables.$contrastToPrimaryColor;
+            }
+          }
+
+          &.outline {
+            color: variables.$contrastToPrimaryColor;
+            border-color: color-mix(in srgb, #{variables.$contrastToPrimaryColor} 20%, transparent);
+
+            &:hover {
+              border-color: color-mix(in srgb, #{variables.$contrastToPrimaryColor} 48%, transparent);
+            }
+          }
+        }
+      }
+    }
+
+    &.fixed {
+      position: fixed;
+      top: 0;
+
+      color: variables.$contrastToPrimaryColor;
+
+      .container {
+        .logo {
+          color: variables.$contrastToPrimaryColor;
+        }
+
+        nav {
+          .outline {
+            color: variables.$contrastToPrimaryColor;
+            border-color: color-mix(in srgb, #{variables.$contrastToPrimaryColor} 20%, transparent);
+
+            &:hover {
+              border-color: color-mix(in srgb, #{variables.$contrastToPrimaryColor} 48%, transparent);
+            }
+          }
+        }
+
+        .actions {
+
+          .fill {
+            background: variables.$accentColor;
+            color: variables.$contrastToAccentColor;
+
+            &:hover {
+              background: color-mix(in srgb, #{variables.$accentColor} 95%, #{variables.$contrastToAccentColor});
+            }
+          }
+
+          .outline {
+            color: variables.$contrastToPrimaryColor;
+            border-color: color-mix(in srgb, #{variables.$contrastToPrimaryColor} 20%, transparent);
+
+            &:hover {
+              border-color: color-mix(in srgb, #{variables.$contrastToPrimaryColor} 48%, transparent);
+            }
+          }
+        }
+      }
+
+      .btn.menu-toggle {
+
+        .lines {
+
+          .line {
+            background: variables.$contrastToPrimaryColor;
+          }
+        }
+      }
+    }
+  }
+
+  &.menu-open {
+    .container {
+      nav {
+        opacity: 0;
+      }
+    }
+  }
+
+  .btn.menu-toggle {
+    width: 3rem;
+    height: 3rem;
+
+    .lines {
+      position: relative;
+      width: 1.5rem;
+      height: 1.5rem;
+
+      .line {
+        width: 1.25rem;
+        height: 0.125rem;
+        left: 50%;
+        position: absolute;
+        translate: -50% -50%;
+        background: #000000;
+        transition: all .3s;
+        border-radius: 3px;
+
+        &.top {
+          top: .375rem;
+        }
+
+        &.middle {
+          top: .75rem;
+        }
+
+        &.bottom {
+          top: 1.125rem;
+        }
+
+        &.dia {
+          top: .75rem;
+        }
+      }
+    }
+
+    &.opened {
+      .lines {
+        .line.top, .line.bottom {
+          width: 0;
+        }
+
+        .line.middle {
+          width: 1.75rem;
+          transform: rotate(45deg);
+        }
+
+        .line.dia {
+          width: 1.75rem;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  @media (min-width: 70rem) {
+    .container {
+      grid-template-columns: auto 1fr auto;
+
+      .logo {
+        svg {
+          max-width: 10rem;
+        }
+      }
+
+      nav {
+        display: flex;
+      }
+    }
+
+  }
+}
+
+.header-background {
+  background: variables.$primaryColor;
+  height: 6rem;
+  position: sticky;
+  top: 0;
+  z-index: 61000;
+
+  &.hero {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: transparent;
+
+    &.fixed {
+      background: variables.$primaryColor;
+      transition: .1s;
+    }
+  }
+}
+

@@ -1,0 +1,17 @@
+/* Paragraph variants */
+.ck.ck-editor .ck.ck-content p        { font-size: 16px; line-height: 150%; }
+.ck.ck-editor .ck.ck-content p.small  { font-size: 13px; line-height: 150%; }
+.ck.ck-editor .ck.ck-content p.medium { font-size: 20px; line-height: 150%; }
+.ck.ck-editor .ck.ck-content p.large  { font-size: 28px; line-height: 150%; }
+.ck.ck-editor .ck.ck-content p.accent { color: #5BB8D4; }
+
+/* Headings */
+.ck.ck-editor .ck.ck-content h1 { font-size: 52px; font-weight: 300; line-height: 100%; }
+.ck.ck-editor .ck.ck-content h2 { font-size: 32px; font-weight: 700; line-height: 100%; }
+.ck.ck-editor .ck.ck-content h3 { font-size: 26px; font-weight: 700; line-height: 100%; }
+.ck.ck-editor .ck.ck-content h4 { font-size: 22px; font-weight: 700; line-height: 150%; }
+.ck.ck-editor .ck.ck-content h5 { font-size: 18px; font-weight: 700; line-height: 150%; }
+
+/* Pen highlights */
+.ck.ck-editor .ck.ck-content mark.pen-primary { background: none; color: #1B5E8A; font-weight: 700; }
+.ck.ck-editor .ck.ck-content mark.pen-accent  { background: none; color: #5BB8D4; font-weight: 700; }

@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<form xmlns="http://schemas.sulu.io/template/template"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/form-1.0.xsd"
+>
+    <key>lead_details</key>
+
+    <properties>
+        <property name="createdAt" type="text_line" colspan="6">
+            <meta>
+                <title>app.createdAt</title>
+            </meta>
+        </property>
+        <property name="source" type="text_line" colspan="6">
+            <meta>
+                <title>app.source</title>
+            </meta>
+        </property>
+        <property name="name" type="text_line" colspan="6">
+            <meta>
+                <title>app.name</title>
+            </meta>
+        </property>
+        <property name="email" type="text_line" colspan="6">
+            <meta>
+                <title>app.email</title>
+            </meta>
+        </property>
+        <property name="phone" type="text_line" colspan="6">
+            <meta>
+                <title>app.phone</title>
+            </meta>
+        </property>
+        <property name="message" type="text_area" colspan="12">
+            <meta>
+                <title>app.message</title>
+            </meta>
+        </property>
+        <property name="payload" type="text_area" colspan="12">
+            <meta>
+                <title>app.payload</title>
+            </meta>
+        </property>
+    </properties>
+</form>

@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>masonry-gallery-block</key>
+
+    <meta>
+        <title lang="en">Masonry gallery</title>
+    </meta>
+
+    <properties>
+        <property name="classes" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">Classes</title>
+            </meta>
+        </property>
+        <property name="id" type="text_line" colspan="6">
+            <meta><title lang="en">id</title></meta>
+        </property>
+
+        <block name="images" default-type="image">
+            <meta><title lang="en">Images</title></meta>
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title lang="en">Add image</title>
+                    </meta>
+                </param>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+                <type name="image">
+                    <meta>
+                        <title lang="en">image</title>
+                    </meta>
+                    <properties>
+                        <property name="image" type="single_media_selection" colspan="4">
+                            <meta>
+                                <title lang="en">Image</title>
+                            </meta>
+                        </property>
+                        <property name="large" type="checkbox">
+                            <meta>
+                                <title lang="en">large</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
+    </properties>
+
+</template>

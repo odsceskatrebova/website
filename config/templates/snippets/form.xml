@@ -1,0 +1,236 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>form</key>
+
+    <meta>
+        <title lang="en">Form</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+            </meta>
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <property name="source" type="single_select" colspan="4">
+            <meta>
+                <title lang="en">Lead source name</title>
+            </meta>
+            <params>
+                <param name="default_value" value="contactForm"/>
+                <param name="values" type="collection">
+                    <param name="contactForm"><meta><title lang="en">Contact form</title></meta></param>
+                    <param name="newsletterSubscription"><meta><title lang="en">Newsletter subscription</title></meta></param>
+                </param>
+            </params>
+        </property>
+
+        <property name="targetType" type="single_select" colspan="4">
+            <meta>
+                <title lang="en">Target type</title>
+            </meta>
+            <params>
+                <param name="default_value" value="email"/>
+                <param name="values" type="collection">
+                    <param name="email">
+                        <meta><title lang="en">Email</title></meta>
+                    </param>
+                </param>
+            </params>
+        </property>
+
+        <property name="targetEmail" type="text_line" colspan="4" mandatory="true">
+            <meta>
+                <title lang="en">Target staff Email</title>
+            </meta>
+        </property>
+
+        <block name="formBlocks" default-type="text-input">
+            <meta>
+                <title lang="en">Form Blocks</title>
+                <info_text lang="en">
+                    All keys must be unique and lowercase without spaces, use _ instead.
+                    You can use any key, but some keys have special functionality.
+                    'email' is used for confirmation to customer, others are used to populate FIS lead.
+                    Keys that can recognized by backend: 'name', 'org_number', 'vat_number', 'note', 'street', 'city', 'province', 'district', 'zip_code', 'country', 'email' and 'phone'
+                </info_text>
+            </meta>
+            <params>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+                <type name="text-input">
+                    <meta>
+                        <title lang="en">Text Input</title>
+                    </meta>
+                    <properties>
+                        <property name="key" type="text_line" colspan="4" mandatory="true">
+                            <meta>
+                                <title lang="en">Key</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="256"/>
+                        </property>
+                        <property name="label" type="text_line" colspan="4">
+                            <meta>
+                                <title lang="en">Label</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="256"/>
+                        </property>
+                        <property name="defaultValue" type="text_line" colspan="4">
+                            <meta>
+                                <title lang="en">Default value</title>
+                            </meta>
+                        </property>
+                        <xi:include href="../snippetBlocks/form-common.xml" xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:property)"/>
+                    </properties>
+                </type>
+
+                <type name="textarea-input">
+                    <meta>
+                        <title lang="en">Text Area</title>
+                    </meta>
+                    <properties>
+                        <property name="key" type="text_line" colspan="4" mandatory="true">
+                            <meta>
+                                <title lang="en">Key</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="256"/>
+                        </property>
+                        <property name="label" type="text_line" colspan="4">
+                            <meta>
+                                <title lang="en">Label</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="256"/>
+                        </property>
+                        <property name="defaultValue" type="text_area" colspan="4">
+                            <meta>
+                                <title lang="en">Default value</title>
+                            </meta>
+                        </property>
+                        <xi:include href="../snippetBlocks/form-common.xml" xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:property)"/>
+                    </properties>
+                </type>
+
+                <type name="select-input">
+                    <meta>
+                        <title lang="en">Select Input</title>
+                    </meta>
+                    <properties>
+                        <property name="key" type="text_line" colspan="4" mandatory="true">
+                            <meta>
+                                <title lang="en">Key</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="256"/>
+                        </property>
+                        <property name="label" type="text_line" colspan="4">
+                            <meta><title lang="en">Label</title></meta>
+                            <tag name="sulu.block_preview" priority="256"/>
+                        </property>
+                        <property name="isAutocomplete" type="checkbox" colspan="2">
+                            <meta><title lang="en">Autocomplete</title></meta>
+                            <params>
+                                <param name="type" value="toggler"/>
+                                <param name="default_value" value="true"/>
+                            </params>
+                        </property>
+                        <property name="defaultValue" type="text_line" colspan="2">
+                            <meta>
+                                <title lang="en">Default value</title>
+                            </meta>
+                        </property>
+                        <block name="options" default-type="option">
+                            <meta><title lang="en">Options</title></meta>
+                            <params>
+                                <param name="block_id_generator" value="true"/>
+                            </params>
+                            <types>
+                                <type name="option">
+                                    <meta><title lang="en">Option</title></meta>
+                                    <properties>
+                                        <property name="value" type="text_line" colspan="6">
+                                            <meta><title lang="en">Value</title></meta>
+                                        </property>
+                                        <property name="text" type="text_line" colspan="6">
+                                            <meta><title lang="en">Label</title></meta>
+                                        </property>
+                                    </properties>
+                                </type>
+                            </types>
+                        </block>
+                        <xi:include href="../snippetBlocks/form-common.xml" xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:property)"/>
+                    </properties>
+                </type>
+
+                <type name="checkbox-input">
+                    <meta>
+                        <title lang="en">Checkbox Input</title>
+                    </meta>
+                    <properties>
+                        <property name="key" type="text_line" colspan="4" mandatory="true">
+                            <meta>
+                                <title lang="en">Key</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="256"/>
+                        </property>
+                        <property name="label" type="text_line" colspan="4">
+                            <meta>
+                                <title lang="en">Label</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="256"/>
+                        </property>
+                        <property name="defaultValue" type="checkbox" colspan="2">
+                            <meta><title lang="en">Default value</title></meta>
+                            <params>
+                                <param name="type" value="toggler"/>
+                                <param name="default_value" value="false"/>
+                            </params>
+                        </property>
+                        <property name="isToggle" type="checkbox" colspan="2">
+                            <meta><title lang="en">is toggle</title></meta>
+                            <params>
+                                <param name="type" value="toggler"/>
+                                <param name="default_value" value="false"/>
+                            </params>
+                        </property>
+                        <xi:include href="../snippetBlocks/form-common.xml" xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:property)"/>
+                    </properties>
+                </type>
+
+                <type name="display-text">
+                    <meta>
+                        <title lang="en">Display text</title>
+                    </meta>
+                    <properties>
+                        <property name="text" type="text_line" colspan="4">
+                            <meta>
+                                <title lang="en">Label</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="256"/>
+                        </property>
+                    </properties>
+                </type>
+
+                <type name="display-header">
+                    <meta>
+                        <title lang="en">Display header</title>
+                    </meta>
+                    <properties>
+                        <property name="text" type="text_line" colspan="4">
+                            <meta>
+                                <title lang="en">Label</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="256"/>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
+    </properties>
+
+</template>

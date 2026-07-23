@@ -1,0 +1,15 @@
+<div id="{{ data.id }}" class="form {{ data.classes }}" {{ sulu_block_preview(data) }}>
+  {% set templateUUID = dataView.formTemplate.id %}
+  {% set formTemplate = data.formTemplate | merge({ 'uuid': templateUUID }) %}
+  {%  if config is defined and config != null %}
+    {% set formTemplate = formTemplate | merge({ 'gdprLink': config.gdprLink }) %}
+  {% endif %}
+  {% set data = data | merge({ 'formTemplate': formTemplate })  %}
+
+  <div class="vue-form-block">
+    <div class="loader"></div>
+    <pre class="config">
+      {{ data | json_encode | raw }}
+    </pre>
+  </div>
+</div>

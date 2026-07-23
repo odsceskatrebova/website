@@ -1,0 +1,55 @@
+@use "../base/variables.scss";
+
+.carousel-gallery-block {
+  position: relative;
+
+  .carousel-wrapper {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: none;
+    overflow-x: scroll;
+    width: 100%;
+    height: 25rem;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 0 1rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    overscroll-behavior-x: none;
+    scroll-snap-type: x mandatory;
+
+    &.dragging {
+      scroll-snap-type: none;
+      cursor: grab;
+
+      * {
+        pointer-events: none;
+        user-select: none;
+      }
+    }
+
+    & > * {
+      max-width: calc(100%);
+      height: 100%;
+      width: calc(#{variables.$containerMaxWidth} / 2 - 1.5rem); // keep it larger than half to align last block at the right end
+      flex: none;
+      scroll-snap-align: center;
+    }
+    .outline {
+      border: solid 1px variables.$lightGrey;
+    }
+
+    @media (min-width: variables.$tablet) {
+      height: 40rem;
+      padding: 0 2rem;
+    }
+  }
+}

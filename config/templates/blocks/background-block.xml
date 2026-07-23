@@ -1,0 +1,411 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>background-block</key>
+
+    <meta>
+        <title lang="en">Background block</title>
+    </meta>
+
+    <properties>
+
+        <property name="sulu-display-name" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">Sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Id</title>
+            </meta>
+        </property>
+        <property name="hero" type="checkbox" colspan="2">
+            <meta>
+                <title lang="en">is hero</title>
+            </meta>
+        </property>
+
+        <property name="classes" type="text_line" colspan="4">
+            <meta>
+                <title lang="en">Classes</title>
+            </meta>
+        </property>
+        <property name="contentClasses" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">Content classes</title>
+            </meta>
+        </property>
+        <property name="contentAspectRatio" type="number" colspan="3">
+            <meta>
+                <title lang="en">Content aspect ratio</title>
+            </meta>
+            <params>
+                <param name="min" value=".2"/>
+                <param name="max" value="5"/>
+            </params>
+        </property>
+        <property name="darkSection" type="checkbox" colspan="2">
+            <meta>
+                <title lang="en">dark-section = white text</title>
+            </meta>
+        </property>
+
+        <block name="background" default-type="image-block">
+            <meta>
+                <title lang="en">background</title>
+            </meta>
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title lang="en">Add background element</title>
+                    </meta>
+                </param>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+
+                <type name="image-block">
+                    <meta>
+                        <title lang="en">image block</title>
+                    </meta>
+                    <properties>
+                        <property name="image" type="single_media_selection" colspan="6">
+                            <meta>
+                                <title lang="en">Image</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="512"/>
+                        </property>
+                        <property name="fit" type="single_select" colspan="3">
+                            <meta>
+                                <title lang="en">fit</title>
+                            </meta>
+                            <params>
+                                <param name="default_value" value="cover"/>
+                                <param name="values" type="collection">
+                                    <param name="cover"><meta><title lang="en">Cover</title></meta></param>
+                                    <param name="contain"><meta><title lang="en">Contain</title></meta></param>
+                                </param>
+                            </params>
+                        </property>
+                        <property name="aspectRatio" type="number" colspan="3">
+                            <meta>
+                                <title lang="en">Aspect ratio</title>
+                            </meta>
+                            <params>
+                                <param name="min" value=".2"/>
+                                <param name="max" value="5"/>
+                            </params>
+                        </property>
+                        <property name="left" type="text_line" colspan="3">
+                            <meta><title lang="en">left</title></meta>
+                        </property>
+                        <property name="top" type="text_line" colspan="3">
+                            <meta><title lang="en">top</title></meta>
+                        </property>
+                        <property name="width" type="text_line" colspan="3">
+                            <meta><title lang="en">width</title></meta>
+                        </property>
+                        <property name="height" type="text_line" colspan="3">
+                            <meta><title lang="en">height</title></meta>
+                        </property>
+                        <property name="imageTablet" type="single_media_selection" colspan="6">
+                            <meta>
+                                <title lang="en">Image tablet</title>
+                            </meta>
+                        </property>
+                        <property name="fitTablet" type="single_select" colspan="3">
+                            <meta>
+                                <title lang="en">fit tablet</title>
+                            </meta>
+                            <params>
+                                <param name="default_value" value="cover"/>
+                                <param name="values" type="collection">
+                                    <param name="cover"><meta><title lang="en">Cover</title></meta></param>
+                                    <param name="contain"><meta><title lang="en">Contain</title></meta></param>
+                                </param>
+                            </params>
+                        </property>
+                        <property name="aspectRatioTablet" type="number" colspan="3">
+                            <meta>
+                                <title lang="en">Aspect ratio tablet</title>
+                            </meta>
+                            <params>
+                                <param name="min" value=".2"/>
+                                <param name="max" value="5"/>
+                            </params>
+                        </property>
+                        <property name="leftTablet" type="text_line" colspan="3">
+                            <meta><title lang="en">left tablet</title></meta>
+                        </property>
+                        <property name="topTablet" type="text_line" colspan="3">
+                            <meta><title lang="en">top tablet</title></meta>
+                        </property>
+                        <property name="widthTablet" type="text_line" colspan="3">
+                            <meta><title lang="en">width tablet</title></meta>
+                        </property>
+                        <property name="heightTablet" type="text_line" colspan="3">
+                            <meta><title lang="en">height tablet</title></meta>
+                        </property>
+                        <property name="imageDesktop" type="single_media_selection" colspan="6">
+                            <meta>
+                                <title lang="en">Image desktop</title>
+                            </meta>
+                        </property>
+                        <property name="fitDesktop" type="single_select" colspan="3">
+                            <meta>
+                                <title lang="en">fit desktop</title>
+                            </meta>
+                            <params>
+                                <param name="default_value" value="cover"/>
+                                <param name="values" type="collection">
+                                    <param name="cover"><meta><title lang="en">Cover</title></meta></param>
+                                    <param name="contain"><meta><title lang="en">Contain</title></meta></param>
+                                </param>
+                            </params>
+                        </property>
+                        <property name="aspectRatioDesktop" type="number" colspan="3">
+                            <meta>
+                                <title lang="en">Aspect ratio desktop</title>
+                            </meta>
+                            <params>
+                                <param name="min" value=".2"/>
+                                <param name="max" value="5"/>
+                            </params>
+                        </property>
+                        <property name="leftDesktop" type="text_line" colspan="3">
+                            <meta><title lang="en">left desktop</title></meta>
+                        </property>
+                        <property name="topDesktop" type="text_line" colspan="3">
+                            <meta><title lang="en">top desktop</title></meta>
+                        </property>
+                        <property name="widthDesktop" type="text_line" colspan="3">
+                            <meta><title lang="en">width desktop</title></meta>
+                        </property>
+                        <property name="heightDesktop" type="text_line" colspan="3">
+                            <meta><title lang="en">height desktop</title></meta>
+                        </property>
+                    </properties>
+                </type>
+
+                <type name="grey-block">
+                    <meta>
+                        <title lang="en">grey block</title>
+                    </meta>
+                    <properties>
+                        <property name="left" type="text_line" colspan="3">
+                            <meta><title lang="en">left</title></meta>
+                        </property>
+                        <property name="top" type="text_line" colspan="3">
+                            <meta><title lang="en">top</title></meta>
+                        </property>
+                        <property name="width" type="text_line" colspan="3">
+                            <meta><title lang="en">width</title></meta>
+                        </property>
+                        <property name="height" type="text_line" colspan="3">
+                            <meta><title lang="en">height</title></meta>
+                        </property>
+                        <property name="leftTablet" type="text_line" colspan="3">
+                            <meta><title lang="en">left tablet</title></meta>
+                        </property>
+                        <property name="topTablet" type="text_line" colspan="3">
+                            <meta><title lang="en">top tablet</title></meta>
+                        </property>
+                        <property name="widthTablet" type="text_line" colspan="3">
+                            <meta><title lang="en">width tablet</title></meta>
+                        </property>
+                        <property name="heightTablet" type="text_line" colspan="3">
+                            <meta><title lang="en">height tablet</title></meta>
+                        </property>
+                        <property name="leftDesktop" type="text_line" colspan="3">
+                            <meta><title lang="en">left desktop</title></meta>
+                        </property>
+                        <property name="topDesktop" type="text_line" colspan="3">
+                            <meta><title lang="en">top desktop</title></meta>
+                        </property>
+                        <property name="widthDesktop" type="text_line" colspan="3">
+                            <meta><title lang="en">width desktop</title></meta>
+                        </property>
+                        <property name="heightDesktop" type="text_line" colspan="3">
+                            <meta><title lang="en">height desktop</title></meta>
+                        </property>
+                        <property name="blockColor" type="single_select" colspan="6">
+                            <meta><title lang="en">Color</title></meta>
+                            <tag name="sulu.block_preview" priority="516"/>
+                            <params>
+                                <param name="default_value" value="default"/>
+                                <param name="values" type="collection">
+                                    <param name="default"><meta><title lang="en">default</title></meta></param>
+                                    <param name="primary"><meta><title lang="en">primary</title></meta></param>
+                                    <param name="accent"><meta><title lang="en">accent</title></meta></param>
+                                </param>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
+
+                <type name="grill-block">
+                    <meta>
+                        <title lang="en">grill block</title>
+                    </meta>
+                    <properties>
+                        <property name="top" type="text_line" colspan="3">
+                            <meta><title lang="en">top</title></meta>
+                        </property>
+                        <property name="bottom" type="text_line" colspan="3">
+                            <meta><title lang="en">bottom</title></meta>
+                        </property>
+                        <property name="left" type="text_line" colspan="3">
+                            <meta><title lang="en">left</title></meta>
+                        </property>
+                        <property name="right" type="text_line" colspan="3">
+                            <meta><title lang="en">right</title></meta>
+                        </property>
+                        <property name="topTablet" type="text_line" colspan="3">
+                            <meta><title lang="en">topTablet</title></meta>
+                        </property>
+                        <property name="bottomTablet" type="text_line" colspan="3">
+                            <meta><title lang="en">bottomTablet</title></meta>
+                        </property>
+                        <property name="leftTablet" type="text_line" colspan="3">
+                            <meta><title lang="en">leftTablet</title></meta>
+                        </property>
+                        <property name="rightTablet" type="text_line" colspan="3">
+                            <meta><title lang="en">rightTablet</title></meta>
+                        </property>
+                        <property name="topDesktop" type="text_line" colspan="3">
+                            <meta><title lang="en">topDesktop</title></meta>
+                        </property>
+                        <property name="bottomDesktop" type="text_line" colspan="3">
+                            <meta><title lang="en">bottomDesktop</title></meta>
+                        </property>
+                        <property name="leftDesktop" type="text_line" colspan="3">
+                            <meta><title lang="en">leftDesktop</title></meta>
+                        </property>
+                        <property name="rightDesktop" type="text_line" colspan="3">
+                            <meta><title lang="en">rightDesktop</title></meta>
+                        </property>
+                    </properties>
+                </type>
+
+                <type name="green-line-block">
+                    <meta>
+                        <title lang="en">green line block</title>
+                    </meta>
+                    <properties>
+                        <property name="top" type="text_line" colspan="6">
+                            <meta><title lang="en">top</title></meta>
+                        </property>
+                        <property name="gap" type="text_line" colspan="6">
+                            <meta><title lang="en">gap</title></meta>
+                        </property>
+                        <property name="topTablet" type="text_line" colspan="6">
+                            <meta><title lang="en">top tablet</title></meta>
+                        </property>
+                        <property name="gapTablet" type="text_line" colspan="6">
+                            <meta><title lang="en">gap tablet</title></meta>
+                        </property>
+                        <property name="topDesktop" type="text_line" colspan="6">
+                            <meta><title lang="en">top desktop</title></meta>
+                        </property>
+                        <property name="gapDesktop" type="text_line" colspan="6">
+                            <meta><title lang="en">gap desktop</title></meta>
+                        </property>
+                    </properties>
+                </type>
+
+                <type name="container-image-block">
+                    <meta>
+                        <title lang="en">container image block</title>
+                    </meta>
+                    <properties>
+                        <property name="image" type="single_media_selection" colspan="6">
+                            <meta>
+                                <title lang="en">Image</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="512"/>
+                        </property>
+                        <property name="fit" type="single_select" colspan="3">
+                            <meta>
+                                <title lang="en">fit</title>
+                            </meta>
+                            <params>
+                                <param name="default_value" value="cover"/>
+                                <param name="values" type="collection">
+                                    <param name="cover"><meta><title lang="en">Cover</title></meta></param>
+                                    <param name="contain"><meta><title lang="en">Contain</title></meta></param>
+                                </param>
+                            </params>
+                        </property>
+                        <property name="imageTablet" type="single_media_selection" colspan="6">
+                            <meta>
+                                <title lang="en">Image tablet</title>
+                            </meta>
+                        </property>
+                        <property name="fitTablet" type="single_select" colspan="3">
+                            <meta>
+                                <title lang="en">fit tablet</title>
+                            </meta>
+                            <params>
+                                <param name="default_value" value="cover"/>
+                                <param name="values" type="collection">
+                                    <param name="cover"><meta><title lang="en">Cover</title></meta></param>
+                                    <param name="contain"><meta><title lang="en">Contain</title></meta></param>
+                                </param>
+                            </params>
+                        </property>
+                        <property name="imageDesktop" type="single_media_selection" colspan="6">
+                            <meta>
+                                <title lang="en">Image desktop</title>
+                            </meta>
+                        </property>
+                        <property name="fitDesktop" type="single_select" colspan="3">
+                            <meta>
+                                <title lang="en">fit desktop</title>
+                            </meta>
+                            <params>
+                                <param name="default_value" value="cover"/>
+                                <param name="values" type="collection">
+                                    <param name="cover"><meta><title lang="en">Cover</title></meta></param>
+                                    <param name="contain"><meta><title lang="en">Contain</title></meta></param>
+                                </param>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
+
+            </types>
+        </block>
+
+        <block name="content" default-type="grid-block">
+            <meta>
+                <title lang="en">Content</title>
+            </meta>
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title lang="en">Add content</title>
+                    </meta>
+                </param>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+                <type ref="grid-block" />
+                <type ref="flex-block" />
+                <type ref="text-block" />
+                <type ref="button-block" />
+                <type ref="image-block" />
+                <type ref="divider-block" />
+                <type ref="empty-block" />
+                <type ref="carousel-reference-block" />
+                <!-- to be imported:
+                <type ref="highlight-block" />
+                -->
+            </types>
+        </block>
+
+    </properties>
+
+</template>

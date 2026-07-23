@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>welcome-popup</key>
+
+    <meta>
+        <title lang="en">Welcome Popup</title>
+    </meta>
+
+    <areas>
+        <area key="welcomePopup">
+            <meta><title>Welcome Popup area</title></meta>
+        </area>
+    </areas>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <info_text lang="en">IMPORTANT: For each new promotion, always CREATE A NEW SNIPPET and assign it to this area. Do NOT edit this snippet — users who already dismissed it will never see the changes, because the popup is suppressed by snippet ID stored in their browser.</info_text>
+            </meta>
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <block name="content" default-type="text-block">
+            <meta>
+                <title lang="en">Content</title>
+            </meta>
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title lang="en">Add content</title>
+                    </meta>
+                </param>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+                <type ref="text-block"/>
+                <type ref="image-block"/>
+                <type ref="flex-block"/>
+                <type ref="button-block"/>
+                <type ref="video-block"/>
+                <type ref="card-block"/>
+                <type ref="divider-block"/>
+                <type ref="grid-block"/>
+            </types>
+        </block>
+
+    </properties>
+</template>

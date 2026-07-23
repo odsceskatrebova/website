@@ -1,0 +1,35 @@
+{% set debug = (app.request.attributes.get('preview') or data.debug) ? true : false %}
+<div
+  id="{{ data.id }}"
+  class="scrollable-video-block {{ data.hero ? 'hero' : '' }}"
+  {{ sulu_block_preview(data) }}
+>
+  {% if not data.hero %}
+    <div class="video-threshold start {{ debug ? 'debug' : '' }}" style="bottom: {{ data.startOffset ?? 0 }}%">
+      <div class="label">start crosses bottom edge</div>
+    </div>
+  {% else %}
+    <div class="video-threshold start {{ debug ? 'debug' : '' }}" style="bottom: 80%">
+      <div class="label">Hero mode</div>
+    </div>
+  {% endif %}
+
+  <div class="video-threshold end {{ debug ? 'debug' : '' }}" style="top: {{ data.endOffset ?? 0 }}%">
+    <div class="label">end crosses top edge</div>
+  </div>
+
+  <video muted playsinline>
+    {% if data.backgroundVideoTablet %}
+      <source src="{{ data.backgroundVideoTablet.url }}" media="(min-width: 55rem)">
+    {% endif %}
+    {% if data.backgroundVideo %}
+      <source src="{{ data.backgroundVideo.url }}">
+    {% endif %}
+  </video>
+
+  {% if debug %}
+    <div class="video-debug-progress">
+      <div class="video-debug-progress__bar"></div>
+    </div>
+  {% endif %}
+</div>

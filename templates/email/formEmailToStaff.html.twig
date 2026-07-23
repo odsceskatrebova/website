@@ -1,0 +1,27 @@
+{% extends 'email/base.html.twig' %}
+
+{% block content %}
+    <h1>{{ 'form.formEmailToStaff.title'|trans({'%host%': app.request.host}, 'email', lang) }}</h1>
+    <p>{{ 'form.formEmailToStaff.datetime'|trans({'%date%': data.createdAt|date('d. m. Y H:i:s')}, 'email', lang) }}</p>
+
+    <table style="width:100%; border-collapse:collapse">
+        <tr>
+            <td style="padding:.5rem; font-weight:bold">Source</td>
+            <td style="padding:.5rem">{{ source }}</td>
+        </tr>
+        {% for blockTemplate in formTemplate %}
+            {% if not (blockTemplate.type starts with 'display') %}
+            <tr>
+                <td style="padding:.5rem; font-weight:bold">{{ blockTemplate.label }}</td>
+                <td style="padding:.5rem">
+                    {% if blockTemplate.type == 'checkbox-input' %}
+                        {{ data.formData[blockTemplate.key] ? 'Yes' : 'No' }}
+                    {% else %}
+                        {{ data.formData[blockTemplate.key] ?? '' }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endblock %}

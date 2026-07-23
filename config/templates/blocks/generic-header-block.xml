@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>generic-header-block</key>
+
+    <meta>
+        <title lang="en">Generic header</title>
+    </meta>
+
+    <properties>
+        <property name="titleOverride" type="text_line">
+            <meta><title lang="en">text</title></meta>
+            <tag name="sulu.block_preview" priority="1024"/>
+            <tag name="sulu.search.field" />
+        </property>
+        <property name="classes" type="text_line" colspan="8">
+            <meta><title lang="en">classes</title></meta>
+        </property>
+    </properties>
+
+</template>

@@ -1,0 +1,49 @@
+@use "../base/variables.scss";
+
+.empty-block {
+  &.mobile {
+    display: block;
+  }
+  &.tablet {
+      display: none;
+  }
+  &.desktop {
+      display: none;
+  }
+}
+
+@media (min-width: variables.$tablet) {
+  .empty-block {
+    &.mobile {
+      display: none;
+    }
+
+    &.tablet {
+      display: block;
+    }
+
+    &.desktop {
+      display: none;
+    }
+  }
+
+
+}
+
+@media (min-width: variables.$desktop) {
+  .empty-block {
+    &.mobile {
+      display: none;
+    }
+
+    &.tablet {
+      display: none;
+    }
+
+    &.desktop {
+      display: block;
+    }
+  }
+
+
+}

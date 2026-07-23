@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<form xmlns="http://schemas.sulu.io/template/template"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/form-1.0.xsd"
+>
+    <key>cookieConsent_details</key>
+
+    <properties>
+        <property name="createdAt" type="text_line" colspan="6">
+            <meta>
+                <title>app.createdAt</title>
+            </meta>
+        </property>
+        <property name="ip" type="text_line" colspan="6">
+            <meta>
+                <title>app.ip</title>
+            </meta>
+        </property>
+        <property name="userAgent" type="text_line" colspan="6">
+            <meta>
+                <title>app.userAgent</title>
+            </meta>
+        </property>
+        <property name="preferences" type="text_line" colspan="6">
+            <meta>
+                <title>app.preferences</title>
+            </meta>
+        </property>
+    </properties>
+</form>

@@ -1,0 +1,40 @@
+{% set openingTag = (data.link) ? 'a href=' ~ data.link : 'div' %}
+{% set closingTag = (data.link) ? 'a' : 'div' %}
+
+<{{ openingTag }} class="card {{ data.link ? 'link' : '' }} {{ data.classes }} {{ data.darkSection ? 'dark-section' : '' }}" style="{{ data.aspectRatio ? 'aspect-ratio: ' ~ data.aspectRatio ~ ';' : '' }}" {{ sulu_block_preview(data) }}>
+    {% if data.backgroundTablet or data.background %}
+        <picture class="background-image">
+            {% if data.backgroundTablet %}
+                <source
+                        srcset="{{ data.backgroundTablet.thumbnails['full'] }}"
+                        media="(min-width: 55rem)"
+                >
+            {% endif %}
+            {% if data.background %}
+                <img
+                        src="{{ data.background.thumbnails['full'] }}"
+                        alt="{{ data.background.title }}"
+                >
+            {% endif %}
+        </picture>
+    {% endif %}
+
+    {% for cardBlock in data.content %}
+        {% if cardBlock.type == 'image-block' %}
+            {% include 'blocks/image-block.html.twig' with { data: cardBlock } %}
+        {% elseif cardBlock.type == 'text-block' %}
+            {% include 'blocks/text-block.html.twig' with { data: cardBlock } %}
+        {% elseif cardBlock.type == 'button-block' %}
+            {% include 'blocks/button-block.html.twig' with { data: cardBlock } %}
+        {% elseif cardBlock.type == 'flex-block' %}
+            {% include 'blocks/flex-block.html.twig' with { data: cardBlock } %}
+        {% elseif cardBlock.type == 'video-block' %}
+            {% include 'blocks/video-block.html.twig' with { data: cardBlock } %}
+        {% else %}
+            <div class="error-box">
+                missing block: {{ cardBlock.type }}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+</{{ closingTag }}>

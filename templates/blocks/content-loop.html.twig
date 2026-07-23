@@ -1,0 +1,67 @@
+{% for placement, block in blocks %}
+  {% set blockView = blocksView[placement] %}
+
+  {% if block.type == 'text-block' %}
+    <div class="container">
+      {% include 'blocks/text-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
+  {% elseif block.type == 'image-block' %}
+    <div class="container">
+      {% include 'blocks/image-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
+  {% elseif block.type == 'grid-block' %}
+    <div class="container">
+      {% include 'blocks/grid-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
+  {% elseif block.type == 'background-block' %}
+    {% include 'blocks/background-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+  {% elseif block.type == 'content-snippet-block' %}
+    {% include 'blocks/content-snippet-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+  {% elseif block.type == 'flex-block' %}
+    <div class="container">
+      {% include 'blocks/flex-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
+  {% elseif block.type == 'button-block' %}
+    <div class="container">
+      {% include 'blocks/button-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
+  {% elseif block.type == 'video-block' %}
+    <div class="container">
+      {% include 'blocks/video-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
+  {% elseif block.type == 'scrollable-video-block' %}
+    {% include 'blocks/scrollable-video-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+  {% elseif block.type == 'card-block' %}
+    <div class="container">
+      {% include 'blocks/card-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
+  {% elseif block.type == 'carousel-gallery-block' %}
+    {% include 'blocks/carousel-gallery-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+  {% elseif block.type == 'divider-block' %}
+    <div class="container">
+      {% include 'blocks/divider-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
+  {% elseif block.type == 'empty-block' %}
+    {% include 'blocks/empty-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+  {% elseif block.type == 'form-block' %}
+    <div class="container">
+      {% include 'blocks/form-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
+  {% elseif block.type == 'generic-header-block' %}
+    <div class="container">
+      {% include 'blocks/generic-header-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
+  {% elseif block.type == 'masonry-gallery-block' %}
+    {% include 'blocks/masonry-gallery-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+  {% elseif block.type == 'newsletter-subscribe-block' %}
+    {% include 'blocks/newsletter-subscribe-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+  {% elseif block.type == 'timeline-block' %}
+    <div class="container">
+      {% include 'blocks/timeline-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
+  {% else %}
+    <div class="error-box">
+      missing block: {{ block.type }}
+    </div>
+  {% endif %}
+{% endfor %}

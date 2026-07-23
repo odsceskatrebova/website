@@ -1,0 +1,387 @@
+{% set styles = [] %}
+{% set contentStyles = [] %}
+{% if data.contentAspectRatio %}
+  {% set contentStyles = styles|merge(['aspect-ratio: ' ~ data.contentAspectRatio]) %}
+{% endif %}
+
+{% set containerImage = false %}
+
+<div id="{{ data.id }}"
+  class="background-block {{ data.classes }} {{ data.hero ? 'hero' : '' }} {{ data.darkSection ? 'dark-section' : '' }}"
+  style="{{ styles | join('; ') }}"
+  {{ sulu_block_preview(data) }}
+>
+  {% for element in data.background | reverse() %}
+    {% set randomId = random() %}
+    {% if element.type == 'image-block' and element.image !=null %}
+
+      <div class="background-image" id="image-block-{{ randomId }}">
+        <picture>
+          {% if 'svg' in element.image.fileVersion.mimeType %}
+            <img
+              src="{{ element.image.thumbnails['full'] }}"
+              alt="{{ element.image.title }}"
+            >
+          {% else %}
+            {% if element.imageDesktop %}
+              <source
+                srcset="{{ element.imageDesktop.thumbnails['full-page.webp'] }}, {{ element.imageDesktop.thumbnails['full-page@2x.webp'] }} 2x"
+                media="(min-width: 120rem)"
+              >
+              <source
+                srcset="{{ element.imageDesktop.thumbnails['full-desktop.webp'] }}, {{ element.imageDesktop.thumbnails['full-desktop@2x.webp'] }} 2x"
+                media="(min-width: 73rem)"
+              >
+            {% elseif element.imageTablet %}
+              <source
+                srcset="{{ element.imageTablet.thumbnails['full-page.webp'] }}, {{ element.imageTablet.thumbnails['full-page@2x.webp'] }} 2x"
+                media="(min-width: 120rem)"
+              >
+              <source
+                srcset="{{ element.imageTablet.thumbnails['full-desktop.webp'] }}, {{ element.imageTablet.thumbnails['full-desktop@2x.webp'] }} 2x"
+                media="(min-width: 73rem)"
+              >
+            {% else %}
+              <source
+                srcset="{{ element.image.thumbnails['full-page.webp'] }}, {{ element.image.thumbnails['full-page@2x.webp'] }} 2x"
+                media="(min-width: 120rem)"
+              >
+              <source
+                srcset="{{ element.image.thumbnails['full-desktop.webp'] }}, {{ element.image.thumbnails['full-desktop@2x.webp'] }} 2x"
+                media="(min-width: 73rem)"
+              >
+            {% endif %}
+            {% if element.imageTablet %}
+              <source
+                srcset="{{ element.imageTablet.thumbnails['full-tablet.webp'] }}, {{ element.imageTablet.thumbnails['full-tablet@2x.webp'] }} 2x"
+                media="(min-width: 55rem)"
+              >
+            {% else %}
+              <source
+                srcset="{{ element.image.thumbnails['full-tablet.webp'] }}, {{ element.image.thumbnails['full-tablet@2x.webp'] }} 2x"
+                media="(min-width: 55rem)"
+              >
+            {% endif %}
+            {% if element.image %}
+              <img
+                srcset="{{ element.image.thumbnails['full.webp'] }}, {{ element.image.thumbnails['full@2x.webp'] }} 2x"
+                alt="{{ element.image.title }}"
+              >
+            {% endif %}
+          {% endif %}
+        </picture>
+      </div>
+      <style>
+          #image-block-{{ randomId }} {
+          {% if element.top %}
+              top: {{ element.top }};
+          {% endif %}
+          {% if element.height %}
+              height: {{ element.height }};
+          {% endif %}
+              picture {
+              {% if element.left %}
+                  left: {{ element.left }};
+              {% endif %}
+              {% if element.width %}
+                  width: {{ element.width }};
+              {% endif %}
+              {% if element.height %}
+                  height: {{ element.height }};
+              {% endif %}
+              {% if element.aspectRatio %}
+                  aspect-ratio: {{ element.aspectRatio }};
+              {% endif %}
+                  img {
+                  {% if element.fit %}
+                      object-fit: {{ element.fit }};
+                  {% endif %}
+                  }
+              }
+          }
+          @media (min-width: 55rem) {
+              #image-block-{{ randomId }} {
+              {% if element.topTablet %}
+                  top: {{ element.topTablet }};
+              {% endif %}
+              {% if element.heightTablet %}
+                  height: {{ element.heightTablet }};
+              {% endif %}
+                  picture {
+                  {% if element.aspectRatioTablet %}
+                      aspect-ratio: {{ element.aspectRatioTablet }};
+                  {% endif %}
+                  {% if element.leftTablet %}
+                      left: {{ element.leftTablet }};
+                  {% endif %}
+                  {% if element.widthTablet %}
+                      width: {{ element.widthTablet }};
+                  {% endif %}
+                  {% if element.heightTablet %}
+                      height: {{ element.heightTablet }};
+                  {% endif %}
+                      img {
+                      {% if element.fitTablet %}
+                          object-fit: {{ element.fitTablet }};
+                      {% endif %}
+                      }
+
+                  }
+              }
+          }
+          @media (min-width: 73rem) {
+              #image-block-{{ randomId }} {
+              {% if element.topDesktop %}
+                  top: {{ element.topDesktop }};
+              {% endif %}
+              {% if element.heightDesktop %}
+                  height: {{ element.heightDesktop }};
+              {% endif %}
+                  picture {
+                  {% if element.aspectRatioDesktop %}
+                      aspect-ratio: {{ element.aspectRatioDesktop }};
+                  {% endif %}
+                  {% if element.leftDesktop %}
+                      left: {{ element.leftDesktop }};
+                  {% endif %}
+                  {% if element.widthDesktop %}
+                      width: {{ element.widthDesktop }};
+                  {% endif %}
+                  {% if element.heightDesktop %}
+                      height: {{ element.heightDesktop }};
+                  {% endif %}
+                      img {
+                      {% if element.fitDesktop %}
+                          object-fit: {{ element.fitDesktop }};
+                      {% endif %}
+                      }
+                  }
+              }
+          }
+      </style>
+    {% elseif element.type == 'container-image-block' and element.image !=null %}
+      {% set containerImage = true %}
+      <div class="background-image container-width" id="image-block-{{ randomId }}">
+      <picture class="background-image" id="image-block-{{ randomId }}">
+        {% if 'svg' in element.image.fileVersion.mimeType %}
+              <img
+                src="{{ element.image.thumbnails['full'] }}"
+                alt="{{ element.image.title }}"
+              >
+          {% else %}
+            {% if element.imageDesktop %}
+                <source
+                srcset="{{ element.imageDesktop.thumbnails['full-page.webp'] }}, {{ element.imageDesktop.thumbnails['full-page@2x.webp'] }} 2x"
+                media="(min-width: 120rem)"
+                >
+                <source
+                srcset="{{ element.imageDesktop.thumbnails['full-desktop.webp'] }}, {{ element.imageDesktop.thumbnails['full-desktop@2x.webp'] }} 2x"
+                media="(min-width: 73rem)"
+                >
+            {% elseif element.imageTablet %}
+              <source
+                srcset="{{ element.imageTablet.thumbnails['full-page.webp'] }}, {{ element.imageTablet.thumbnails['full-page@2x.webp'] }} 2x"
+                media="(min-width: 120rem)"
+                >
+                <source
+                srcset="{{ element.imageTablet.thumbnails['full-desktop.webp'] }}, {{ element.imageTablet.thumbnails['full-desktop@2x.webp'] }} 2x"
+                media="(min-width: 73rem)"
+                >
+            {% else %}
+              <source
+                srcset="{{ element.image.thumbnails['full-page.webp'] }}, {{ element.image.thumbnails['full-page@2x.webp'] }} 2x"
+                media="(min-width: 120rem)"
+                >
+                <source
+                srcset="{{ element.image.thumbnails['full-desktop.webp'] }}, {{ element.image.thumbnails['full-desktop@2x.webp'] }} 2x"
+                media="(min-width: 73rem)"
+                >
+            {% endif %}
+            {% if element.imageTablet %}
+                <source
+                srcset="{{ element.imageTablet.thumbnails['full-tablet.webp'] }}, {{ element.imageTablet.thumbnails['full-tablet@2x.webp'] }} 2x"
+                media="(min-width: 55rem)"
+                >
+            {% else %}
+                <source
+                srcset="{{ element.image.thumbnails['full-tablet.webp'] }}, {{ element.image.thumbnails['full-tablet@2x.webp'] }} 2x"
+                media="(min-width: 55rem)"
+                >
+            {% endif %}
+            {% if element.image %}
+                <img
+                srcset="{{ element.image.thumbnails['full.webp'] }}, {{ element.image.thumbnails['full@2x.webp'] }} 2x"
+                alt="{{ element.image.title }}"
+            >
+            {% endif %}
+          {% endif %}
+      </picture>
+      </div>
+      <style>
+          #image-block-{{ randomId }} img {
+          {% if element.fit %}
+              object-fit: {{ element.fit }};
+          {% endif %}
+          }
+          @media (min-width: 55rem) {
+              #image-block-{{ randomId }} img {
+              {% if element.fitTablet %}
+                  object-fit: {{ element.fitTablet }};
+              {% endif %}
+              }
+          }
+          @media (min-width: 73rem) {
+              #image-block-{{ randomId }} img {
+              {% if element.fitDesktop %}
+                  object-fit: {{ element.fitDesktop }};
+              {% endif %}
+              }
+          }
+      </style>
+    {% elseif element.type == 'grey-block' %}
+      <div class="grey-bg-block" id="grey-block-{{ randomId }}">
+        <div class="grey-bg {{ element.blockColor }}"></div>
+      </div>
+      <style>
+        #grey-block-{{ randomId }} {
+            height: {{ element.height }};
+            top: {{ element.top }};
+        }
+        #grey-block-{{ randomId }} .grey-bg {
+            width: {{ element.width }};
+            left: {{ element.left }};
+        }
+        @media (min-width: 55rem) {
+            #grey-block-{{ randomId }} {
+                height: {{ element.heightTablet | default(element.height) }};
+                top: {{ element.topTablet | default(element.top) }};
+            }
+            #grey-block-{{ randomId }} .grey-bg {
+                width: {{ element.widthTablet | default(element.width) }};
+                left: {{ element.leftTablet | default(element.left) }};
+            }
+        }
+        @media (min-width: 73rem) {
+            #grey-block-{{ randomId }} {
+                height: {{ element.heightDesktop | default(element.heightTablet) | default(element.height) }};
+                top: {{ element.topDesktop | default(element.topTablet) | default(element.top) }};
+            }
+            #grey-block-{{ randomId }} .grey-bg {
+                width: {{ element.widthDesktop | default(element.widthTablet) | default(element.width) }};
+                left: {{ element.leftDesktop | default(element.leftTablet) | default(element.left) }};
+            }
+        }
+      </style>
+
+    {% elseif element.type == 'grill-block' %}
+      <div class="grill-block" id="grill-block-{{ randomId }}">
+        <div class="grey-grill"></div>
+      </div>
+      <style>
+          #grill-block-{{ randomId }} {
+              top: {{ element.top | default('auto') }};
+              bottom: {{ element.bottom | default('auto') }};
+          }
+          #grill-block-{{ randomId }} .grey-grill {
+              left: {{ element.left | default('auto') }};
+              right: {{ element.right | default('auto') }};
+          }
+          @media (min-width: 55rem) {
+              #grill-block-{{ randomId }} {
+                  top: {{ element.topTablet | default('auto') }};
+                  bottom: {{ element.bottomTablet | default('auto') }};
+              }
+              #grill-block-{{ randomId }} .grey-grill {
+                  left: {{ element.leftTablet | default('auto') }};
+                  right: {{ element.rightTablet | default('auto') }};
+              }
+          }
+          @media (min-width: 73rem) {
+              #grill-block-{{ randomId }} {
+                  top: {{ element.topDesktop | default('auto') }};
+                  bottom: {{ element.bottomDesktop | default('auto') }};
+              }
+              #grill-block-{{ randomId }} .grey-grill {
+                  left: {{ element.leftDesktop | default('auto') }};
+                  right: {{ element.rightDesktop | default('auto') }};
+              }
+          }
+      </style>
+      {% elseif element.type == 'green-line-block' %}
+        <div class="green-line-block" id="green-line-block-{{ randomId }}">
+          <div class="line left"></div>
+          <div class="line right"></div>
+        </div>
+        <style>
+            #green-line-block-{{ randomId }} {
+                top: {{ element.top }};
+            }
+            #green-line-block-{{ randomId }} .line {
+                width: {{ ( element.gap ) ? 'calc(50% - ( ' ~ element.gap ~ ' / 2 ))' : 'calc(50% - 10rem)' }};
+            }
+            @media (min-width: 55rem) {
+                {% if element.topTablet %}
+                #green-line-block-{{ randomId }} {
+                    top: {{ element.topTablet | default(element.top) }};
+                }
+                {% endif %}
+                {% if element.gapTablet %}
+                #green-line-block-{{ randomId }} .line {
+                    width: {{ ( element.gapTablet ) ? 'calc(50% - ( ' ~ element.gapTablet ~ ' / 2 ))' : 'calc(50% - 10rem)' }};
+                }
+                {% endif %}
+            }
+            @media (min-width: 73rem) {
+                {% if element.topDesktop %}
+                    #green-line-block-{{ randomId }} {
+                        top: {{ element.topDesktop }};
+                    }
+                {% endif %}
+                {% if element.gapDesktop %}
+                #green-line-block-{{ randomId }} .line {
+                    width: {{ ( element.gapDesktop ) ? 'calc(50% - ( ' ~ element.gapDesktop ~ ' / 2 ))' : 'calc(50% - 10rem)' }};
+                }
+                {% endif %}
+            }
+        </style>
+    {% endif %}
+  {% endfor %}
+  <div
+    class="wrapper-content container {{ data.contentClasses }}"
+    style="{{ contentStyles | join('; ') }}"
+  >
+
+    {% if containerImage %}
+      <div class="container">
+    {% endif %}
+        {% for placement, block in data.content %}
+          {% set blockView = dataView.content[placement] %}
+          {% if block.type == 'grid-block' %}
+            {% include 'blocks/grid-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+          {% elseif block.type == 'flex-block' %}
+            {% include 'blocks/flex-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+          {% elseif block.type == 'text-block' %}
+            {% include 'blocks/text-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+          {% elseif block.type == 'button-block' %}
+            {% include 'blocks/button-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+          {% elseif block.type == 'image-block' %}
+            {% include 'blocks/image-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+          {% elseif block.type == 'divider-block' %}
+            {% include 'blocks/divider-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+          {% elseif block.type == 'empty-block' %}
+            {% include 'blocks/empty-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+          {% elseif block.type == 'carousel-reference-block' %}
+            {% include 'blocks/carousel-reference-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+          {# to be imported:
+          {% elseif block.type == 'highlight-block' %}
+            {% include 'blocks/highlight-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+          #}
+          {% else %}
+            <div class="error-box">missing block: {{ block.type }}</div>
+          {% endif %}
+        {% endfor %}
+    {% if containerImage %}
+      </div>
+    {% endif %}
+  </div>
+</div>

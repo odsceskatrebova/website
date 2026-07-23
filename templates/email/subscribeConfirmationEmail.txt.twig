@@ -1,0 +1,10 @@
+{% extends 'email/base.txt.twig' %}
+
+{% block content %}
+{{ 'form.subscribeConfirmationEmail.title'|trans({}, 'email', lang) }}
+---------------------
+
+{{ 'form.subscribeConfirmationEmail.paragraph'|trans({}, 'email', lang) }}
+
+{{ 'form.subscribeConfirmationEmail.unsubscribe'|trans({}, 'email', lang) }}
+{% endblock %}

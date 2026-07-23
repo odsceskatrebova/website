@@ -1,0 +1,31 @@
+<div class="reference-block carousel {{ data.classes }}" {{ sulu_block_preview(data) }}>
+  <div class="carousel-wrapper">
+    {% for reference in data.references %}
+      <div class="carousel-item">
+        <div class="text">
+          {{ reference.text | raw }}
+        </div>
+        <div class="name-block">
+          <div class="name">
+            <h5>{{ reference.name }}, {{ reference.about }}</h5>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="carousel-navigation">
+    <div class="arrow left btn">
+      <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 6.9282L1.65236e-07 13.8564L4 6.9282L0 1.43099e-07L12 6.9282Z" fill="#ffffff"
+              transform="rotate(180 6 7)"/>
+      </svg>
+    </div>
+    <div class="dots">
+    </div>
+    <div class="arrow right btn">
+      <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 6.9282L1.65236e-07 13.8564L4 6.9282L0 1.43099e-07L12 6.9282Z" fill="#ffffff"/>
+      </svg>
+    </div>
+  </div>
+</div>

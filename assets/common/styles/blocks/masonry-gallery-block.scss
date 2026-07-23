@@ -1,0 +1,32 @@
+@use '../base/variables';
+
+.masonry-gallery-block {
+  max-width: variables.$pageMaxWidth;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: .4rem;
+  grid-auto-flow: dense;
+
+  .image {
+    grid-column: auto / span 1;
+    grid-row: auto / span 2;
+    display: flex;
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @media (min-width: variables.$tablet) {
+    grid-template-columns: 1fr 1fr;
+    .image {
+      &.large {
+        grid-row: auto / span 3;
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <property name="validations" type="select" colspan="4">
+        <meta>
+            <title lang="en">Validations</title>
+        </meta>
+        <params>
+            <param name="values" type="collection">
+                <param name="required" >
+                    <meta><title lang="en">Required</title></meta>
+                </param>
+                <param name="email">
+                    <meta><title lang="en">Email</title></meta>
+                </param>
+                <param name="numeric">
+                    <meta><title lang="en">Numeric</title></meta>
+                </param>
+            </param>
+        </params>
+    </property>
+
+    <property name="cols" type="select" colspan="4">
+        <meta>
+            <title lang="en">Width</title>
+        </meta>
+        <tag name="sulu.block_preview" priority="128"/>
+        <params>
+            <param name="default_values" type="collection">
+                <param name="col-12"/>
+            </param>
+            <param name="values" type="collection">
+                <param name="col-1"><meta><title lang="en">col-1</title></meta></param>
+                <param name="col-2"><meta><title lang="en">col-2</title></meta></param>
+                <param name="col-3"><meta><title lang="en">col-3</title></meta></param>
+                <param name="col-4"><meta><title lang="en">col-4</title></meta></param>
+                <param name="col-5"><meta><title lang="en">col-5</title></meta></param>
+                <param name="col-6"><meta><title lang="en">col-6</title></meta></param>
+                <param name="col-7"><meta><title lang="en">col-7</title></meta></param>
+                <param name="col-8"><meta><title lang="en">col-8</title></meta></param>
+                <param name="col-9"><meta><title lang="en">col-9</title></meta></param>
+                <param name="col-10"><meta><title lang="en">col-10</title></meta></param>
+                <param name="col-11"><meta><title lang="en">col-11</title></meta></param>
+                <param name="col-12"><meta><title lang="en">col-12</title></meta></param>
+                <param name="col-tablet-1"><meta><title lang="en">col-tablet-1</title></meta></param>
+                <param name="col-tablet-2"><meta><title lang="en">col-tablet-2</title></meta></param>
+                <param name="col-tablet-3"><meta><title lang="en">col-tablet-3</title></meta></param>
+                <param name="col-tablet-4"><meta><title lang="en">col-tablet-4</title></meta></param>
+                <param name="col-tablet-5"><meta><title lang="en">col-tablet-5</title></meta></param>
+                <param name="col-tablet-6"><meta><title lang="en">col-tablet-6</title></meta></param>
+                <param name="col-tablet-7"><meta><title lang="en">col-tablet-7</title></meta></param>
+                <param name="col-tablet-8"><meta><title lang="en">col-tablet-8</title></meta></param>
+                <param name="col-tablet-9"><meta><title lang="en">col-tablet-9</title></meta></param>
+                <param name="col-tablet-10"><meta><title lang="en">col-tablet-10</title></meta></param>
+                <param name="col-tablet-11"><meta><title lang="en">col-tablet-11</title></meta></param>
+                <param name="col-tablet-12"><meta><title lang="en">col-tablet-12</title></meta></param>
+                <param name="col-desktop-1"><meta><title lang="en">col-desktop-1</title></meta></param>
+                <param name="col-desktop-2"><meta><title lang="en">col-desktop-2</title></meta></param>
+                <param name="col-desktop-3"><meta><title lang="en">col-desktop-3</title></meta></param>
+                <param name="col-desktop-4"><meta><title lang="en">col-desktop-4</title></meta></param>
+                <param name="col-desktop-5"><meta><title lang="en">col-desktop-5</title></meta></param>
+                <param name="col-desktop-6"><meta><title lang="en">col-desktop-6</title></meta></param>
+                <param name="col-desktop-7"><meta><title lang="en">col-desktop-7</title></meta></param>
+                <param name="col-desktop-8"><meta><title lang="en">col-desktop-8</title></meta></param>
+                <param name="col-desktop-9"><meta><title lang="en">col-desktop-9</title></meta></param>
+                <param name="col-desktop-10"><meta><title lang="en">col-desktop-10</title></meta></param>
+                <param name="col-desktop-11"><meta><title lang="en">col-desktop-11</title></meta></param>
+                <param name="col-desktop-12"><meta><title lang="en">col-desktop-12</title></meta></param>
+            </param>
+        </params>
+    </property>
+
+</properties>

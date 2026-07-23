@@ -5,17 +5,14 @@
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
+/tmp/
 /vendor/
+/volumes/
+packages
 ###< symfony/framework-bundle ###
-
-###> symfony/phpunit-bridge ###
-.phpunit.result.cache
-/phpunit.xml
-###< symfony/phpunit-bridge ###
-
 ###> phpunit/phpunit ###
 /phpunit.xml
-.phpunit.result.cache
+/.phpunit.cache/
 ###< phpunit/phpunit ###
 
 ###> friendsofphp/php-cs-fixer ###
@@ -29,12 +26,10 @@
 
 # composer
 /composer.phar
-composer.lock
-symfony.lock
 
 # npm
-package-lock.json
 node_modules
+.yarn
 
 # phpcs
 .php_cs.cache
@@ -45,13 +40,29 @@ node_modules
 *.iml
 *~
 .web-server-pid
+.claude
+/plan-*
+compose*.override.*
+docker-compose*.override.*
 
 # System files
 .DS_Store
 
-###> symfony/webpack-encore-bundle ###
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
+
+###> php-cs-fixer/shim ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< php-cs-fixer/shim ###
+
+###> vincentlanglet/twig-cs-fixer ###
+/.twig-cs-fixer.php
+/.twig-cs-fixer.cache
+###< vincentlanglet/twig-cs-fixer ###
+
+###> pentatrion/vite-bundle ###
 /node_modules/
-/public/build/
-npm-debug.log
-yarn-error.log
-###< symfony/webpack-encore-bundle ###
+/public/build/odsct/
+###< pentatrion/vite-bundle ###

@@ -1,0 +1,75 @@
+@use "../base/variables.scss";
+
+.image-block {
+  margin: 0 auto;
+  position: relative;
+
+  img {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+
+    &[data-gallery] {
+      cursor: pointer;
+    }
+
+    &.round-corners {
+      border-radius: variables.$borderRadius;
+    }
+
+    &.outline {
+      border: solid 1px variables.$lightGrey;
+    }
+  }
+}
+
+.flex {
+  .image-block {
+    margin: 0;
+    padding-bottom: 0;
+
+    img {
+      border-radius: 0;
+    }
+
+    width: auto;
+  }
+
+  .image-block:first-child {
+    margin-top: 0;
+  }
+
+  .image-block:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.edge-left .image-block img {
+  border-radius: 0 variables.$borderRadius variables.$borderRadius 0;
+}
+
+
+.edge-right .image-block img {
+  border-radius: variables.$borderRadius 0 0 variables.$borderRadius;
+}
+
+
+@media (min-width: variables.$tablet) {
+  .edge-left-tablet .image-block img {
+    border-radius: 0 variables.$borderRadius variables.$borderRadius 0;
+  }
+  .edge-right-tablet .image-block img {
+    border-radius: variables.$borderRadius 0 0 variables.$borderRadius;
+  }
+}
+
+@media (min-width: variables.$desktop) {
+  .edge-left-desktop .image-block img {
+    border-radius: 0 variables.$borderRadius variables.$borderRadius 0;
+  }
+
+  .edge-right-desktop .image-block img {
+    border-radius: variables.$borderRadius 0 0 variables.$borderRadius;
+  }
+}

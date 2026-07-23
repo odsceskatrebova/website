@@ -1,0 +1,15 @@
+<div class="timeline-block {{ data.class }}" {{ sulu_block_preview(data) }}>
+  {% for event in data.events %}
+    <div class="timeline-event">
+      {% if event.year %}
+        <div class="year">{{ event.year }}</div>
+      {% endif %}
+      {% if event.text %}
+        <div class="text">{{ event.text | raw }}</div>
+      {% endif %}
+      {% if event.image %}
+        {% include 'blocks/image-block.html.twig' with { data: event } %}
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

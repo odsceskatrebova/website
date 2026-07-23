@@ -1,0 +1,34 @@
+{% set width = (data.width) ? 'width: '~data.width ~'; ' : '' %}
+{% set height = (data.height) ? 'height: '~data.height ~'; ' : '' %}
+{% set aspectRatio = (data.aspectRatio) ? 'aspect-ratio: '~data.aspectRatio ~'; ' : '' %}
+{% set maxWidth = (data.maxWidth) ? 'max-width: '~data.maxWidth : '' %}
+{% set maxHeight = (data.maxHeight) ? 'max-height: '~data.maxHeight : '' %}
+<div id="{{ data.id }}" class="video-block {{ data.classes }}" {{ sulu_block_preview(data) }}>
+  <video
+    muted
+    playsinline
+    {{ (data.playback == 'playOnce' or data.playback == 'loop' or data.playback == 'sectionLoop') ? 'autoplay' : '' }}
+    {{ (data.playback == 'loop') ? 'loop' : '' }}
+    style="{{ width }} {{ maxWidth }} {{ height }} {{ maxHeight }} {{ aspectRatio }}"
+    class=" {{ data.placement }}"
+  >
+    {% if data.backgroundVideoTablet %}
+      <source src="{{ data.backgroundVideoTablet.url }}" media="(min-width: 55rem)">
+    {% endif %}
+    {% if data.backgroundVideo %}
+      <source src="{{ data.backgroundVideo.url }}">
+    {% endif %}
+  </video>
+  {% if data.showUi %}
+    <div class="video-controls">
+      <div class="play-pause">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="play">
+          <path d="M8,5.14V19.14L19,12.14L8,5.14Z" fill="currentColor"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="pause">
+          <path d="M14,19H18V5H14M6,19H10V5H6V19Z" fill="white" />
+        </svg>
+      </div>
+    </div>
+  {% endif %}
+</div>

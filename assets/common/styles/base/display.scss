@@ -1,0 +1,121 @@
+@use '../base/variables.scss';
+
+@each $key, $breakpoint in variables.$breakpoints {
+  @media (min-width: $breakpoint) {
+
+    $breakpointKey: '';
+    @if $key != 'mobile' { $breakpointKey: '-#{$key}'; }
+
+    .d#{ $breakpointKey }-block {
+      display: block !important;
+    }
+    .d#{ $breakpointKey }-flex {
+      display: flex !important;
+
+      &.gap-0 {
+        gap: 0;
+      }
+
+      &.gap-1 {
+        gap: 1rem;
+      }
+
+      &.gap-2 {
+        gap: 1rem;
+      }
+
+      &.gap-3 {
+        gap: 1rem;
+      }
+    }
+
+    .wrap#{ $breakpointKey } {
+      flex-wrap: wrap;
+    }
+
+    .nowrap#{ $breakpointKey } {
+      flex-wrap: nowrap;
+    }
+
+    .wrap-reverse#{ $breakpointKey } {
+      flex-wrap: wrap-reverse;
+    }
+
+    .column#{ $breakpointKey } {
+      flex-direction: column;
+    }
+
+    .f-row#{ $breakpointKey } {
+      flex-direction: row;
+    }
+
+    .align#{ $breakpointKey }-center {
+      align-items: center;
+    }
+
+    .align#{ $breakpointKey }-start {
+      align-items: start;
+    }
+
+    .align#{ $breakpointKey }-end {
+      align-items: end;
+    }
+
+    .align#{ $breakpointKey }-stretch {
+      align-items: stretch;
+    }
+
+    .justify#{ $breakpointKey }-center {
+      justify-content: center;
+    }
+
+    .justify#{ $breakpointKey }-start {
+      justify-content: start;
+    }
+
+    .justify#{ $breakpointKey }-end {
+      justify-content: end;
+    }
+
+    .justify#{ $breakpointKey }-stretch {
+      justify-content: stretch;
+    }
+
+    .justify#{ $breakpointKey }-space-between {
+      justify-content: space-between;
+    }
+
+    .justify#{ $breakpointKey }-space-around {
+      justify-content: space-around;
+    }
+
+    .d#{ $breakpointKey }-grid {
+      display: grid !important;
+    }
+    .d#{ $breakpointKey }-inline {
+      display: inline !important;
+    }
+    .d#{ $breakpointKey }-inline-block {
+      display: inline-block !important;
+    }
+    .d#{ $breakpointKey }-inline-flex {
+      display: inline-flex !important;
+    }
+    .d#{ $breakpointKey }-inline-grid {
+      display: inline-grid !important;
+    }
+    .d#{ $breakpointKey }-none {
+      display: none !important;
+    }
+
+    .d#{ $breakpointKey }-flex, .d#{ $breakpointKey }-inline-flex {
+      @for $i from 1 to 12 {
+        $sizeKey: '-#{$i}';
+        @if $key != 'mobile' { $sizeKey: '-#{$key}-#{$i}'; }
+        &.gap#{$sizeKey} {
+          gap: #{ $i * variables.$gapBase };
+        }
+      }
+    }
+  }
+}

@@ -5,20 +5,159 @@
 
     <!-- See: http://docs.sulu.io/en/latest/book/image-formats.html how to define image-formats -->
 
-    <!--
-    <format key="300x">
+    <format key="full">
         <meta>
-            <title lang="en">Example Image</title>
-            <title lang="de">Beispielbild</title>
+            <title lang="en">full</title>
         </meta>
-
-        <scale x="300"/>
+        <scale x="1000" y="1000" mode="inset" />
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">80</option>
+        </options>
     </format>
-    -->
 
-    <!--
-    Render an image from the media_selection in a specific format the following way:
+    <format key="full@2x">
+        <meta>
+            <title lang="en">full</title>
+        </meta>
+        <scale x="2000" y="2000" mode="inset" />
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">80</option>
+        </options>
+    </format>
 
-    <img src="{{ image.thumbnails['300x'] }}" alt="{{ image.title }}" title="{{ image.description|default(image.title) }}">
-    -->
+    <format key="full-tablet">
+        <meta>
+            <title lang="en">full</title>
+        </meta>
+        <scale x="1200" y="1200" mode="inset" />
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">80</option>
+        </options>
+    </format>
+
+    <format key="full-tablet@2x">
+        <meta>
+            <title lang="en">full</title>
+        </meta>
+        <scale x="2400" y="2400" mode="inset" />
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">80</option>
+        </options>
+    </format>
+
+    <format key="full-desktop">
+        <meta>
+            <title lang="en">full</title>
+        </meta>
+        <scale x="2000" y="2000" mode="inset" />
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">80</option>
+        </options>
+    </format>
+
+    <format key="full-desktop@2x">
+        <meta>
+            <title lang="en">full</title>
+        </meta>
+        <scale x="4000" y="4000" mode="inset" />
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">80</option>
+        </options>
+    </format>
+
+    <format key="full-page">
+        <meta>
+            <title lang="en">full</title>
+        </meta>
+        <scale x="2600" y="2600" mode="inset" />
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">80</option>
+        </options>
+    </format>
+
+    <format key="full-page@2x">
+        <meta>
+            <title lang="en">full</title>
+        </meta>
+        <scale x="5200" y="5200" mode="inset" />
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">80</option>
+        </options>
+    </format>
+
+    <format key="carousel">
+        <meta>
+            <title lang="en">carousel</title>
+        </meta>
+        <scale x="1000" mode="inset" />
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">70</option>
+        </options>
+    </format>
+
+    <format key="carousel@2x">
+        <meta>
+            <title lang="en">carousel</title>
+        </meta>
+        <scale x="2000" mode="inset" />
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">70</option>
+        </options>
+    </format>
+
+    <format key="article">
+        <meta>
+            <title lang="en">article</title>
+        </meta>
+        <scale x="600" y="600" mode="inset" />
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">70</option>
+        </options>
+    </format>
+
+    <format key="site-width">
+        <meta>
+            <title lang="en">article</title>
+        </meta>
+        <scale x="1500" mode="inset" />
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">70</option>
+        </options>
+    </format>
+
+    <format key="open-graph-overlay">
+        <meta>
+            <title lang="en">open-graph-overlay</title>
+        </meta>
+        <scale x="1200" y="630"/>
+        <transformations>
+            <transformation>
+                <effect>paste</effect>
+                <parameters>
+                    <parameter name="image">%kernel.project_dir%/assets/website/img/og_overlay.png</parameter>
+                    <parameter name="x">0</parameter>
+                    <parameter name="y">0</parameter>
+                    <parameter name="w">1200</parameter>
+                    <parameter name="h">630</parameter>
+                </parameters>
+            </transformation>
+        </transformations>
+        <options>
+            <option name="jpeg_quality">60</option>
+            <option name="webp_quality">70</option>
+        </options>
+    </format>
+
 </formats>

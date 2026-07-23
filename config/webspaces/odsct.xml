@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<webspace xmlns="http://schemas.sulu.io/webspace/webspace"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/webspace/webspace http://schemas.sulu.io/webspace/webspace-1.1.xsd">
+
+    <name>Odsct</name>
+    <key>odsct</key>
+
+    <localizations>
+        <localization language="en" default="true"/>
+        <localization language="cs"/>
+    </localizations>
+
+    <default-templates>
+        <default-template type="page">default</default-template>
+        <default-template type="home">default</default-template>
+    </default-templates>
+
+    <!-- <excluded-templates>
+        <excluded-template>other</excluded-template>
+    </excluded-templates> -->
+
+    <templates>
+        <template type="search">search/search</template>
+        <template type="error">error/error</template>
+    </templates>
+
+    <navigation>
+        <contexts>
+            <context key="header"><meta><title lang="en">Header</title></meta></context>
+            <context key="footer1"><meta><title lang="en">Footer 1</title></meta></context>
+            <context key="footer2"><meta><title lang="en">Footer 2</title></meta></context>
+            <context key="footer-legal"><meta><title lang="en">Footer Legal</title></meta></context>
+        </contexts>
+    </navigation>
+
+    <portals>
+        <portal>
+            <name>Odsct</name>
+            <key>odsct</key>
+
+            <environments>
+                <environment type="prod">
+                    <urls>
+                        <url>{host}/{localization}</url>
+                    </urls>
+                </environment>
+                <environment type="stage">
+                    <urls>
+                        <url>{host}/{localization}</url>
+                    </urls>
+                </environment>
+                <environment type="dev">
+                    <urls>
+                        <url>odsct.local/{localization}</url>
+                    </urls>
+                </environment>
+            </environments>
+        </portal>
+    </portals>
+</webspace>

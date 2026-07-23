@@ -1,0 +1,47 @@
+{% set randomId = random() %}
+<div class="carousel-gallery-block carousel {{ data.classes }}" id="carousel-gallery-block-{{ randomId }}" {{ sulu_block_preview(data) }}>
+    <div class="carousel-wrapper">
+        {% for image in data.images %}
+            <div class="card">
+                <picture class="background-image {{ ( image.outline ) ? 'outline' : '' }}">
+                    {% if 'svg' in image.image.fileVersion.mimeType %}
+                        <img
+                            src="{{ image.image.thumbnails['carousel'] }}"
+                            alt="{{ image.image.title }}"
+                            title="{{ image.image.description|default(image.image.title) }}"
+                    />
+                    {% else %}
+                    <img
+                            srcset="{{ image.image.thumbnails['carousel.webp'] }}, {{ image.image.thumbnails['carousel@2x.webp'] }} 2x"
+                            alt="{{ image.image.title }}"
+                            title="{{ image.image.description|default(image.image.title) }}"
+                    />
+                    {% endif %}
+                </picture>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="carousel-navigation container">
+        <div class="arrow left btn">
+            <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 6.9282L1.65236e-07 13.8564L4 6.9282L0 1.43099e-07L12 6.9282Z" fill="#2c2c2c"
+                      transform="rotate(180 6 7)"/>
+            </svg>
+        </div>
+        <div class="dots">
+        </div>
+        <div class="arrow right btn">
+            <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 6.9282L1.65236e-07 13.8564L4 6.9282L0 1.43099e-07L12 6.9282Z" fill="#2c2c2c"/>
+            </svg>
+        </div>
+    </div>
+</div>
+<style>
+    #carousel-gallery-block-{{ randomId }} .carousel-wrapper {
+    {% if data.aspectRatio %}
+        aspect-ratio: {{ data.aspectRatio }};
+        height: auto;
+    {% endif %}
+    }
+</style>

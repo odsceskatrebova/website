@@ -1,0 +1,15 @@
+<div id="{{ data.id }}" class="d-flex {{ data.gap }} {{ data.wrap }} {{ data.classes }}" style="align-items: {{ data.align }}; justify-content: {{ data.justify }}" {{ sulu_block_preview(data) }}>
+  {% for placement, block in data.content %}
+    {% if block.type == 'button-block' %}
+      {% include 'blocks/button-block.html.twig' with { data: block, placement: placement } %}
+    {% elseif block.type == 'text-block' %}
+      {% include 'blocks/text-block.html.twig' with { data: block, placement: placement } %}
+    {% elseif block.type == 'image-block' %}
+      {% include 'blocks/image-block.html.twig' with { data: block, placement: placement } %}
+    {% else %}
+      <div class="error-box">
+        missing block: {{ block.type }}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>

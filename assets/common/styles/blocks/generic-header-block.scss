@@ -1,0 +1,12 @@
+.generic-header-block {
+  padding-top: 5rem;
+  .breadcrumbs {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    svg {
+      width: 0.75rem;
+    }
+  }
+}

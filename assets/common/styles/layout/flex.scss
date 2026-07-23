@@ -1,0 +1,36 @@
+@use '../base/variables';
+
+.d-flex {
+  &.gap-0 {
+    gap: 0;
+  }
+
+  &.gap-1 {
+    gap: 1rem;
+  }
+
+  &.gap-2 {
+    gap: 1rem;
+  }
+
+  &.gap-3 {
+    gap: 1rem;
+  }
+
+  @media (min-width: variables.$tablet) {
+
+    &.gap-2 {
+      gap: 2rem;
+    }
+    &.gap-3 {
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: variables.$desktop) {
+
+    &.gap-3 {
+      gap: 3rem;
+    }
+  }
+}

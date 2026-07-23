@@ -1,0 +1,37 @@
+<div id="{{ data.id }}" class="row {{ data.colWidth }} {{ data.align }} {{ data.gap }} {{ (data.visualise) ? 'visualise' : '' }} {{ (data.dense) ? 'dense' : '' }} {{ data.classes }}" {{ sulu_block_preview(data) }}>
+  {% for coln, col in data.cols %}
+    {% set colView = dataView.cols[coln] %}
+    <div class="{{ col.col | join(' ') }} {{ col.order | join(' ') }} {{ col.colStart | join(' ') }} {{ col.row | join(' ') }} {{ col.classes }} " {{ sulu_block_preview(col) }}>
+      {% for blockn, block in col.content %}
+        {% set blockView = colView.content[blockn] %}
+        {% if block.type == 'text-block' %}
+          {% include 'blocks/text-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+        {% elseif block.type == 'image-block' %}
+          {% include 'blocks/image-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+        {% elseif block.type == 'divider-block' %}
+          {% include 'blocks/divider-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+        {% elseif block.type == 'button-block' %}
+          {% include 'blocks/button-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+        {% elseif block.type == 'card-block' %}
+          {% include 'blocks/card-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+        {% elseif block.type == 'flex-block' %}
+          {% include 'blocks/flex-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+        {% elseif block.type == 'form-block' %}
+          {% include 'blocks/form-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+        {% elseif block.type == 'video-block' %}
+          {% include 'blocks/video-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+        {% elseif block.type == 'empty-block' %}
+          {% include 'blocks/empty-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+        {% elseif block.type == 'carousel-gallery-block' %}
+          {% include 'blocks/carousel-gallery-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+        {% elseif block.type == 'carousel-reference-block' %}
+          {% include 'blocks/carousel-reference-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+        {% else %}
+          <div class="error-box">
+            missing block: {{ block.type }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,299 @@
+@use 'variables.scss';
+
+a, .a {
+  color: variables.$textHighlightColor;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, variables.$textHighlightColor 20%, transparent);
+  font-weight: 400;
+
+  &:hover {
+    color: color-mix(in srgb, variables.$textHighlightColor 60%, transparent);
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, variables.$textHighlightColor 20%, transparent);
+  }
+}
+
+p {
+  margin: 0 auto 0 0;
+  max-width: variables.$textMaxWidth;
+  padding: 0 0 1rem;
+  font-size: 1rem;
+  line-height: 150%;
+  font-weight: 300;
+  color: variables.$textColor;
+
+  &.accent {
+    color: variables.$accentColor;
+  }
+
+  &.highlight {
+    color: variables.$textHighlightColor;
+  }
+
+
+  &.large {
+    font-size: 1.5rem;
+    //font-weight: 300;
+
+    @media (min-width: variables.$tablet) {
+      font-size: 2rem;
+    }
+  }
+
+  &.medium {
+    font-size: 1.125rem;
+
+    @media (min-width: variables.$tablet) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &.small {
+    font-size: 0.82rem;
+  }
+}
+
+mark {
+  background: none;
+}
+
+mark.pen-primary { color: variables.$primaryColor; font-weight: 700; }
+mark.pen-accent  { color: variables.$accentColor;  font-weight: 700; }
+
+
+ul, ol {
+  margin: 0 auto;
+  max-width: variables.$textMaxWidth;
+  padding: 0 0 1rem 0;
+
+  li {
+    margin-left: 1rem;
+    padding-bottom: .125rem;
+    font-family: variables.$defaultFont;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 150%;
+    color: variables.$textColor;
+  }
+}
+
+
+h1, .h1 {
+  font-family: variables.$defaultFont;
+  margin: 0 auto;
+  font-size: 2.25rem;
+  line-height: 100%;
+  font-weight: 300;
+  padding: 0 0 1.5rem;
+  color: variables.$textHighlightColor;
+  @media (min-width: variables.$tablet) {
+    font-size: 3rem;
+  }
+  @media (min-width: variables.$desktop) {
+    font-size: 4rem;
+  }
+
+  &.highlight, .highlight {
+    color: variables.$grey;
+  }
+
+  &.accent {
+    color: variables.$accentColor;
+  }
+}
+
+h2, .h2 {
+  font-family: variables.$defaultFont;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  line-height: 100%;
+  font-weight: 700;
+  padding: 0 0 1.2rem;
+  color: variables.$textHighlightColor;
+  @media (min-width: variables.$tablet) {
+    font-size: 2rem;
+  }
+
+  &.highlight, .highlight {
+    color: variables.$grey;
+  }
+
+  &.accent {
+    color: variables.$accentColor;
+  }
+}
+
+h3, .h3 {
+  font-family: variables.$defaultFont;
+  margin: 0 auto;
+  font-size: 1.4rem;
+  line-height: 100%;
+  font-weight: 700;
+  padding: 0 0 1rem;
+  color: variables.$textHighlightColor;
+  @media (min-width: variables.$tablet) {
+    font-size: 1.7rem;
+  }
+
+  &.highlight, .highlight {
+    color: variables.$grey;
+  }
+
+  &.accent {
+    color: variables.$accentColor;
+  }
+}
+
+h4, .h4 {
+  font-family: variables.$defaultFont;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 150%;
+  font-weight: 700;
+  padding: 0 0 1rem;
+  color: variables.$textHighlightColor;
+
+  @media (min-width: variables.$tablet) {
+    font-size: 1.5rem;
+  }
+
+  &.highlight, .highlight {
+    color: variables.$grey;
+  }
+
+  &.accent {
+    color: variables.$accentColor;
+  }
+}
+
+h5, .h5 {
+  font-family: variables.$defaultFont;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 150%;
+  font-weight: 700;
+  padding: 0 0 1rem;
+  color: variables.$textHighlightColor;
+
+  @media (min-width: variables.$tablet) {
+    font-size: 1.25rem;
+  }
+
+  &.highlight, .highlight {
+    color: variables.$grey;
+  }
+
+  &.accent {
+    color: variables.$accentColor;
+  }
+}
+
+.menu-text {
+  font-family: variables.$defaultFont;
+  margin: 0 auto;
+  font-size: 1rem;
+  max-width: calc(#{variables.$textMaxWidth} * 2);
+  line-height: 150%;
+  font-weight: 700;
+  padding: 0 0 1rem;
+  color: variables.$textHighlightColor;
+  @media (min-width: variables.$tablet) {
+    font-size: 1.5rem;
+  }
+
+  &.highlight, .highlight {
+    color: variables.$grey;
+  }
+}
+
+hr {
+  padding: 0;
+  margin: 0 auto 1rem;
+  max-width: calc(#{variables.$pageMaxWidth} - 4 * #{variables.$padding});
+  border: none;
+  background: variables.$lineColor;
+  height: 1px;
+}
+
+//button, a.btn, .btn {
+//  .content {
+//    font-family: variables.$defaultFont;
+//    margin: 0 auto;
+//    max-width: variables.$textMaxWidth;
+//    font-size: 1rem;
+//    line-height: 100%;
+//    font-weight: 700;
+//
+//    @media (min-width: variables.$tablet) {
+//      font-size: 1.25rem;
+//    }
+//  }
+//
+//  &.small {
+//    .content {
+//      font-size: 1rem;
+//    }
+//  }
+//}
+
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+  margin-left: 0;
+}
+
+.text-right {
+  text-align: right;
+  margin-right: 0;
+}
+
+@media (min-width: variables.$tablet) {
+  .text-center-tablet {
+    text-align: center;
+  }
+  .text-left-tablet {
+    text-align: left;
+  }
+  .text-right-tablet {
+    text-align: right;
+  }
+}
+
+@media (min-width: variables.$desktop) {
+  .text-center-desktop {
+    text-align: center;
+  }
+  .text-left-desktop {
+    text-align: left;
+  }
+  .text-right-desktop {
+    text-align: right;
+  }
+}
+
+
+.text-block {
+  margin: auto;
+  max-width: variables.$textMaxWidth;
+  padding: 0 0 1rem;
+}
+
+.strong, strong {
+  font-weight: 700;
+}
+
+.text-primary {
+
+  color: variables.$primaryColor;
+}
+
+.text-secondary {
+  color: variables.$accentColor;
+}
+
+

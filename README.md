@@ -1,70 +1,135 @@
-<br/>
-<p align="center">
-    <a href="https://sulu.io/" target="_blank">
-        <img width="50%" src="https://sulu.io/website/images/sulu.svg" alt="Sulu logo">
-    </a>
-</p>
+# ODSCT
 
-<br/>
-<p align="center">
-    <a href="LICENSE" target="_blank">
-        <img src="https://img.shields.io/github/license/sulu/skeleton.svg" alt="GitHub license">
-    </a>
-    <a href="https://github.com/sulu/skeleton/releases" target="_blank">
-        <img src="https://img.shields.io/github/tag/sulu/skeleton.svg" alt="GitHub tag (latest SemVer)">
-    </a>
-    <a href="https://github.com/sulu/skeleton/actions" target="_blank">
-        <img src="https://img.shields.io/github/workflow/status/sulu/skeleton/Test%20application.svg?label=test-workflow" alt="Test workflow status">
-    </a>
-</p>
-<br/>
+> **Lineage:** based on the `sulu-init-3` bootstrap (`sulu-init` family). This is a standalone project copy — backport shared, project-agnostic improvements upstream, not project-specific ones.
 
-[Sulu](https://sulu.io/) is a highly extensible open-source **PHP content management system based** on the [Symfony](https://symfony.com/) framework. Sulu is developed to deliver robust **multi-lingual and multi-portal websites** while providing an **intuitive and extensible administration interface** to manage the full content lifecycle. 
+**Stack:** Sulu ~3.0, Symfony ^7.4, PHP ^8.2, Vue 3 + Vite + TypeScript, SCSS, API Platform, PostgreSQL 15.
 
-Have a look at the official [Sulu website](https://sulu.io/) for a comprehensive list of Sulus features, core values and use cases. 
+---
 
-<br/>
-<p align="center">
-    <img width="80%" src="https://sulu.io/uploads/media/800x@2x/07/167-ezgif.gif?v=2" alt="Sulu Slideshow">
-</p>
-<br/>
+## Local development
 
-This repository provides the recommended **project template for starting your new project based on the Sulu content management system**.
-The project template follows the best-practices of the [Symfony](https://symfony.com/) framework and builds upon tho official [symfony/skeleton](https://github.com/symfony/skeleton) template. In addition, it requires and configures the Sulu content management system core framework [sulu/sulu](https://github.com/sulu/sulu).
+### Requirements
 
-If you want to **extend your already set up Sulu project**, visit the [Sulu organization](https://github.com/sulu) on GitHub for a complete list of official Sulu bundles.
+- Docker + Docker Compose
 
+No local PHP or Node required — everything runs in containers.
 
-## 🚀&nbsp; Installation and Documentation
-
-Starting a new Sulu project with the [sulu/skeleton](https://github.com/sulu/skeleton) template is as easy as executing the following [composer](https://getcomposer.org/) command: 
+### Starting up
 
 ```bash
-composer create-project sulu/skeleton my-project
+docker compose up -d
 ```
 
-Afterwards, visit the official [Sulu documentation](http://docs.sulu.io/en/latest/book/getting-started.html) to find out **how to initialize and configure your project** to your specific needs.
+On first start the `web` container runs `composer install`, database migrations, and `php-fpm`. The `asset-builder` container runs `npm install` and starts the Vite dev server automatically.
 
+Add the entries from `hosts.example` to `/etc/hosts` first.
 
-## ❤️&nbsp; Community and Contributions
+| URL | Service |
+|---|---|
+| `http://odsct.local` | Website frontend |
+| `http://odsct.local/admin` | Sulu admin |
+| `http://adminer.odsct.local` | Adminer (database UI) |
+| `http://mailer.odsct.local` | Mailpit (local mail catcher) |
+| `http://vite.odsct.local` | Vite HMR dev server |
 
-The Sulu content management system is a **community-driven open source project** backed by various partner companies. We are committed to a fully transparent development process and **highly appreciate any contributions**. Whether you are helping us fixing bugs, proposing new feature, improving our documentation or spreading the word - **we would love to have you as part of the Sulu community**.
+### Initialize Sulu
 
+Creates default pages, roles, and settings (first-time setup only):
 
-## 📫&nbsp; Have a question? Want to chat? Run into a problem?
+```bash
+make sulu-init
+```
 
-We are happy to welcome you in our official [Slack channel](https://sulu.io/services-and-support)! Obviously you can always **reach out to us directly** via the [Sulu twitter account](https://twitter.com/sulu) or post your question on [StackOverflow](https://stackoverflow.com/questions/tagged/sulu) with the official `sulu` tag.
+Then open `http://odsct.local/admin`, log in with the default credentials, and create the required `websiteConfig` snippet (see `docs/`).
 
+### Useful commands
 
-## 🤝&nbsp; Found a bug? Missing a specific feature?
+```bash
+# Run Symfony console commands
+docker compose exec web bin/console <command>
 
-Feel free to **file a new issue** with a respective title and description on the the [sulu/sulu](https://github.com/sulu/sulu/issues) repository. If you already found a solution to your problem, **we would love to review your pull request**! Have a look at our [contribution guidelines](http://docs.sulu.io/en/latest/developer/contributing/) to find out about our coding standards.
+# Install a Composer package
+docker compose exec web composer require <package>
 
+# Install an npm package (odsct assets)
+docker compose exec asset-builder npm install <package>
 
-## ✅&nbsp; Requirements
+# Production asset build
+make build
 
-Sulu requires a **PHP version higher or equal to 7.2** and is compatible with every **Symfony version starting from 4.3**. Have a look at the `require` section in the [composer.json](https://github.com/sulu/sulu/blob/2.x/composer.json) of the [sulu/sulu](https://github.com/sulu/sulu) core framework to find an **up-to-date list of the requirements** of Sulu content management system.
+# TypeScript + lint check
+make check
 
+# Re-initialize Sulu (wipes and rebuilds default content)
+make sulu-init
+```
 
-## 📘&nbsp; License
-The Sulu content management system is released under the under terms of the [MIT License](LICENSE).
+### Sulu Admin JS build
+
+The admin frontend uses a separate Webpack build, run in a temporary Node container (not the `asset-builder`). See [docs/sulu-admin-build.md](docs/sulu-admin-build.md) for the full workflow.
+
+---
+
+## Project structure
+
+```
+assets/
+  common/           # Shared JS, SCSS, Vue
+    js/
+      blocks/       # JS behavior for individual blocks
+      layout/       # Header, footer, carousel, etc.
+      utils/        # Exported utility functions
+    styles/
+      blocks/       # Block-scoped styles
+      components/   # Reusable UI components
+      layout/       # Layout-level styles
+      base/         # Variables, resets, typography
+      fonts/        # Font definitions
+    vue/            # Vue apps, plugins, stores
+  odsct/            # odsct webspace entry points (app.ts, app.scss)
+  admin/            # Sulu admin JS (Webpack, separate build)
+
+config/
+  webspaces/        # Webspace definitions (odsct.xml)
+  templates/
+    blocks/         # Block field definitions (.xml)
+    snippets/       # Snippet field definitions (.xml)
+    pages/          # Page template field definitions (.xml)
+
+templates/
+  blocks/           # Block Twig templates
+  layout/           # Layout partials (header, footer, etc.)
+  webspace/         # Root templates per webspace (odsct.html.twig)
+
+src/
+  ApiResource/      # API Platform resources
+  Controller/       # Symfony controllers
+  DTO/              # Data Transfer Objects
+  Entity/           # Doctrine entities
+  Service/          # Application services
+  Sulu/Admin/       # Sulu admin customizations
+```
+
+### Webspace
+
+Single webspace: **`odsct`**.
+
+| | odsct |
+|---|---|
+| JS entry | `assets/odsct/app.ts` |
+| SCSS entry | `assets/odsct/app.scss` |
+| Variables | `assets/odsct/styles/base/variables.scss` |
+| Root template | `templates/webspace/odsct.html.twig` |
+
+All shared code lives in `assets/common/` and is wired into the `odsct` entry point.
+
+### Block anatomy
+
+Every block has 4 parts that must be kept consistent:
+
+1. `config/templates/blocks/<name>.xml` — Sulu field definitions
+2. `templates/blocks/<name>.html.twig` — HTML structure and CSS class names
+3. `assets/common/styles/blocks/<name>.scss` — styles, keyed to Twig classes
+4. `assets/common/js/blocks/<name>.ts` — JS behavior, selectors must match the Twig
+
+The Twig template is the source of truth for class names and DOM structure.

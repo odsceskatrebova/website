@@ -6,3 +6,12 @@ sulu_admin:
     lists:
         directories:
             - "%kernel.project_dir%/config/lists"
+    resources:
+        leads:
+            routes:
+                list: app.get_leads
+                detail: app.get_lead
+        cookieConsents:
+            routes:
+                list: app.get_cookie_consents
+                detail: app.get_cookie_consent

@@ -1,0 +1,47 @@
+@use 'variables.scss';
+
+html, body, p, h1, h2, h3, h4, h5 {
+  line-height: 130%;
+  margin: 0;
+  padding: 0;
+  font-family: variables.$defaultFont;
+  font-weight: 400;
+  position: relative;
+  word-break: break-word;
+}
+
+body {
+  color: variables.$textColor;
+  background: variables.$background;
+  min-height: 100vh;
+  font-size: .875rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img, video {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+
+  &.rounded {
+    border-radius: variables.$borderRadius;
+  }
+
+  &.card {
+    //border: 1px solid transparentize(variables.$dark, .92);
+    box-shadow: 0 2.5rem 3.5rem -2rem #00000015;
+  }
+}
+
+
+.hidden {
+  display: none;
+}
+
+.container-inline {
+  container-type: inline-size;
+}
+

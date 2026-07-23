@@ -1,0 +1,150 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>website-config</key>
+
+    <meta>
+        <title lang="en">Website config</title>
+    </meta>
+
+    <areas>
+        <area key="websiteConfig" cache-invalidation="true">
+            <meta>
+                <title>Website config area</title>
+            </meta>
+        </area>
+    </areas>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true" colspan="6">
+            <meta>
+                <title lang="en">Title</title>
+            </meta>
+            <tag name="sulu.node.name"/>
+        </property>
+        <property name="logo" type="text_area" colspan="6">
+            <meta>
+                <title lang="en">Logo</title>
+                <info_text lang="en">Use svg as text</info_text>
+            </meta>
+        </property>
+
+
+        <section name="header">
+            <meta>
+                <title lang="en">Header</title>
+            </meta>
+            <properties>
+                <property name="ctaText" type="text_line" mandatory="true" colspan="3">
+                    <meta>
+                        <title lang="en">CTA text</title>
+                    </meta>
+                </property>
+                <property name="ctaLink" type="single_page_selection" colspan="3">
+                    <meta>
+                        <title lang="en">Link</title>
+                    </meta>
+                    <params>
+                        <param name="properties" type="collection">
+                            <param name="title" value="title"/>
+                            <param name="excerptTitle" value="excerpt.title"/>
+                            <param name="uuid" value="object.resource.id"/>
+                        </param>
+
+                    </params>
+                </property>
+                <property name="mainContact" type="text_editor" colspan="6">
+                    <meta>
+                        <title lang="en">Main contact</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <section name="footer">
+            <meta>
+                <title lang="en">Footer</title>
+            </meta>
+            <properties>
+                <property name="copyrightText" type="text_line" colspan="3">
+                    <meta>
+                        <title lang="en">Copyright text</title>
+                        <info_text lang="en">Use %Y% as variable for year.</info_text>
+                    </meta>
+                </property>
+                <property name="gdprLink" type="link" colspan="3">
+                    <meta>
+                        <title lang="en">GDPRLink</title>
+                    </meta>
+                </property>
+
+                <block name="footerSocialIcons" default-type="socialIcon">
+                    <meta>
+                        <title lang="en">Social icons</title>
+                    </meta>
+                    <params>
+                        <param name="add_button_text">
+                            <meta>
+                                <title lang="en">Add social icon</title>
+                            </meta>
+                        </param>
+                        <param name="block_id_generator" value="true"/>
+                    </params>
+                    <types>
+                        <type name="socialIcon">
+                            <meta>
+                                <title lang="en">Social icon</title>
+                            </meta>
+                            <properties>
+                                <property name="icon" type="text_area" colspan="6">
+                                    <meta>
+                                        <title lang="en">Icon</title>
+                                        <info_text lang="en">Use svg as text</info_text>
+                                    </meta>
+                                </property>
+                                <property name="link" type="link" colspan="6">
+                                    <meta>
+                                        <title lang="en">Link</title>
+                                    </meta>
+                                    <tag name="sulu.block_preview" priority="1024"/>
+                                    <params>
+                                        <param name="types" type="collection">
+                                            <param name="external"/>
+                                        </param>
+                                    </params>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+
+                <block name="footerContent" default-type="text-block">
+                    <meta>
+                        <title lang="en">Footer content</title>
+                    </meta>
+                    <params>
+                        <param name="add_button_text">
+                            <meta>
+                                <title lang="en">Add content</title>
+                            </meta>
+                        </param>
+                        <param name="block_id_generator" value="true"/>
+                    </params>
+                    <types>
+                        <type ref="text-block" />
+                        <type ref="image-block" />
+                        <type ref="grid-block" />
+                        <type ref="flex-block" />
+                        <type ref="button-block" />
+                        <type ref="content-snippet-block" />
+                        <type ref="divider-block" />
+                    </types>
+                </block>
+
+            </properties>
+        </section>
+    </properties>
+
+</template>
