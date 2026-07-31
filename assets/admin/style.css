@@ -15,3 +15,25 @@
 /* Pen highlights */
 .ck.ck-editor .ck.ck-content mark.pen-primary { background: none; color: #1B5E8A; font-weight: 700; }
 .ck.ck-editor .ck.ck-content mark.pen-accent  { background: none; color: #5BB8D4; font-weight: 700; }
+
+/* Utility classes — mono kicker pills + handwritten accent */
+.ck.ck-editor .ck.ck-content .chip-primary,
+.ck.ck-editor .ck.ck-content .chip-accent {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  line-height: 1;
+  padding: 8px 14px;
+  border-radius: 100px;
+}
+.ck.ck-editor .ck.ck-content .chip-primary { background: #04408F; color: #FFFFFF; }
+.ck.ck-editor .ck.ck-content .chip-accent  { background: #F28C1E; color: #3A2405; }
+
+.ck.ck-editor .ck.ck-content .handwritten {
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  line-height: 1.2;
+  color: #F28C1E;
+}
