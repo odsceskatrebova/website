@@ -1,7 +1,7 @@
 {% if data.total %}
-    {% set total = data.total|int %}
-    {% set won = data.won|default(0)|int %}
-    {% set target = data.target|default(0)|int %}
+    {% set total = data.total|round(0, 'floor') %}
+    {% set won = data.won|default(0)|round(0, 'floor') %}
+    {% set target = data.target|default(0)|round(0, 'floor') %}
     <div id="{{ data.id }}" class="seat-progress-block {{ data.classes }}" {{ sulu_block_preview(data) }}>
         {% for i in 1..total %}
             {% if i <= won %}
