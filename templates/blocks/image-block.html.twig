@@ -76,7 +76,7 @@
     {% set aspectRatio = data.aspectRatio ? 'aspect-ratio: ' ~ data.aspectRatio ~ ';' : 'aspect-ratio: 2 / 3;' %}
     <div
             id="{{ data.id }}"
-            class="image-placeholder {{ data.classes }}"
+            class="image-block image-placeholder {{ data.classes }}"
             style="{{ maxWidth }} {{ maxHeight }} {{ aspectRatio }}"
             aria-hidden="true"
             {{ sulu_block_preview(data) }}
