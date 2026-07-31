@@ -150,7 +150,6 @@
             </params>
             <types>
                 <type ref="glow-block"/>
-                <type ref="pattern-block"/>
                 <type name="image-block">
                     <meta>
                         <title lang="en">image block</title>

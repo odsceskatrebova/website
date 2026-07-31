@@ -23,8 +23,6 @@
         {% if element.type == 'glow-block' %}
             {# the card crops everything (overflow:hidden), so glows are always cropped → no parallax #}
             {% include 'blocks/_glow.html.twig' with { glow: element, cropped: true } only %}
-        {% elseif element.type == 'pattern-block' %}
-            {% include 'blocks/_pattern.html.twig' with { pattern: element, cropped: true } only %}
         {% elseif element.type == 'image-block' %}
             {% set s = [] %}
             {% if element.top %}{% set s = s|merge(['top: ' ~ element.top]) %}{% endif %}

@@ -261,9 +261,6 @@
     {% elseif element.type == 'glow-block' %}
       {% include 'blocks/_glow.html.twig' with { glow: element, cropped: false } only %}
 
-    {% elseif element.type == 'pattern-block' %}
-      {% include 'blocks/_pattern.html.twig' with { pattern: element, cropped: false } only %}
-
     {% elseif element.type == 'line-block' %}
       {% set s = [] %}
       {% if element.top %}{% set s = s|merge(['top: ' ~ element.top]) %}{% endif %}
