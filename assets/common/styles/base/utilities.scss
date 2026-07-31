@@ -1,0 +1,33 @@
+@use 'variables.scss';
+
+// Editorial utility classes for text-blocks — mono kicker pills and a
+// handwritten accent. Webspace-agnostic: colors/fonts via tokens only.
+
+.chip-primary,
+.chip-accent {
+  display: inline-block;
+  font-family: variables.$monoFont;
+  text-transform: uppercase;
+  letter-spacing: .125rem;
+  font-size: .8125rem;
+  line-height: 1;
+  padding: .5rem .875rem;
+  border-radius: 6.25rem;
+}
+
+.chip-primary {
+  background: variables.$primaryColor;
+  color: variables.$contrastToPrimaryColor;
+}
+
+.chip-accent {
+  background: variables.$accentColor;
+  color: variables.$contrastToAccentColor;
+}
+
+.handwritten {
+  font-family: variables.$handwrittenFont;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: variables.$accentColor;
+}
