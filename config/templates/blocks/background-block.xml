@@ -285,6 +285,7 @@
                 <type ref="empty-block" />
                 <type ref="carousel-reference-block" />
                 <type ref="card-block" />
+                <type ref="seat-progress-block" />
             </types>
         </block>
 

@@ -1,0 +1,19 @@
+{% if data.total %}
+    {% set total = data.total|int %}
+    {% set won = data.won|default(0)|int %}
+    {% set target = data.target|default(0)|int %}
+    <div id="{{ data.id }}" class="seat-progress-block {{ data.classes }}" {{ sulu_block_preview(data) }}>
+        {% for i in 1..total %}
+            {% if i <= won %}
+                <span class="dot is-won"></span>
+            {% elseif i <= target %}
+                <span class="dot is-target"></span>
+            {% else %}
+                <span class="dot is-rest"></span>
+            {% endif %}
+        {% endfor %}
+        {% if data.label %}
+            <span class="label">{{ data.label }}</span>
+        {% endif %}
+    </div>
+{% endif %}

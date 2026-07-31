@@ -97,6 +97,7 @@
                 <type ref="text-block" />
                 <type ref="image-block" />
                 <type ref="icon-block" />
+                <type ref="seat-progress-block" />
                 <type ref="grid-block" />
                 <type ref="background-block" />
                 <type ref="content-snippet-block" />

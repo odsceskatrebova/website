@@ -11,6 +11,8 @@
 
             <type ref="icon-block" />
 
+            <type ref="seat-progress-block" />
+
             <type ref="flex-block" />
 
             <type ref="button-block" />

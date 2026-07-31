@@ -13,6 +13,10 @@
     <div class="container">
       {% include 'blocks/icon-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
     </div>
+  {% elseif block.type == 'seat-progress-block' %}
+    <div class="container">
+      {% include 'blocks/seat-progress-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
   {% elseif block.type == 'grid-block' %}
     <div class="container">
       {% include 'blocks/grid-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}

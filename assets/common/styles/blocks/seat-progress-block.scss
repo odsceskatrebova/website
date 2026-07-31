@@ -1,0 +1,27 @@
+@use "../base/variables.scss";
+
+.seat-progress-block {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+
+  .dot {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+
+    &.is-won { background-color: variables.$primaryColor; }
+    &.is-target { background-color: variables.$accentColor; }
+    &.is-rest { background-color: variables.$border; }
+  }
+
+  .label {
+    margin-left: .5rem;
+    font-size: .75rem;
+    letter-spacing: .05rem;
+    color: variables.$grey;
+  }
+}

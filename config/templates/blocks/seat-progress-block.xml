@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>seat-progress-block</key>
+
+    <meta>
+        <title lang="en">seat progress block</title>
+    </meta>
+
+    <properties>
+        <property name="sulu-display-name" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">id</title>
+            </meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">classes</title>
+            </meta>
+        </property>
+        <property name="total" type="number" colspan="2">
+            <meta>
+                <title lang="en">total</title>
+            </meta>
+            <params>
+                <param name="min" value="1"/>
+                <param name="max" value="99"/>
+                <param name="default_value" value="21"/>
+            </params>
+        </property>
+        <property name="won" type="number" colspan="2">
+            <meta>
+                <title lang="en">won</title>
+            </meta>
+            <params>
+                <param name="min" value="0"/>
+            </params>
+        </property>
+        <property name="target" type="number" colspan="2">
+            <meta>
+                <title lang="en">target</title>
+            </meta>
+            <params>
+                <param name="min" value="0"/>
+            </params>
+        </property>
+        <property name="label" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">label</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="256"/>
+        </property>
+    </properties>
+
+</template>
