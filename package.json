@@ -27,6 +27,7 @@
     "dependencies": {
         "@fontsource/roboto": "^5.2.10",
         "@mdi/font": "^7.4.47",
+        "lucide": "*",
         "pinia": "^3.0.4",
         "pinia-plugin-persistedstate": "^4.7.1",
         "vee-validate": "^4.15.1",
