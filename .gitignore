@@ -9,6 +9,7 @@
 /vendor/
 /volumes/
 packages
+/design/
 ###< symfony/framework-bundle ###
 ###> phpunit/phpunit ###
 /phpunit.xml
