@@ -1,0 +1,10 @@
+// odsct display headings (h1–h4) use $displayFont = "Archivo Black", a single-weight
+// face. The design applies no font-weight to them — the heavy display look IS the
+// face's natural weight. Neutralize the bootstrap's roboto-tuned 300/700 so the
+// display face renders true, instead of browser-synthesized faux-bold/faux-light.
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4 {
+  font-weight: 400;
+}

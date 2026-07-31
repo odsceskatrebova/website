@@ -4,6 +4,9 @@
 @use "../common/styles/base/resets.scss";
 @use "../common/styles/base/typography.scss";
 @use "../common/styles/base/utilities.scss";
+// odsct: override common heading weights so Archivo Black renders at its natural
+// weight (must come after common typography.scss to win the equal-specificity cascade)
+@use 'styles/base/typography-overrides.scss';
 @use "../common/styles/base/display.scss";
 @use "../common/styles/base/margins.scss";
 @use "../common/styles/base/errors.scss";
