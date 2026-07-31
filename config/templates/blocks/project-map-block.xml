@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>project-map-block</key>
+
+    <meta>
+        <title lang="en">project map</title>
+    </meta>
+
+    <properties>
+        <property name="sulu-display-name" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">id</title>
+            </meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">classes</title>
+            </meta>
+        </property>
+
+        <property name="image" type="single_media_selection" colspan="6">
+            <meta>
+                <title lang="en">image</title>
+            </meta>
+        </property>
+        <property name="height" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">height (blank = 26.25rem)</title>
+            </meta>
+        </property>
+        <property name="link" type="link" colspan="3">
+            <meta>
+                <title lang="en">link</title>
+            </meta>
+            <params>
+                <param name="enable_anchor" value="true"/>
+            </params>
+        </property>
+
+        <block name="projects" default-type="project">
+            <meta>
+                <title lang="en">projects</title>
+            </meta>
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title lang="en">Add project</title>
+                    </meta>
+                </param>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+                <type name="project">
+                    <meta>
+                        <title lang="en">project</title>
+                    </meta>
+                    <properties>
+                        <property name="number" type="text_line" colspan="2">
+                            <meta>
+                                <title lang="en">number (or ★)</title>
+                            </meta>
+                        </property>
+                        <property name="label" type="text_line" colspan="4">
+                            <meta>
+                                <title lang="en">label</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="512"/>
+                        </property>
+                        <property name="year" type="text_line" colspan="2">
+                            <meta>
+                                <title lang="en">year</title>
+                            </meta>
+                        </property>
+                        <property name="tone" type="single_select" colspan="2">
+                            <meta>
+                                <title lang="en">tone</title>
+                            </meta>
+                            <params>
+                                <param name="default_value" value="default"/>
+                                <param name="values" type="collection">
+                                    <param name="default"><meta><title lang="en">default</title></meta></param>
+                                    <param name="highlight"><meta><title lang="en">highlight</title></meta></param>
+                                </param>
+                            </params>
+                        </property>
+                        <property name="x" type="text_line" colspan="1">
+                            <meta>
+                                <title lang="en">x (e.g. 22%)</title>
+                            </meta>
+                        </property>
+                        <property name="y" type="text_line" colspan="1">
+                            <meta>
+                                <title lang="en">y (e.g. 16%)</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
+    </properties>
+
+</template>

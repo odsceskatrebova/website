@@ -67,6 +67,10 @@
     <div class="container">
       {% include 'blocks/timeline-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
     </div>
+  {% elseif block.type == 'project-map-block' %}
+    <div class="container">
+      {% include 'blocks/project-map-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
   {% else %}
     <div class="error-box">
       missing block: {{ block.type }}

@@ -114,6 +114,7 @@
                 <type ref="masonry-gallery-block" />
                 <type ref="newsletter-subscribe-block" />
                 <type ref="timeline-block" />
+                <type ref="project-map-block" />
             </types>
         </block>
     </properties>

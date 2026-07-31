@@ -1,0 +1,22 @@
+{% set openingTag = (data.link) ? 'a href="' ~ data.link ~ '"' : 'div' %}
+{% set closingTag = (data.link) ? 'a' : 'div' %}
+
+<{{ openingTag | raw }}
+  id="{{ data.id }}"
+  class="project-map-block {{ data.link ? 'link' : '' }} {{ data.classes }}"
+  style="{{ data.height ? 'height: ' ~ data.height ~ ';' : '' }}"
+  {{ sulu_block_preview(data) }}
+>
+  {% if data.image %}
+    <img class="map-image" src="{{ data.image.thumbnails['full'] }}" alt="{{ data.image.title }}">
+  {% else %}
+    <div class="map-placeholder" aria-hidden="true"></div>
+  {% endif %}
+
+  {% for project in data.projects|default([]) %}
+    <div class="pin pin-{{ project.tone|default('default') }}" style="left: {{ project.x }}; top: {{ project.y }};">
+      <span class="pin-circle">{{ project.number }}</span>
+      <span class="pin-chip">{{ project.label }}{{ project.year ? ' · ' ~ project.year : '' }}</span>
+    </div>
+  {% endfor %}
+</{{ closingTag }}>

@@ -286,6 +286,7 @@
                 <type ref="carousel-reference-block" />
                 <type ref="card-block" />
                 <type ref="seat-progress-block" />
+                <type ref="project-map-block" />
             </types>
         </block>
 
