@@ -306,6 +306,10 @@
             {% include 'blocks/carousel-reference-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
           {% elseif block.type == 'card-block' %}
             {% include 'blocks/card-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+          {% elseif block.type == 'seat-progress-block' %}
+            {% include 'blocks/seat-progress-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+          {% elseif block.type == 'project-map-block' %}
+            {% include 'blocks/project-map-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
           {% else %}
             <div class="error-box">missing block: {{ block.type }}</div>
           {% endif %}
