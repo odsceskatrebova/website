@@ -1,0 +1,17 @@
+{% if data.icon %}
+    {% set sizeClass = data.size ? 'size-' ~ data.size : 'size-md' %}
+    {% set colorClass = (data.colorStyle and data.colorStyle != 'default') ? 'color-' ~ data.colorStyle : '' %}
+    {% set displayClass = data.display ? 'display-' ~ data.display : '' %}
+
+    {% if data.wrapper %}
+        {% set wrapperStyleClass = data.wrapperStyle ? 'wrapper-style-' ~ data.wrapperStyle : 'wrapper-style-rounded' %}
+        {% set wrapperColorClass = data.wrapperColor ? 'wrapper-color-' ~ data.wrapperColor : '' %}
+        {% set wrapperSize = data.wrapperSize ? data.wrapperSize : '3.25' %}
+        {% set wrapperSizeStyle = 'width:' ~ wrapperSize ~ 'rem;height:' ~ wrapperSize ~ 'rem;' %}
+        <span id="{{ data.id }}" class="icon-block-wrapper {{ wrapperStyleClass }} {{ wrapperColorClass }} {{ data.classes }}" style="{{ wrapperSizeStyle }}" {{ sulu_block_preview(data) }}>
+            <i data-lucide="{{ data.icon }}" class="icon-block {{ sizeClass }} {{ colorClass }}"></i>
+        </span>
+    {% else %}
+        <i id="{{ data.id }}" data-lucide="{{ data.icon }}" class="icon-block {{ sizeClass }} {{ colorClass }} {{ displayClass }} {{ data.classes }}" {{ sulu_block_preview(data) }}></i>
+    {% endif %}
+{% endif %}

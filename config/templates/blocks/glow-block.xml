@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>glow-block</key>
+
+    <meta>
+        <title lang="en">Glow</title>
+    </meta>
+
+    <properties>
+        <property name="glowColor" type="single_select" colspan="3">
+            <meta><title lang="en">Colour</title></meta>
+            <tag name="sulu.block_preview" priority="512"/>
+            <params>
+                <param name="default_value" value="brand"/>
+                <param name="values" type="collection">
+                    <param name="brand"><meta><title lang="en">Brand (blue)</title></meta></param>
+                    <param name="indigo"><meta><title lang="en">Indigo</title></meta></param>
+                    <param name="green"><meta><title lang="en">Green</title></meta></param>
+                    <param name="shadow"><meta><title lang="en">Shadow (dark)</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="intensity" type="single_select" colspan="3">
+            <meta><title lang="en">Intensity</title></meta>
+            <params>
+                <param name="default_value" value="normal"/>
+                <param name="values" type="collection">
+                    <param name="soft"><meta><title lang="en">Soft</title></meta></param>
+                    <param name="normal"><meta><title lang="en">Normal</title></meta></param>
+                    <param name="strong"><meta><title lang="en">Strong</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="width" type="text_line" colspan="3"><meta><title lang="en">width (e.g. 30rem)</title></meta></property>
+        <property name="height" type="text_line" colspan="3"><meta><title lang="en">height</title></meta></property>
+        <property name="top" type="text_line" colspan="3"><meta><title lang="en">top</title></meta></property>
+        <property name="left" type="text_line" colspan="3"><meta><title lang="en">left</title></meta></property>
+        <property name="right" type="text_line" colspan="3"><meta><title lang="en">right</title></meta></property>
+        <property name="bottom" type="text_line" colspan="3"><meta><title lang="en">bottom</title></meta></property>
+        <property name="blur" type="text_line" colspan="3"><meta><title lang="en">blur (default 72px)</title></meta></property>
+        <property name="depth" type="text_line" colspan="3">
+            <meta><title lang="en">parallax depth (0–1, blank = none)</title></meta>
+        </property>
+    </properties>
+
+</template>

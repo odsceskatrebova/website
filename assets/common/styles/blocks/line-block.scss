@@ -1,0 +1,65 @@
+@use "../base/variables.scss";
+
+.line-block {
+  background: variables.$grey;
+  color: variables.$grey;
+  overflow: hidden;
+
+  &.horizontal {
+    height: 2px;
+    min-width: 1rem;
+
+    &.dashed {
+      background: repeating-linear-gradient(
+                      to right,
+                      currentColor 0 6px, // dash length
+                      transparent 6px 12px // gap length
+      );
+    }
+
+    &.stretch {
+      flex: 1;
+    }
+  }
+
+  &.vertical {
+    min-height: 1rem;
+    width: 2px;
+
+    &.stretch {
+      align-self: stretch;
+    }
+
+    &.dashed {
+      background: repeating-linear-gradient(
+                      to bottom,
+                      currentColor 0 6px, // dash length
+                      transparent 6px 12px // gap length
+      );
+    }
+  }
+
+  &.white {
+    background: #FFFFFF;
+    color: #FFFFFF;
+  }
+
+  &.black {
+    background: #000000;
+    color: #000000;
+  }
+
+  &.primary {
+    background: variables.$primaryColor;
+    color: variables.$primaryColor;
+  }
+
+  &.accent {
+    background: variables.$accentColor;
+    color: variables.$accentColor;
+  }
+
+  &.grad-blue {
+    background: variables.$gradBlue;
+  }
+}

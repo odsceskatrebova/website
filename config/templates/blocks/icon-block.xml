@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>icon-block</key>
+
+    <meta>
+        <title lang="en">Icon</title>
+    </meta>
+
+    <properties>
+        <property name="sulu-display-name" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">id</title>
+            </meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">classes</title>
+            </meta>
+        </property>
+        <property name="icon" type="text_line" colspan="12">
+            <meta>
+                <title lang="en">Lucide icon name (star, house, check)</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="display" type="single_select" colspan="4">
+            <meta><title lang="en">display</title></meta>
+            <params>
+                <param name="default_value" value="inline-block"/>
+                <param name="values" type="collection">
+                    <param name="inline-block"><meta><title lang="en">inline-block</title></meta></param>
+                    <param name="block"><meta><title lang="en">block</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="size" type="single_select" colspan="4">
+            <meta><title lang="en">size</title></meta>
+            <params>
+                <param name="default_value" value="md"/>
+                <param name="values" type="collection">
+                    <param name="xs"><meta><title lang="en">XS (0.875rem)</title></meta></param>
+                    <param name="sm"><meta><title lang="en">S (1.125rem)</title></meta></param>
+                    <param name="md"><meta><title lang="en">M (1.5rem)</title></meta></param>
+                    <param name="lg"><meta><title lang="en">L (2rem)</title></meta></param>
+                    <param name="xl"><meta><title lang="en">XL (3rem)</title></meta></param>
+                    <param name="2xl"><meta><title lang="en">2XL (4rem)</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="colorStyle" type="single_select" colspan="4">
+            <meta><title lang="en">color</title></meta>
+            <params>
+                <param name="default_value" value="default"/>
+                <param name="values" type="collection">
+                    <param name="default"><meta><title lang="en">Default (inherit)</title></meta></param>
+                    <param name="primary"><meta><title lang="en">Primary</title></meta></param>
+                    <param name="accent"><meta><title lang="en">Accent</title></meta></param>
+                    <param name="green"><meta><title lang="en">Green</title></meta></param>
+                    <param name="white"><meta><title lang="en">White</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="wrapper" type="checkbox" colspan="2">
+            <meta><title lang="en">add wrapper</title></meta>
+            <params>
+                <param name="default_value" value="false"/>
+                <param name="type" value="toggler"/>
+            </params>
+        </property>
+        <property name="wrapperStyle" type="single_select" colspan="3">
+            <meta><title lang="en">wrapper shape</title></meta>
+            <params>
+                <param name="default_value" value="rounded"/>
+                <param name="values" type="collection">
+                    <param name="rounded"><meta><title lang="en">Rounded</title></meta></param>
+                    <param name="circle"><meta><title lang="en">Circle</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="wrapperSize" type="text_line" colspan="3">
+            <meta><title lang="en">wrapper size [rem]</title></meta>
+            <params>
+                <param name="default_value" value="3.25"/>
+            </params>
+        </property>
+        <property name="wrapperColor" type="single_select" colspan="4">
+            <meta><title lang="en">wrapper color</title></meta>
+            <params>
+                <param name="default_value" value="soft"/>
+                <param name="values" type="collection">
+                    <param name="soft"><meta><title lang="en">Soft (light blue)</title></meta></param>
+                    <param name="light"><meta><title lang="en">Light grey</title></meta></param>
+                    <param name="subtle"><meta><title lang="en">Subtle (semi-transparent dark)</title></meta></param>
+                    <param name="glass"><meta><title lang="en">Glass</title></meta></param>
+                    <param name="primary"><meta><title lang="en">Primary</title></meta></param>
+                    <param name="accent"><meta><title lang="en">Accent</title></meta></param>
+                    <param name="grad-blue"><meta><title lang="en">Blue gradient</title></meta></param>
+                </param>
+            </params>
+        </property>
+    </properties>
+
+</template>

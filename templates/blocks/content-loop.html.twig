@@ -9,6 +9,10 @@
     <div class="container">
       {% include 'blocks/image-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
     </div>
+  {% elseif block.type == 'icon-block' %}
+    <div class="container">
+      {% include 'blocks/icon-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+    </div>
   {% elseif block.type == 'grid-block' %}
     <div class="container">
       {% include 'blocks/grid-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}

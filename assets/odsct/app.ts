@@ -13,6 +13,8 @@ import '@common/js/layout/smooth-scroll.ts';
 import '@common/js/layout/welcome-popup.ts';
 import '@common/js/blocks/video-block.ts';
 import '@common/js/blocks/scrollable-video-block.ts';
+import { createIcons, icons } from 'lucide';
+createIcons({ icons });
 import { pinia } from '@common/vue/plugins/pinia';
 import { i18n } from '@common/vue/plugins/i18n';
 import { createGalleryView } from '@common/vue/apps/GalleryView.ts';

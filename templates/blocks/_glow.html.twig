@@ -1,0 +1,23 @@
+{#
+  Renders one glow from its fields — shared by BOTH background-block elements
+  (nested in a color-block or top-level) and card-block background elements.
+  Params:
+    glow    — block data (glowColor, intensity, width/height, top/left/right/bottom,
+              blur, depth)
+    cropped — bool. When true (glow nested inside a color-block, or inside a
+              card-block, which always crops) the parallax class is suppressed:
+              a composited (parallaxed) glow escapes the parent's overflow clip.
+              See assets/common/styles/components/glow.scss.
+#}
+{% set s = [] %}
+{% if glow.width %}{% set s = s|merge(['width: ' ~ glow.width]) %}{% endif %}
+{% if glow.height %}{% set s = s|merge(['height: ' ~ glow.height]) %}{% endif %}
+{% if glow.top %}{% set s = s|merge(['top: ' ~ glow.top]) %}{% endif %}
+{% if glow.left %}{% set s = s|merge(['left: ' ~ glow.left]) %}{% endif %}
+{% if glow.right %}{% set s = s|merge(['right: ' ~ glow.right]) %}{% endif %}
+{% if glow.bottom %}{% set s = s|merge(['bottom: ' ~ glow.bottom]) %}{% endif %}
+{% if glow.blur %}{% set s = s|merge(['--glow-blur: ' ~ glow.blur]) %}{% endif %}
+{% set parallax = (cropped is not defined or not cropped) and glow.depth %}
+{% if parallax %}{% set s = s|merge(['--depth: ' ~ glow.depth]) %}{% endif %}
+<div class="glow is-{{ glow.glowColor|default('brand') }} is-{{ glow.intensity|default('normal') }}{{ parallax ? ' parallax' : '' }}"
+     aria-hidden="true" style="{{ s|join('; ') }}"></div>

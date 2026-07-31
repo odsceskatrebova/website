@@ -1,0 +1,13 @@
+{% set styles = [] %}
+{% if data.orientation == 'vertical' %}
+    {% if data.length is defined %}
+        {% set styles = styles|merge(['height: ' ~ data.length]) %}
+    {% endif %}
+{% endif %}
+{% if data.orientation == 'horizontal' %}
+    {% if data.length is defined %}
+        {% set styles = styles|merge(['width: ' ~ data.length]) %}
+    {% endif %}
+{% endif %}
+
+<div class="line-block {{ data.orientation }} {{ data.style }} {{ data.color }} {{ data.stretch ? 'stretch' : '' }} {{ data.class }} {{ data.lineClasses }}" style="{{ styles | join('; ') }}">&nbsp;</div>

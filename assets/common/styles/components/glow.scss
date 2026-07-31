@@ -1,0 +1,24 @@
+@use "../base/variables.scss";
+
+// soft blurred radial blob; any brand tone, or a dark "shadow" tone
+// shared primitive — used by background-block and card-block; its size and
+// position come from inline styles emitted by each block's Twig
+.glow {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: var(--glow-opacity, .45);
+  filter: blur(var(--glow-blur, 72px));
+  // the 0-alpha stop uses the same hue to avoid a grey fringe
+  background: radial-gradient(circle, #{variables.$brand} 0%, rgba(variables.$brand, 0) 70%);
+
+  &.is-brand  { background: radial-gradient(circle, #{variables.$brand}  0%, rgba(variables.$brand,  0) 70%); }
+  &.is-indigo { background: radial-gradient(circle, #{variables.$indigo} 0%, rgba(variables.$indigo, 0) 70%); }
+  &.is-green  { background: radial-gradient(circle, #{variables.$green}  0%, rgba(variables.$green,  0) 70%); }
+  &.is-shadow { background: radial-gradient(circle, rgba(variables.$ink, .9) 0%, rgba(variables.$ink, 0) 70%); }
+
+  &.is-soft   { opacity: .22; }
+  &.is-normal { opacity: .45; }
+  &.is-strong { opacity: .7; }
+}

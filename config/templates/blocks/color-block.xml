@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>color-block</key>
+
+    <meta>
+        <title lang="en">Colour panel</title>
+    </meta>
+
+    <properties>
+        <property name="fill" type="single_select" colspan="3">
+            <meta><title lang="en">Fill</title></meta>
+            <tag name="sulu.block_preview" priority="512"/>
+            <params>
+                <param name="default_value" value="navy"/>
+                <param name="values" type="collection">
+                    <param name="navy"><meta><title lang="en">Navy</title></meta></param>
+                    <param name="navyDeep"><meta><title lang="en">Navy deep</title></meta></param>
+                    <param name="brand"><meta><title lang="en">Brand</title></meta></param>
+                    <param name="brandDeep"><meta><title lang="en">Brand deep</title></meta></param>
+                    <param name="indigo"><meta><title lang="en">Indigo</title></meta></param>
+                    <param name="green"><meta><title lang="en">Green</title></meta></param>
+                    <param name="greenForest"><meta><title lang="en">Green forest</title></meta></param>
+                    <param name="soft"><meta><title lang="en">Soft grey</title></meta></param>
+                    <param name="frost"><meta><title lang="en">Frost</title></meta></param>
+                    <param name="white"><meta><title lang="en">White</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="radius" type="text_line" colspan="3"><meta><title lang="en">corner radius (e.g. 1.5rem)</title></meta></property>
+        <property name="depth" type="text_line" colspan="3"><meta><title lang="en">parallax depth (0–1)</title></meta></property>
+
+        <!-- Leave the box empty for FULL cover. Set any of top/left/right/bottom/
+             width/height to make it a PARTIAL panel (which crops its glows). -->
+        <property name="top" type="text_line" colspan="2"><meta><title lang="en">top</title></meta></property>
+        <property name="left" type="text_line" colspan="2"><meta><title lang="en">left</title></meta></property>
+        <property name="right" type="text_line" colspan="2"><meta><title lang="en">right</title></meta></property>
+        <property name="bottom" type="text_line" colspan="2"><meta><title lang="en">bottom</title></meta></property>
+        <property name="width" type="text_line" colspan="2"><meta><title lang="en">width</title></meta></property>
+        <property name="height" type="text_line" colspan="2"><meta><title lang="en">height</title></meta></property>
+
+        <block name="glows" default-type="glow-block">
+            <meta><title lang="en">Glows (cropped to this panel)</title></meta>
+            <params>
+                <param name="add_button_text"><meta><title lang="en">Add glow</title></meta></param>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+                <type ref="glow-block"/>
+            </types>
+        </block>
+    </properties>
+
+</template>

@@ -1,0 +1,64 @@
+@use "../base/variables.scss";
+
+// Repeating pattern element — the logo lattice (and any staggered tile).
+// The tile image is a MASK, 36 repeat-y layers of the same file: only its
+// alpha shape matters. The colour comes from --pattern-color (token classes
+// below, set by the XML select), its strength from --pattern-fill-opacity,
+// and .has-blur turns the shapes into frosted glass — the backdrop blur is
+// clipped to the lattice. Layer 0 anchors the first tile centre-right on the
+// element's right edge and tiles up/down normally; each column further left
+// sits W/3 right of a plain grid (columns overlap by a third) and H/4 up.
+// For the Telion mark (3:4) W/3 and H/4 both equal the chevron arm, so the
+// marks interlock seamlessly. Overlapping mask layers union, so the tint
+// stays even. Coverage: 36 * 2W/3 from the right edge — 144rem at the 6rem
+// tile. Tile image, sizes and opacities come from inline custom props
+// emitted by _pattern.html.twig.
+.pattern-block {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: var(--pattern-opacity, 1);
+
+  --pattern-image: none;
+  --pattern-w: 8rem;
+  --pattern-h: 8rem;
+
+  background-color: color-mix(in srgb,
+    var(--pattern-color, #{variables.$brand}) calc(var(--pattern-fill-opacity, 1) * 100%),
+    transparent);
+
+  $layers: ();
+  @for $i from 0 through 35 {
+    $layers: append(
+      $layers,
+      var(--pattern-image)
+        right calc(#{$i * 2} * var(--pattern-w) / 3)
+        top calc(50% - #{$i} * var(--pattern-h) / 4)
+        / var(--pattern-w) var(--pattern-h)
+        repeat-y,
+      comma
+    );
+  }
+  -webkit-mask: $layers;
+  mask: $layers;
+
+  &.has-blur {
+    -webkit-backdrop-filter: blur(var(--pattern-blur, 8px));
+    backdrop-filter: blur(var(--pattern-blur, 8px));
+  }
+
+  // colour tokens — map the XML select value to --pattern-color
+  &.pattern-brand       { --pattern-color: #{variables.$brand}; }
+  &.pattern-brandDeep   { --pattern-color: #{variables.$brandDeep}; }
+  &.pattern-indigo      { --pattern-color: #{variables.$indigo}; }
+  &.pattern-navy        { --pattern-color: #{variables.$navy}; }
+  &.pattern-navyDeep    { --pattern-color: #{variables.$navyDeep}; }
+  &.pattern-green       { --pattern-color: #{variables.$green}; }
+  &.pattern-greenForest { --pattern-color: #{variables.$greenForest}; }
+  &.pattern-ink         { --pattern-color: #{variables.$ink}; }
+  &.pattern-border      { --pattern-color: #{variables.$border}; }
+  &.pattern-soft        { --pattern-color: #{variables.$soft}; }
+  &.pattern-frost       { --pattern-color: #{variables.$frost}; }
+  &.pattern-white       { --pattern-color: #{variables.$white}; }
+}

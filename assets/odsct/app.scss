@@ -20,6 +20,8 @@
 @use "../common/styles/components/btn.scss";
 @use "../common/styles/components/card.scss";
 @use "../common/styles/components/carousel-navigation.scss";
+@use "../common/styles/components/glow.scss";
+@use "../common/styles/components/pattern.scss";
 
 // blocks
 @use "../common/styles/blocks/background-block.scss";
@@ -27,7 +29,9 @@
 @use "../common/styles/blocks/empty-block.scss";
 @use "../common/styles/blocks/form-block.scss";
 @use "../common/styles/blocks/generic-header-block.scss";
+@use "../common/styles/blocks/icon-block.scss";
 @use "../common/styles/blocks/image-block.scss";
+@use "../common/styles/blocks/line-block.scss";
 @use "../common/styles/blocks/masonry-gallery-block.scss";
 @use "../common/styles/blocks/newsletter-subscribe-block.scss";
 @use "../common/styles/blocks/references-block.scss";

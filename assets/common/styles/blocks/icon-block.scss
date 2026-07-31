@@ -1,0 +1,42 @@
+@use "../base/variables.scss";
+
+.icon-block {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  flex-shrink: 0;
+
+  &.display-block { display: block; }
+  &.display-inline-block { display: inline-block; }
+
+  &.size-xs  { font-size: 0.875rem; }
+  &.size-sm  { font-size: 1.125rem; }
+  &.size-md  { font-size: 1.5rem; }
+  &.size-lg  { font-size: 2rem; }
+  &.size-xl  { font-size: 3rem; }
+  &.size-2xl { font-size: 4rem; }
+
+  &.color-primary { color: variables.$primaryColor; }
+  &.color-accent  { color: variables.$accentColor; }
+  &.color-green   { color: variables.$darkAccent; }
+  &.color-white   { color: #fff; }
+}
+
+.icon-block-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &.wrapper-style-rounded { border-radius: variables.$borderRadius; }
+  &.wrapper-style-circle  { border-radius: 50%; }
+
+  &.wrapper-color-soft    { background-color: variables.$backgroundSoftColor; }
+  &.wrapper-color-light   { background-color: variables.$lightGrey; }
+  &.wrapper-color-subtle  { background-color: rgba(0, 0, 0, 0.08); }
+  &.wrapper-color-glass   { background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(2rem); }
+  &.wrapper-color-primary { background-color: variables.$primaryColor; }
+  &.wrapper-color-accent  { background-color: variables.$accentColor; }
+  &.wrapper-color-grad-blue { background: variables.$gradBlue; }
+}
