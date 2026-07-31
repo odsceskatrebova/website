@@ -1,0 +1,106 @@
+@use '../../../common/styles/base/variables.scss';
+
+/* odsct campaign header — static, transparent bar over the page background.
+   Bespoke to this webspace; the generic layout/header.scss is intentionally
+   NOT loaded for odsct (its `header{position:fixed;height:6rem}` element rule
+   would fight this). Values mirror design/ODS Web odsct.cz. */
+
+.site-header {
+  position: relative;
+  z-index: 10;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem 1.625rem;
+    padding-top: 1.375rem;
+    padding-bottom: 1.375rem;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: .875rem;
+    text-decoration: none;
+  }
+
+  &__badge {
+    display: inline-block;
+    background: variables.$primaryColor;
+    color: variables.$contrastToPrimaryColor;
+    font-family: variables.$displayFont;
+    font-size: 1.0625rem;
+    line-height: 1;
+    padding: .5625rem 1rem;
+  }
+
+  &__tagline {
+    font-size: .6875rem;
+    font-weight: 700;
+    color: #3d4654;
+    letter-spacing: .0625rem;
+    line-height: 1.4;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.625rem;
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: .9375rem;
+    color: variables.$primaryColor;
+    text-decoration: none;
+    transition: color .2s;
+
+    &:hover {
+      color: variables.$accentColor;
+    }
+  }
+
+  &__cta {
+    background: variables.$accentColor;
+    color: variables.$contrastToAccentColor;
+    font-weight: 900;
+    font-size: .9375rem;
+    padding: .6875rem 1.25rem;
+    border-radius: .625rem;
+    text-decoration: none;
+    transition: background .2s;
+
+    &:hover {
+      background: color-mix(in srgb, #{variables.$accentColor} 92%, #{variables.$contrastToAccentColor});
+      color: variables.$contrastToAccentColor;
+    }
+  }
+
+  /* Tighter gaps + hidden tagline on small screens keep the bar on one row. */
+  @media (max-width: 34rem) {
+    &__tagline {
+      display: none;
+    }
+
+    &__nav {
+      gap: 1rem;
+      font-size: .875rem;
+    }
+  }
+}
+
+/* The header now sits in normal flow (not fixed), so the hero no longer needs
+   to reserve 9rem for an overlapping bar, and it should size to its content
+   rather than a forced full viewport. The `main` prefix raises specificity so
+   this wins over the generic background-block.scss loaded later in app.scss. */
+main .background-block.hero {
+  min-height: 0;
+
+  .wrapper-content {
+    padding-top: 2.5rem;
+    padding-bottom: 4.5rem;
+  }
+}

@@ -1,0 +1,18 @@
+{# odsct campaign header — static, transparent bar on the page background.
+   Bespoke to the odsct webspace (see design/ODS Web odsct.cz). Replaces the
+   generic layout/header.html.twig for this webspace; wired from webspace/odsct.html.twig. #}
+<header class="site-header">
+    <div class="site-header__inner container">
+        <a class="site-header__brand" href="/{{ app.request.locale }}">
+            <span class="site-header__badge">ODS 2026</span>
+            <span class="site-header__tagline">KOMUNÁLNÍ VOLBY<br>25.–26.&nbsp;9.&nbsp;2026 · ČESKÁ TŘEBOVÁ</span>
+        </a>
+        <nav class="site-header__nav">
+            <a href="#program" class="site-header__link">Program</a>
+            <a href="#bilance" class="site-header__link">Zúčtování</a>
+            <a href="#tym" class="site-header__link">Tým</a>
+            <a href="#dira" class="site-header__link">Vyfoť díru</a>
+            <a href="#volit" class="site-header__cta">Přijďte volit</a>
+        </nav>
+    </div>
+</header>

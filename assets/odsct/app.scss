@@ -15,9 +15,10 @@
 @use "../common/styles/layout/container.scss";
 @use "../common/styles/layout/row.scss";
 @use "../common/styles/layout/flex.scss";
-@use "../common/styles/layout/header.scss";
-@use "../common/styles/layout/header-menu.scss";
-@use "../common/styles/layout/footer.scss";
+// odsct campaign chrome — bespoke header/footer replace the generic
+// layout/header.scss + header-menu.scss + footer.scss for this webspace.
+@use 'styles/layout/header.scss';
+@use 'styles/layout/footer.scss';
 @use "../common/styles/layout/welcome-popup.scss";
 
 // components

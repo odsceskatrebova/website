@@ -33,13 +33,13 @@
             create config snippet and add it as default config snippet in webspace
         </div>
     {% else %}
-        {% include 'layout/header.html.twig' %}
+        {% include 'webspace/odsct/header.html.twig' %}
 
         <main>
             {% block content %}{% endblock %}
         </main>
 
-        {% include 'layout/footer.html.twig' %}
+        {% include 'webspace/odsct/footer.html.twig' %}
 
         {% set welcomePopup = sulu_snippet_load_by_area('welcomePopup') %}
         {% if welcomePopup %}
