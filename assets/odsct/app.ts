@@ -9,7 +9,7 @@ import '@fontsource/archivo-black/400.css';
 import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/500.css';
 import '@fontsource/caveat/400.css';
-import '@fontsource/caveat/600.css';
+import '@fontsource/caveat/700.css';
 import './app.scss';
 import '@common/js/layout/header.ts';
 import '@common/js/layout/carousel.ts';
