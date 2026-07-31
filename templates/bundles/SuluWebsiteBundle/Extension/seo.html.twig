@@ -27,7 +27,7 @@
 {% set seoTitle = seo.title|default(content.displayTitle|default(content.title|default())) %}
 {% set seoDescription = seo.description|default(content.perex|default()) %}
 {% set seoKeywords = seo.keywords|default() %}
-{% set seoImage = content.ogImage|default(null) ? content.ogImage.thumbnails['open-graph-overlay.jpg']|default(asset('build/website/img/og_default.jpg')) : asset('build/website/img/og_default.jpg') %}
+{% set seoImage = content.ogImage|default(null) ? content.ogImage.thumbnails['open-graph-overlay.jpg']|default(asset('build/odsct/img/og_default.jpg')) : asset('build/odsct/img/og_default.jpg') %}
 
 
 {% set seoRobots = '' %}
