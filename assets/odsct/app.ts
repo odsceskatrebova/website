@@ -1,10 +1,15 @@
 // Odsct entry point
 import '@mdi/font/css/materialdesignicons.css';
-import '@fontsource/roboto/100.css';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/700.css';
-import '@fontsource/roboto/900.css';
+import '@fontsource/archivo/300.css';
+import '@fontsource/archivo/400.css';
+import '@fontsource/archivo/500.css';
+import '@fontsource/archivo/700.css';
+import '@fontsource/archivo/900.css';
+import '@fontsource/archivo-black/400.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '@fontsource/caveat/400.css';
+import '@fontsource/caveat/600.css';
 import './app.scss';
 import '@common/js/layout/header.ts';
 import '@common/js/layout/carousel.ts';

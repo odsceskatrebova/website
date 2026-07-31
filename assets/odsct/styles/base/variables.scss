@@ -26,4 +26,12 @@
   $frost: #edf3fb, // frosted header bar / light placeholder tone
   $border: #d6dae2, // hairline borders
   $ink: #14181f, // headings
+
+  /*
+   * Fonts — ODS Česká Třebová brand
+   */
+  $defaultFont: ("Archivo", Arial, sans-serif),
+  $displayFont: ("Archivo Black", Arial, sans-serif),
+  $monoFont: ("IBM Plex Mono", monospace),
+  $handwrittenFont: ("Caveat", cursive),
 );
