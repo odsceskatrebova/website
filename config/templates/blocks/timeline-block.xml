@@ -10,8 +10,17 @@
     </meta>
 
     <properties>
-        <property name="class" type="text_line" colspan="4">
-            <meta><title lang="en">class</title></meta>
+        <property name="sulu-display-name" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta><title lang="en">id</title></meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta><title lang="en">classes</title></meta>
         </property>
 
         <block name="events" default-type="event-block">

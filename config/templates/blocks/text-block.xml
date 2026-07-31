@@ -10,13 +10,24 @@
     </meta>
 
     <properties>
+        <property name="sulu-display-name" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">id</title>
+            </meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta><title lang="en">classes</title></meta>
+        </property>
         <property name="text" type="text_editor">
             <meta><title lang="en">text</title></meta>
             <tag name="sulu.block_preview" priority="1024"/>
             <tag name="sulu.search.field" />
-        </property>
-        <property name="classes" type="text_line" colspan="8">
-            <meta><title lang="en">classes</title></meta>
         </property>
         <property name="noPaddings" type="checkbox" colspan="4">
             <meta><title lang="en">no text paddings</title></meta>

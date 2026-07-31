@@ -5,7 +5,7 @@
 
     <property name="sulu-display-name" type="text_line" colspan="6">
         <meta>
-            <title lang="en">Sulu display name</title>
+            <title lang="en">sulu display name</title>
         </meta>
         <tag name="sulu.block_preview" priority="512"/>
     </property>
@@ -122,7 +122,7 @@
         </params>
     </property>
     <property name="colStart" type="select" colspan="3">
-        <meta><title lang="en">Col start</title></meta>
+        <meta><title lang="en">col start</title></meta>
         <params>
             <param name="default_value" value=""/>
             <param name="values" type="collection">

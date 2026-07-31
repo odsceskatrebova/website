@@ -10,6 +10,15 @@
     </meta>
 
     <properties>
+        <property name="sulu-display-name" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta><title lang="en">id</title></meta>
+        </property>
         <property name="height" type="number" colspan="6">
             <meta><title lang="en">size [rem]</title></meta>
             <params>

@@ -5,9 +5,9 @@
 {% set closingTag = (blockLink) ? 'a' : 'div'  %}
 
 <{{ openingTag | raw }}
-   class="btn {{ data.style }} {{ data.color }} {{ data.size }} {{ data.class }}"
+   class="btn {{ data.style }} {{ data.color }} {{ data.size }} {{ data.shape }} {{ data.classes }}"
    {{ sulu_block_preview(data) }}>
-<div class="content {{ data.flexDirection }}">
+<div id="{{ data.id }}" class="content {{ data.flexDirection }}">
   <div class="loader"></div>
   {% if data.text %}
     <span>{{ data.text | raw }}</span>
@@ -19,6 +19,8 @@
         </span>
       {% elseif block.type == 'image-block' %}
         {% include 'blocks/image-block.html.twig' with { data: block, placement: placement } %}
+      {% elseif block.type == 'icon-block' %}
+        {% include 'blocks/icon-block.html.twig' with { data: block, placement: placement } %}
       {% endif %}
     {% endfor %}
   {% endif %}

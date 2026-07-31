@@ -10,32 +10,50 @@
     </meta>
 
     <properties>
-        <property name="sulu-display-name" type="text_line" colspan="6">
+        <property name="sulu-display-name" type="text_line" colspan="3">
             <meta>
-                <title lang="en">Sulu display name</title>
+                <title lang="en">sulu display name</title>
             </meta>
             <tag name="sulu.block_preview" priority="512"/>
         </property>
-        <property name="class" type="text_line" colspan="6">
-            <meta><title lang="en">class</title></meta>
+        <property name="id" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">id</title>
+            </meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta><title lang="en">classes</title></meta>
         </property>
 
         <property name="link" type="link" colspan="4">
-            <meta><title lang="en">Link</title></meta>
+            <meta><title lang="en">link</title></meta>
             <params>
                 <param name="enable_anchor" value="true"/>
             </params>
         </property>
-        <property name="link_override" type="text_line" colspan="5">
-            <meta><title lang="en">Link override</title></meta>
+        <property name="link_override" type="text_line" colspan="4">
+            <meta><title lang="en">link override</title></meta>
         </property>
-        <property name="anchor" type="text_line" colspan="3">
-            <meta><title lang="en">Anchor</title></meta>
+        <property name="anchor" type="text_line" colspan="2">
+            <meta><title lang="en">anchor</title></meta>
+        </property>
+        <property name="link_target" type="checkbox" colspan="2">
+            <meta><title lang="en">Target blank</title></meta>
         </property>
 
+        <property name="shape" type="single_select" colspan="3">
+            <meta><title lang="en">shape</title></meta>
+            <params>
+                <param name="default_value" value=""/>
+                <param name="values" type="collection">
+                    <param name=""><meta><title lang="en">default</title></meta></param>
+                    <param name="pill"><meta><title lang="en">pill</title></meta></param>
+                    <param name="circle"><meta><title lang="en">circle</title></meta></param>
+                </param>
+            </params>
+        </property>
         <property name="size" type="single_select" colspan="3">
-            <meta><title lang="en">Size</title></meta>
-            <tag name="sulu.block_preview" priority="2048"/>
+            <meta><title lang="en">size</title></meta>
             <params>
                 <param name="default_value" value="default"/>
                 <param name="values" type="collection">
@@ -46,8 +64,8 @@
             </params>
         </property>
         <property name="style" type="single_select" colspan="3">
-            <meta><title lang="en">Style</title></meta>
-            <tag name="sulu.block_preview" priority="1024"/>
+            <meta><title lang="en">style</title></meta>
+            <tag name="sulu.block_preview" priority="128"/>
             <params>
                 <param name="default_value" value="default"/>
                 <param name="values" type="collection">
@@ -59,8 +77,8 @@
             </params>
         </property>
         <property name="color" type="single_select" colspan="3">
-            <meta><title lang="en">Color</title></meta>
-            <tag name="sulu.block_preview" priority="516"/>
+            <meta><title lang="en">color</title></meta>
+            <tag name="sulu.block_preview" priority="64"/>
             <params>
                 <param name="default_value" value="default"/>
                 <param name="values" type="collection">
@@ -69,11 +87,12 @@
                     <param name="black"><meta><title lang="en">black</title></meta></param>
                     <param name="primary"><meta><title lang="en">primary</title></meta></param>
                     <param name="accent"><meta><title lang="en">accent</title></meta></param>
+                    <param name="grad-blue"><meta><title lang="en">blue gradient</title></meta></param>
                 </param>
             </params>
         </property>
         <property name="flexDirection" type="single_select" colspan="3">
-            <meta><title lang="en">Direction</title></meta>
+            <meta><title lang="en">content direction</title></meta>
             <params>
                 <param name="default_value" value="flex-row"/>
                 <param name="values" type="collection">
@@ -85,9 +104,6 @@
 
         <property name="text" type="text_line" colspan="6">
             <meta><title lang="en">text</title></meta>
-        </property>
-        <property name="link_target" type="checkbox" colspan="2">
-            <meta><title lang="en">Target blank</title></meta>
         </property>
 
         <block name="content" default-type="text">
@@ -117,6 +133,7 @@
                 </type>
 
                 <type ref="image-block" />
+                <type ref="icon-block" />
             </types>
         </block>
 

@@ -10,27 +10,27 @@
     </meta>
 
     <properties>
-        <property name="aspectRatio" type="number" colspan="3">
+        <property name="aspectRatio" type="number" colspan="4">
             <meta>
-                <title lang="en">Aspect ratio</title>
+                <title lang="en">aspect ratio</title>
             </meta>
             <params>
                 <param name="min" value=".2"/>
                 <param name="max" value="5"/>
             </params>
         </property>
-        <property name="aspectRatioTablet" type="number" colspan="3">
+        <property name="aspectRatioTablet" type="number" colspan="4">
             <meta>
-                <title lang="en">Aspect ratio tablet</title>
+                <title lang="en">aspect ratio tablet</title>
             </meta>
             <params>
                 <param name="min" value=".2"/>
                 <param name="max" value="5"/>
             </params>
         </property>
-        <property name="aspectRatioDesktop" type="number" colspan="3">
+        <property name="aspectRatioDesktop" type="number" colspan="4">
             <meta>
-                <title lang="en">Aspect ratio desktop</title>
+                <title lang="en">aspect ratio desktop</title>
             </meta>
             <params>
                 <param name="min" value=".2"/>

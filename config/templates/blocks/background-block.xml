@@ -53,7 +53,7 @@
             </meta>
         </property>
 
-        <block name="background" default-type="image-block">
+        <block name="background" default-type="color-block">
             <meta>
                 <title lang="en">background</title>
             </meta>
@@ -66,6 +66,13 @@
                 <param name="block_id_generator" value="true"/>
             </params>
             <types>
+
+                <!-- New composable elements. glow-block is also reused nested
+                     inside color-block (see color-block.xml). -->
+                <type ref="color-block"/>
+                <type ref="glow-block"/>
+                <type ref="line-block"/>
+                <type ref="pattern-block"/>
 
                 <type name="image-block">
                     <meta>
@@ -187,131 +194,8 @@
                         <property name="heightDesktop" type="text_line" colspan="3">
                             <meta><title lang="en">height desktop</title></meta>
                         </property>
-                    </properties>
-                </type>
-
-                <type name="grey-block">
-                    <meta>
-                        <title lang="en">grey block</title>
-                    </meta>
-                    <properties>
-                        <property name="left" type="text_line" colspan="3">
-                            <meta><title lang="en">left</title></meta>
-                        </property>
-                        <property name="top" type="text_line" colspan="3">
-                            <meta><title lang="en">top</title></meta>
-                        </property>
-                        <property name="width" type="text_line" colspan="3">
-                            <meta><title lang="en">width</title></meta>
-                        </property>
-                        <property name="height" type="text_line" colspan="3">
-                            <meta><title lang="en">height</title></meta>
-                        </property>
-                        <property name="leftTablet" type="text_line" colspan="3">
-                            <meta><title lang="en">left tablet</title></meta>
-                        </property>
-                        <property name="topTablet" type="text_line" colspan="3">
-                            <meta><title lang="en">top tablet</title></meta>
-                        </property>
-                        <property name="widthTablet" type="text_line" colspan="3">
-                            <meta><title lang="en">width tablet</title></meta>
-                        </property>
-                        <property name="heightTablet" type="text_line" colspan="3">
-                            <meta><title lang="en">height tablet</title></meta>
-                        </property>
-                        <property name="leftDesktop" type="text_line" colspan="3">
-                            <meta><title lang="en">left desktop</title></meta>
-                        </property>
-                        <property name="topDesktop" type="text_line" colspan="3">
-                            <meta><title lang="en">top desktop</title></meta>
-                        </property>
-                        <property name="widthDesktop" type="text_line" colspan="3">
-                            <meta><title lang="en">width desktop</title></meta>
-                        </property>
-                        <property name="heightDesktop" type="text_line" colspan="3">
-                            <meta><title lang="en">height desktop</title></meta>
-                        </property>
-                        <property name="blockColor" type="single_select" colspan="6">
-                            <meta><title lang="en">Color</title></meta>
-                            <tag name="sulu.block_preview" priority="516"/>
-                            <params>
-                                <param name="default_value" value="default"/>
-                                <param name="values" type="collection">
-                                    <param name="default"><meta><title lang="en">default</title></meta></param>
-                                    <param name="primary"><meta><title lang="en">primary</title></meta></param>
-                                    <param name="accent"><meta><title lang="en">accent</title></meta></param>
-                                </param>
-                            </params>
-                        </property>
-                    </properties>
-                </type>
-
-                <type name="grill-block">
-                    <meta>
-                        <title lang="en">grill block</title>
-                    </meta>
-                    <properties>
-                        <property name="top" type="text_line" colspan="3">
-                            <meta><title lang="en">top</title></meta>
-                        </property>
-                        <property name="bottom" type="text_line" colspan="3">
-                            <meta><title lang="en">bottom</title></meta>
-                        </property>
-                        <property name="left" type="text_line" colspan="3">
-                            <meta><title lang="en">left</title></meta>
-                        </property>
-                        <property name="right" type="text_line" colspan="3">
-                            <meta><title lang="en">right</title></meta>
-                        </property>
-                        <property name="topTablet" type="text_line" colspan="3">
-                            <meta><title lang="en">topTablet</title></meta>
-                        </property>
-                        <property name="bottomTablet" type="text_line" colspan="3">
-                            <meta><title lang="en">bottomTablet</title></meta>
-                        </property>
-                        <property name="leftTablet" type="text_line" colspan="3">
-                            <meta><title lang="en">leftTablet</title></meta>
-                        </property>
-                        <property name="rightTablet" type="text_line" colspan="3">
-                            <meta><title lang="en">rightTablet</title></meta>
-                        </property>
-                        <property name="topDesktop" type="text_line" colspan="3">
-                            <meta><title lang="en">topDesktop</title></meta>
-                        </property>
-                        <property name="bottomDesktop" type="text_line" colspan="3">
-                            <meta><title lang="en">bottomDesktop</title></meta>
-                        </property>
-                        <property name="leftDesktop" type="text_line" colspan="3">
-                            <meta><title lang="en">leftDesktop</title></meta>
-                        </property>
-                        <property name="rightDesktop" type="text_line" colspan="3">
-                            <meta><title lang="en">rightDesktop</title></meta>
-                        </property>
-                    </properties>
-                </type>
-
-                <type name="green-line-block">
-                    <meta>
-                        <title lang="en">green line block</title>
-                    </meta>
-                    <properties>
-                        <property name="top" type="text_line" colspan="6">
-                            <meta><title lang="en">top</title></meta>
-                        </property>
-                        <property name="gap" type="text_line" colspan="6">
-                            <meta><title lang="en">gap</title></meta>
-                        </property>
-                        <property name="topTablet" type="text_line" colspan="6">
-                            <meta><title lang="en">top tablet</title></meta>
-                        </property>
-                        <property name="gapTablet" type="text_line" colspan="6">
-                            <meta><title lang="en">gap tablet</title></meta>
-                        </property>
-                        <property name="topDesktop" type="text_line" colspan="6">
-                            <meta><title lang="en">top desktop</title></meta>
-                        </property>
-                        <property name="gapDesktop" type="text_line" colspan="6">
-                            <meta><title lang="en">gap desktop</title></meta>
+                        <property name="depth" type="text_line" colspan="3">
+                            <meta><title lang="en">parallax depth (0–1, blank = none)</title></meta>
                         </property>
                     </properties>
                 </type>
@@ -400,9 +284,7 @@
                 <type ref="divider-block" />
                 <type ref="empty-block" />
                 <type ref="carousel-reference-block" />
-                <!-- to be imported:
-                <type ref="highlight-block" />
-                -->
+                <type ref="card-block" />
             </types>
         </block>
 

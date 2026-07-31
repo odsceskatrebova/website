@@ -10,6 +10,22 @@
     </meta>
 
     <properties>
+        <property name="sulu-display-name" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">id</title>
+            </meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">classes</title>
+            </meta>
+        </property>
         <property name="image" type="single_media_selection" colspan="4">
             <meta>
                 <title lang="en">image</title>
@@ -26,7 +42,26 @@
                 <title lang="en">image desktop</title>
             </meta>
         </property>
-        <property name="registerToGallery" type="checkbox" colspan="3">
+        <property name="maxWidth" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">max width (specify unit rem/vw/%)</title>
+            </meta>
+        </property>
+        <property name="maxHeight" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">max height (specify unit rem/vh/%)</title>
+            </meta>
+        </property>
+        <property name="aspectRatio" type="number" colspan="3">
+            <meta>
+                <title lang="en">aspect ratio</title>
+            </meta>
+            <params>
+                <param name="min" value=".2"/>
+                <param name="max" value="5"/>
+            </params>
+        </property>
+        <property name="registerToGallery" type="checkbox" colspan="2">
             <meta>
                 <title lang="en">register to gallery</title>
             </meta>
@@ -35,33 +70,9 @@
                 <param name="default_value" value="false"/>
             </params>
         </property>
-        <property name="maxWidth" type="text_line" colspan="3">
-            <meta>
-                <title lang="en">max width [rem]</title>
-            </meta>
-        </property>
-        <property name="maxHeight" type="text_line" colspan="3">
-            <meta>
-                <title lang="en">max height [rem]</title>
-            </meta>
-        </property>
-        <property name="classes" type="text_line" colspan="3">
-            <meta>
-                <title lang="en">Classes</title>
-            </meta>
-        </property>
-        <property name="aspectRatio" type="number" colspan="4">
-            <meta>
-                <title lang="en">Aspect ratio</title>
-            </meta>
-            <params>
-                <param name="min" value=".2"/>
-                <param name="max" value="5"/>
-            </params>
-        </property>
         <property name="roundCorners" type="checkbox" colspan="2">
             <meta>
-                <title lang="en">Round corners</title>
+                <title lang="en">round corners</title>
             </meta>
             <params>
                 <param name="default_value" value="false"/>
@@ -70,6 +81,9 @@
         </property>
         <property name="outline" type="checkbox" colspan="2">
             <meta><title lang="en">outline</title></meta>
+        </property>
+        <property name="contain" type="checkbox" colspan="2">
+            <meta><title lang="en">contain</title></meta>
         </property>
     </properties>
 

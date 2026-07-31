@@ -10,26 +10,29 @@
     </meta>
 
     <properties>
-        <property name="sulu-display-name" type="text_line" colspan="6">
+        <property name="sulu-display-name" type="text_line" colspan="3">
             <meta>
-                <title lang="en">Sulu display name</title>
+                <title lang="en">sulu display name</title>
             </meta>
             <tag name="sulu.block_preview" priority="512"/>
         </property>
-        <property name="id" type="text_line" colspan="6">
+        <property name="id" type="text_line" colspan="3">
             <meta><title lang="en">id</title></meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta><title lang="en">classes</title></meta>
         </property>
 
         <property name="backgroundVideo" type="single_media_selection" colspan="6">
-            <meta><title lang="en">Background video (mobile)</title></meta>
+            <meta><title lang="en">video phone</title></meta>
         </property>
         <property name="backgroundVideoTablet" type="single_media_selection" colspan="6">
-            <meta><title lang="en">Background video (tablet+)</title></meta>
+            <meta><title lang="en">video tablet +</title></meta>
         </property>
 
         <property name="animationLength" type="number" colspan="4">
             <meta>
-                <title lang="en">Animation length in seconds</title>
+                <title lang="en">animation length [s]</title>
                 <info_text lang="en">Animation runs when video appears above bottom edge of display and finishes when video touches top edge</info_text>
             </meta>
             <params>
@@ -37,29 +40,29 @@
                 <param name="max" value="100"/>
             </params>
         </property>
-
-        <property name="hero" type="checkbox" colspan="2">
-            <meta><title lang="en">Hero mode</title></meta>
-        </property>
-
-        <property name="debug" type="checkbox" colspan="2">
-            <meta><title lang="en">Debug overlay</title></meta>
-        </property>
-
         <property name="startOffset" type="number" colspan="4">
-            <meta><title lang="en">Start offset (%)</title></meta>
+            <meta><title lang="en">start offset [%]</title></meta>
             <params>
                 <param name="min" value="0"/>
                 <param name="max" value="110"/>
             </params>
         </property>
         <property name="endOffset" type="number" colspan="4">
-            <meta><title lang="en">End offset (%)</title></meta>
+            <meta><title lang="en">end offset [%]</title></meta>
             <params>
                 <param name="min" value="0"/>
                 <param name="max" value="110"/>
             </params>
         </property>
+
+        <property name="hero" type="checkbox" colspan="2">
+            <meta><title lang="en">is hero</title></meta>
+        </property>
+
+        <property name="debug" type="checkbox" colspan="2">
+            <meta><title lang="en">debug overlay</title></meta>
+        </property>
+
     </properties>
 
 </template>

@@ -15,7 +15,7 @@
     {% set randomId = random() %}
     {% if element.type == 'image-block' and element.image !=null %}
 
-      <div class="background-image" id="image-block-{{ randomId }}">
+      <div class="background-image{{ element.depth ? ' parallax' : '' }}" id="image-block-{{ randomId }}"{{ element.depth ? ' style="--depth: ' ~ element.depth ~ '"' : '' }}>
         <picture>
           {% if 'svg' in element.image.fileVersion.mimeType %}
             <img
@@ -238,112 +238,44 @@
               }
           }
       </style>
-    {% elseif element.type == 'grey-block' %}
-      <div class="grey-bg-block" id="grey-block-{{ randomId }}">
-        <div class="grey-bg {{ element.blockColor }}"></div>
+    {% elseif element.type == 'color-block' %}
+      {% set s = [] %}
+      {% if element.radius %}{% set s = s|merge(['--fill-radius: ' ~ element.radius]) %}{% endif %}
+      {% set hasBox = element.top or element.left or element.right or element.bottom or element.width or element.height %}
+      {% if hasBox %}
+        {% if element.top %}{% set s = s|merge(['top: ' ~ element.top]) %}{% endif %}
+        {% if element.left %}{% set s = s|merge(['left: ' ~ element.left]) %}{% endif %}
+        {% if element.right %}{% set s = s|merge(['right: ' ~ element.right]) %}{% endif %}
+        {% if element.bottom %}{% set s = s|merge(['bottom: ' ~ element.bottom]) %}{% endif %}
+        {% if element.width %}{% set s = s|merge(['width: ' ~ element.width]) %}{% endif %}
+        {% if element.height %}{% set s = s|merge(['height: ' ~ element.height]) %}{% endif %}
+      {% endif %}
+      {% if element.depth %}{% set s = s|merge(['--depth: ' ~ element.depth]) %}{% endif %}
+      <div class="color-block fill-{{ element.fill|default('navy') }}{{ hasBox ? ' is-partial' : '' }}{{ element.depth ? ' parallax' : '' }}"
+           aria-hidden="true" style="{{ s|join('; ') }}">
+        {% for glow in element.glows|default([]) %}
+          {% include 'blocks/_glow.html.twig' with { glow: glow, cropped: true } only %}
+        {% endfor %}
       </div>
-      <style>
-        #grey-block-{{ randomId }} {
-            height: {{ element.height }};
-            top: {{ element.top }};
-        }
-        #grey-block-{{ randomId }} .grey-bg {
-            width: {{ element.width }};
-            left: {{ element.left }};
-        }
-        @media (min-width: 55rem) {
-            #grey-block-{{ randomId }} {
-                height: {{ element.heightTablet | default(element.height) }};
-                top: {{ element.topTablet | default(element.top) }};
-            }
-            #grey-block-{{ randomId }} .grey-bg {
-                width: {{ element.widthTablet | default(element.width) }};
-                left: {{ element.leftTablet | default(element.left) }};
-            }
-        }
-        @media (min-width: 73rem) {
-            #grey-block-{{ randomId }} {
-                height: {{ element.heightDesktop | default(element.heightTablet) | default(element.height) }};
-                top: {{ element.topDesktop | default(element.topTablet) | default(element.top) }};
-            }
-            #grey-block-{{ randomId }} .grey-bg {
-                width: {{ element.widthDesktop | default(element.widthTablet) | default(element.width) }};
-                left: {{ element.leftDesktop | default(element.leftTablet) | default(element.left) }};
-            }
-        }
-      </style>
 
-    {% elseif element.type == 'grill-block' %}
-      <div class="grill-block" id="grill-block-{{ randomId }}">
-        <div class="grey-grill"></div>
-      </div>
-      <style>
-          #grill-block-{{ randomId }} {
-              top: {{ element.top | default('auto') }};
-              bottom: {{ element.bottom | default('auto') }};
-          }
-          #grill-block-{{ randomId }} .grey-grill {
-              left: {{ element.left | default('auto') }};
-              right: {{ element.right | default('auto') }};
-          }
-          @media (min-width: 55rem) {
-              #grill-block-{{ randomId }} {
-                  top: {{ element.topTablet | default('auto') }};
-                  bottom: {{ element.bottomTablet | default('auto') }};
-              }
-              #grill-block-{{ randomId }} .grey-grill {
-                  left: {{ element.leftTablet | default('auto') }};
-                  right: {{ element.rightTablet | default('auto') }};
-              }
-          }
-          @media (min-width: 73rem) {
-              #grill-block-{{ randomId }} {
-                  top: {{ element.topDesktop | default('auto') }};
-                  bottom: {{ element.bottomDesktop | default('auto') }};
-              }
-              #grill-block-{{ randomId }} .grey-grill {
-                  left: {{ element.leftDesktop | default('auto') }};
-                  right: {{ element.rightDesktop | default('auto') }};
-              }
-          }
-      </style>
-      {% elseif element.type == 'green-line-block' %}
-        <div class="green-line-block" id="green-line-block-{{ randomId }}">
-          <div class="line left"></div>
-          <div class="line right"></div>
-        </div>
-        <style>
-            #green-line-block-{{ randomId }} {
-                top: {{ element.top }};
-            }
-            #green-line-block-{{ randomId }} .line {
-                width: {{ ( element.gap ) ? 'calc(50% - ( ' ~ element.gap ~ ' / 2 ))' : 'calc(50% - 10rem)' }};
-            }
-            @media (min-width: 55rem) {
-                {% if element.topTablet %}
-                #green-line-block-{{ randomId }} {
-                    top: {{ element.topTablet | default(element.top) }};
-                }
-                {% endif %}
-                {% if element.gapTablet %}
-                #green-line-block-{{ randomId }} .line {
-                    width: {{ ( element.gapTablet ) ? 'calc(50% - ( ' ~ element.gapTablet ~ ' / 2 ))' : 'calc(50% - 10rem)' }};
-                }
-                {% endif %}
-            }
-            @media (min-width: 73rem) {
-                {% if element.topDesktop %}
-                    #green-line-block-{{ randomId }} {
-                        top: {{ element.topDesktop }};
-                    }
-                {% endif %}
-                {% if element.gapDesktop %}
-                #green-line-block-{{ randomId }} .line {
-                    width: {{ ( element.gapDesktop ) ? 'calc(50% - ( ' ~ element.gapDesktop ~ ' / 2 ))' : 'calc(50% - 10rem)' }};
-                }
-                {% endif %}
-            }
-        </style>
+    {% elseif element.type == 'glow-block' %}
+      {% include 'blocks/_glow.html.twig' with { glow: element, cropped: false } only %}
+
+    {% elseif element.type == 'pattern-block' %}
+      {% include 'blocks/_pattern.html.twig' with { pattern: element, cropped: false } only %}
+
+    {% elseif element.type == 'line-block' %}
+      {% set s = [] %}
+      {% if element.top %}{% set s = s|merge(['top: ' ~ element.top]) %}{% endif %}
+      {% if element.left %}{% set s = s|merge(['left: ' ~ element.left]) %}{% endif %}
+      {% if element.right %}{% set s = s|merge(['right: ' ~ element.right]) %}{% endif %}
+      {% if element.bottom %}{% set s = s|merge(['bottom: ' ~ element.bottom]) %}{% endif %}
+      {% if element.thickness %}{% set s = s|merge(['--line-thickness: ' ~ element.thickness]) %}{% endif %}
+      {% if element.length %}{% set s = s|merge(['--line-length: ' ~ element.length]) %}{% endif %}
+      {% if element.angle %}{% set s = s|merge(['--line-angle: ' ~ element.angle]) %}{% endif %}
+      {% if element.depth %}{% set s = s|merge(['--depth: ' ~ element.depth]) %}{% endif %}
+      <div class="line-block line-{{ element.lineColor|default('border') }}{{ element.depth ? ' parallax' : '' }}"
+           aria-hidden="true" style="{{ s|join('; ') }}"></div>
     {% endif %}
   {% endfor %}
   <div
@@ -372,10 +304,8 @@
             {% include 'blocks/empty-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
           {% elseif block.type == 'carousel-reference-block' %}
             {% include 'blocks/carousel-reference-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
-          {# to be imported:
-          {% elseif block.type == 'highlight-block' %}
-            {% include 'blocks/highlight-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
-          #}
+          {% elseif block.type == 'card-block' %}
+            {% include 'blocks/card-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
           {% else %}
             <div class="error-box">missing block: {{ block.type }}</div>
           {% endif %}

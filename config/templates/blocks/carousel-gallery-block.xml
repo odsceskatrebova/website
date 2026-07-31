@@ -6,18 +6,28 @@
     <key>carousel-gallery-block</key>
 
     <meta>
-        <title lang="en">Gallery carousel</title>
+        <title lang="en">Carousel gallery</title>
     </meta>
 
     <properties>
-        <property name="classes" type="text_line" colspan="4">
+        <property name="sulu-display-name" type="text_line" colspan="3">
             <meta>
-                <title lang="en">Classes</title>
+                <title lang="en">sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta><title lang="en">id</title></meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">classes</title>
             </meta>
         </property>
+
         <property name="aspectRatio" type="number" colspan="4">
             <meta>
-                <title lang="en">Aspect ratio</title>
+                <title lang="en">aspect ratio</title>
             </meta>
             <params>
                 <param name="min" value=".2"/>
@@ -41,9 +51,9 @@
                         <title lang="en">image</title>
                     </meta>
                     <properties>
-                        <property name="image" type="single_media_selection" colspan="4">
+                        <property name="image" type="single_media_selection" colspan="6">
                             <meta>
-                                <title lang="en">Image</title>
+                                <title lang="en">image</title>
                             </meta>
                         </property>
                         <property name="outline" type="checkbox" colspan="2">

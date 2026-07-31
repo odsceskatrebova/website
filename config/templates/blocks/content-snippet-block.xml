@@ -10,25 +10,25 @@
     </meta>
 
     <properties>
-        <property name="sulu-display-name" type="text_line" colspan="6">
+        <property name="sulu-display-name" type="text_line" colspan="3">
             <meta>
-                <title lang="en">Sulu display name</title>
+                <title lang="en">sulu display name</title>
             </meta>
             <tag name="sulu.block_preview" priority="512"/>
         </property>
-        <property name="id" type="text_line" colspan="6">
+        <property name="id" type="text_line" colspan="3">
             <meta><title lang="en">id</title></meta>
         </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta><title lang="en">classes</title></meta>
+        </property>
 
-        <property name="contentSnippet" type="single_snippet_selection" colspan="6">
-            <meta><title lang="en">Content snippet</title></meta>
+        <property name="contentSnippet" type="single_snippet_selection" colspan="12">
+            <meta><title lang="en">content snippet</title></meta>
             <params>
                 <param name="types" value="content"/>
                 <param name="loadExcerpt" value="true"/>
             </params>
-        </property>
-        <property name="classes" type="text_line" colspan="6">
-            <meta><title lang="en">classes</title></meta>
         </property>
     </properties>
 

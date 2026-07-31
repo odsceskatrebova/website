@@ -7,7 +7,7 @@
   margin: 0 auto;
   overflow: hidden;
   text-decoration: none;
-  background: #FFFFFF;
+  background: var(--card-fill, #{variables.$white});
   padding: 1rem;
   border-radius: variables.$borderRadius;
 
@@ -25,6 +25,72 @@
 
   &.background-soft {
     background: variables.$backgroundSoftColor;
+  }
+
+  // fill tokens — map the XML select value to a --card-fill colour
+  &.fill-white       { --card-fill: #{variables.$white}; }
+  &.fill-frost       { --card-fill: #{variables.$frost}; }
+  &.fill-soft        { --card-fill: #{variables.$soft}; }
+  &.fill-navy        { --card-fill: #{variables.$navy}; }
+  &.fill-navyDeep    { --card-fill: #{variables.$navyDeep}; }
+  &.fill-brand       { --card-fill: #{variables.$brand}; }
+  &.fill-brandDeep   { --card-fill: #{variables.$brandDeep}; }
+  &.fill-indigo      { --card-fill: #{variables.$indigo}; }
+  &.fill-green       { --card-fill: #{variables.$green}; }
+  &.fill-greenForest { --card-fill: #{variables.$greenForest}; }
+
+  // configurable border — `light` matches the footer product cards
+  // (1px translucent white on a dark fill); `shine` draws a top-lit gradient
+  // ring in a masked overlay so it works over any fill, image or glow
+  &.border-light  { border: 1px solid rgba(variables.$white, .08); }
+  &.border-border { border: 1px solid variables.$border; }
+  &.border-brand  { border: 1.5px solid variables.$brand; }
+
+  // floating shadow — lifts a card off a dark field (e.g. the pf-hero white
+  // card floating on a dark background-block); off by default since most
+  // cards sit flush in a grid and don't want the extra elevation.
+  &.shadow {
+    box-shadow: 0 2.5rem 5.5rem -2.75rem rgba(10, 12, 28, .5);
+  }
+
+  &.border-shine::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(165deg,
+      rgba(variables.$white, .40) 0%,
+      rgba(variables.$white, .10) 34%,
+      rgba(variables.$white, .04) 62%,
+      rgba(variables.$white, .14) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  // background elements paint at z-index 0 — lift real content above them
+  & > :not(.glow):not(.background-image) {
+    position: relative;
+    z-index: 1;
+  }
+
+  // positioned image / vector element (box + opacity come from inline styles)
+  .background-image.is-partial {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+
+    img,
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: var(--media-fit, contain);
+    }
   }
 
   picture.background-image {
@@ -60,4 +126,3 @@
 
   }
 }
-

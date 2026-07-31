@@ -6,6 +6,10 @@
       {% include 'blocks/text-block.html.twig' with { data: block, placement: placement } %}
     {% elseif block.type == 'image-block' %}
       {% include 'blocks/image-block.html.twig' with { data: block, placement: placement } %}
+    {% elseif block.type == 'icon-block' %}
+      {% include 'blocks/icon-block.html.twig' with { data: block, placement: placement } %}
+    {% elseif block.type == 'line-block' %}
+      {% include 'blocks/line-block.html.twig' with { data: block, placement: placement } %}
     {% else %}
       <div class="error-box">
         missing block: {{ block.type }}

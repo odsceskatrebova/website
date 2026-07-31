@@ -10,48 +10,53 @@
     </meta>
 
     <properties>
-        <property name="sulu-display-name" type="text_line" colspan="6">
+        <property name="sulu-display-name" type="text_line" colspan="3">
             <meta>
-                <title lang="en">Sulu display name</title>
+                <title lang="en">sulu display name</title>
             </meta>
             <tag name="sulu.block_preview" priority="512"/>
         </property>
-        <property name="id" type="text_line" colspan="6">
+        <property name="id" type="text_line" colspan="3">
             <meta><title lang="en">id</title></meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">classes</title>
+            </meta>
         </property>
 
         <property name="backgroundVideo" type="single_media_selection" colspan="6">
-            <meta><title lang="en">Background video phone</title></meta>
+            <meta><title lang="en">video phone</title></meta>
         </property>
         <property name="backgroundVideoTablet" type="single_media_selection" colspan="6">
-            <meta><title lang="en">Background video tablet</title></meta>
+            <meta><title lang="en">video tablet +</title></meta>
         </property>
 
         <property name="width" type="text_line" colspan="3">
-            <meta><title lang="en">Width (specify unit rem/vw/%)</title></meta>
+            <meta><title lang="en">width (specify unit)</title></meta>
         </property>
         <property name="height" type="text_line" colspan="3">
-            <meta><title lang="en">Height (specify unit rem/vh/%)</title></meta>
+            <meta><title lang="en">height (specify unit)</title></meta>
         </property>
         <property name="maxWidth" type="text_line" colspan="3">
-            <meta><title lang="en">Max width (specify unit rem/vw/%)</title></meta>
+            <meta><title lang="en">max width (specify unit)</title></meta>
         </property>
         <property name="maxHeight" type="text_line" colspan="3">
-            <meta><title lang="en">Max height (specify unit rem/vh/%)</title></meta>
+            <meta><title lang="en">max height (specify unit)</title></meta>
         </property>
 
-        <property name="aspectRatio" type="number" colspan="4">
+        <property name="aspectRatio" type="number" colspan="3">
             <meta>
-                <title lang="en">Aspect ratio</title>
+                <title lang="en">aspect ratio</title>
             </meta>
             <params>
                 <param name="min" value=".2"/>
                 <param name="max" value="5"/>
             </params>
         </property>
-        <property name="placement" type="single_select" colspan="4">
+        <property name="placement" type="single_select" colspan="3">
             <meta>
-                <title lang="en">Placement</title>
+                <title lang="en">placement</title>
             </meta>
             <params>
                 <param name="default_value" value="contain"/>
@@ -61,9 +66,9 @@
                 </param>
             </params>
         </property>
-        <property name="playback" type="single_select" colspan="4">
+        <property name="playback" type="single_select" colspan="3">
             <meta>
-                <title lang="en">Playback</title>
+                <title lang="en">playback</title>
             </meta>
             <params>
                 <param name="default_value" value="paused"/>
@@ -75,10 +80,9 @@
                 </param>
             </params>
         </property>
-
-        <property name="delayBetweenLoops" type="number" colspan="4">
+        <property name="delayBetweenLoops" type="number" colspan="3">
             <meta>
-                <title lang="en">Delay between loops in seconds</title>
+                <title lang="en">delay between loops [s]</title>
             </meta>
             <params>
                 <param name="min" value="0"/>
@@ -88,18 +92,12 @@
 
         <property name="showUi" type="checkbox" colspan="2">
             <meta>
-                <title lang="en">Show UI</title>
+                <title lang="en">show UI</title>
             </meta>
             <params>
                 <param name="default_value" value="true"/>
                 <param name="type" value="toggler"/>
             </params>
-        </property>
-
-        <property name="classes" type="text_line" colspan="6">
-            <meta>
-                <title lang="en">Classes</title>
-            </meta>
         </property>
     </properties>
 

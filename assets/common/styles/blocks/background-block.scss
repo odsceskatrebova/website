@@ -51,126 +51,6 @@
     }
   }
 
-  .grey-bg-block {
-    position: absolute;
-    z-index: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    .grey-bg {
-      position: absolute;
-      background-color: variables.$lightGrey;
-      height: 100%;
-
-      &.primary {
-        background-color: variables.$primaryColor;
-      }
-
-      &.accent {
-        background-color: variables.$accentColor;
-      }
-    }
-  }
-
-  .grill-block {
-    position: absolute;
-    height: 4rem;
-    overflow: hidden;
-    z-index: 0;
-    left: 0;
-    width: 100%;
-
-    .grey-grill {
-      position: absolute;
-      z-index: 0;
-      transform: skewX(#{variables.$btnAngle * -1});
-      height: 100%;
-      aspect-ratio: 8.4;
-      backface-visibility: hidden;
-      background:
-              repeating-linear-gradient(
-                              to left,
-                              transparent 0,
-                              transparent 4px,
-                              variables.$lightGrey 4px,
-                              variables.$lightGrey 12px
-              ),
-              linear-gradient(
-                              to right,
-                              variables.$lightGrey 0%,
-                              variables.$lightGrey 55%,
-                              transparent 55%,
-                              transparent 100%
-              );
-
-      &.left {
-        left: -30%;
-      }
-
-      &.center-left {
-        left: 10%;
-      }
-
-      &.right {
-        right: -15%;
-      }
-
-      &.center-right {
-        right: 10%;
-      }
-
-      &.center {
-        left: 50%;
-        transform: skewX(#{variables.$btnAngle * -1}) translateX(-50%);
-      }
-
-    }
-
-    @media (min-width: variables.$tablet) {
-      height: 5.5rem;
-    }
-
-    @media (min-width: variables.$desktop) {
-      height: 6.5rem;
-    }
-
-  }
-
-  .green-line-block {
-    position: absolute; // absolute relative to .parent
-    top: 50%; // move top edge to middle of parent
-    transform: translateY(-50%);
-    left: 0;
-    right: 0;
-    height: 2rem;
-    overflow: hidden;
-    z-index: 0;
-
-    .line {
-      position: absolute;
-      top: 0;
-      z-index: 0;
-      height: 100%;
-      width: 50vw;
-      background: repeating-linear-gradient(
-                      to bottom,
-                      variables.$green 0 10%, // top line
-                      transparent 10% 22%, // first gap
-                      variables.$green 22% 78%, // middle line
-                      transparent 78% 90%, // second gap
-                      variables.$green 90% 100%
-      );
-      transform: skewX(variables.$greenLineAngle);
-      &.left {
-        left: -5rem;
-      }
-      &.right {
-        right: -5rem;
-      }
-    }
-  }
-
-
   .wrapper-content {
     position: relative;
   }
@@ -194,23 +74,90 @@
   }
 
 
-  @media (min-width: variables.$tablet) {
-    .grey-grill {
-      height: 5.5rem;
-    }
+  /* ---------------------------------------------------------------------------
+   * Reworked composable background elements: solid colour fill, blurred glow
+   * (dark tone = shadow), universal line, + depth parallax. They live directly
+   * inside .background-block (before .wrapper-content) and sit BEHIND the
+   * content (z-index:0). The block itself is not clipped, so a top-level .glow
+   * bleeds past the section into its neighbours; a .glow nested inside a
+   * .color-block is cropped to that panel (overflow:hidden). (.glow itself
+   * lives in components/glow.scss — shared with card-block.)
+   * ------------------------------------------------------------------------- */
 
-    .green-line-block {
-      height: 2.5rem;
+  // solid colour panel — full-cover by default, partial via .is-partial + inline box
+  .color-block {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden; // crops nested glows / lines to the panel
+    background: var(--fill, #{variables.$navy});
+    border-radius: var(--fill-radius, 0);
+
+    &.is-partial { inset: auto; }
+
+    // fill tokens — map the XML select value to a --fill colour
+    &.fill-navy        { --fill: #{variables.$navy}; }
+    &.fill-navyDeep    { --fill: #{variables.$navyDeep}; }
+    &.fill-brand       { --fill: #{variables.$brand}; }
+    &.fill-brandDeep   { --fill: #{variables.$brandDeep}; }
+    &.fill-indigo      { --fill: #{variables.$indigo}; }
+    &.fill-green       { --fill: #{variables.$green}; }
+    &.fill-greenForest { --fill: #{variables.$greenForest}; }
+    &.fill-soft        { --fill: #{variables.$soft}; }
+    &.fill-frost       { --fill: #{variables.$frost}; }
+    &.fill-white       { --fill: #{variables.$white}; }
+  }
+
+  // universal line — colour / position / thickness / length / angle
+  .line-block {
+    position: absolute;
+    z-index: 0;
+    height: var(--line-thickness, 1px);
+    width: var(--line-length, 100%);
+    background: var(--line-color, #{variables.$border});
+    border-radius: 999px;
+    rotate: var(--line-angle, 0deg); // individual transform prop — composes with parallax translate
+    transform-origin: left center;
+
+    // colour tokens — map the XML select value to a --line-color
+    &.line-brand  { --line-color: #{variables.$brand}; }
+    &.line-indigo { --line-color: #{variables.$indigo}; }
+    &.line-green  { --line-color: #{variables.$green}; }
+    &.line-border { --line-color: #{variables.$border}; }
+    &.line-ink    { --line-color: #{variables.$ink}; }
+    &.line-white  { --line-color: #{variables.$white}; }
+  }
+
+  // vector / image media placed as a partial box (full path stays .background-image)
+  .background-image.is-partial {
+    inset: auto;
+
+    svg,
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
   }
 
-  @media (min-width: variables.$desktop) {
-    .grey-grill {
-      height: 6.5rem;
-    }
-
-    .green-line-block {
-      height: 3rem;
+  // depth parallax — pure CSS, scroll-driven. Element carries --depth (0 = with
+  // the page, →1 = lags). translate: drives parallax, rotate: drives the line
+  // angle, so they never clash. Degrades to static where unsupported.
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .parallax {
+        animation: background-parallax linear both;
+        animation-timeline: view();
+        animation-range: cover;
+        will-change: transform;
+      }
     }
   }
+}
+
+// --depth 0 = moves with the page; larger = farther = SLOWER (lags more). As the
+// element scrolls up it adds downward translate, cancelling some of the scroll.
+@keyframes background-parallax {
+  from { translate: 0 calc(var(--depth, .2) * -8rem); }
+  to   { translate: 0 calc(var(--depth, .2) *  8rem); }
 }

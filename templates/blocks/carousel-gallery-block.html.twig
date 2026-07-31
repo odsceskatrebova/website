@@ -1,7 +1,9 @@
 {% set randomId = random() %}
-<div class="carousel-gallery-block carousel {{ data.classes }}" id="carousel-gallery-block-{{ randomId }}" {{ sulu_block_preview(data) }}>
+{% set elementId = (data.id is defined and data.id is not empty) ? data.id : 'carousel-gallery-block-' ~ randomId %}
+<div class="carousel-gallery-block carousel {{ data.classes }}" id="{{ elementId }}" {{ sulu_block_preview(data) }}>
     <div class="carousel-wrapper">
         {% for image in data.images %}
+            {% if image.image %}
             <div class="card">
                 <picture class="background-image {{ ( image.outline ) ? 'outline' : '' }}">
                     {% if 'svg' in image.image.fileVersion.mimeType %}
@@ -19,6 +21,7 @@
                     {% endif %}
                 </picture>
             </div>
+            {% endif %}
         {% endfor %}
     </div>
     <div class="carousel-navigation container">
@@ -38,7 +41,7 @@
     </div>
 </div>
 <style>
-    #carousel-gallery-block-{{ randomId }} .carousel-wrapper {
+    #{{ elementId }} .carousel-wrapper {
     {% if data.aspectRatio %}
         aspect-ratio: {{ data.aspectRatio }};
         height: auto;

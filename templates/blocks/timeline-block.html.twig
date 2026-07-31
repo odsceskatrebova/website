@@ -1,4 +1,4 @@
-<div class="timeline-block {{ data.class }}" {{ sulu_block_preview(data) }}>
+<div id="{{ data.id }}" class="timeline-block {{ data.classes }}" {{ sulu_block_preview(data) }}>
   {% for event in data.events %}
     <div class="timeline-event">
       {% if event.year %}

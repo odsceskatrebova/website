@@ -3,14 +3,17 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
-    <property name="sulu-display-name" type="text_line" colspan="6">
+    <property name="sulu-display-name" type="text_line" colspan="3">
         <meta>
-            <title lang="en">Sulu display name</title>
+            <title lang="en">sulu display name</title>
         </meta>
         <tag name="sulu.block_preview" priority="512"/>
     </property>
-    <property name="id" type="text_line" colspan="6">
+    <property name="id" type="text_line" colspan="3">
         <meta><title lang="en">id</title></meta>
+    </property>
+    <property name="classes" type="text_line" colspan="6">
+        <meta><title lang="en">classes</title></meta>
     </property>
 
     <property name="align" type="single_select" colspan="3">
@@ -42,7 +45,7 @@
         </params>
     </property>
     <property name="colWidth" type="single_select" colspan="3">
-        <meta><title lang="en">Number of cols</title></meta>
+        <meta><title lang="en">number of cols</title></meta>
         <params>
             <param name="default_value" value=""/>
             <param name="values" type="collection">
@@ -58,9 +61,6 @@
     </property>
     <property name="visualise" type="checkbox" colspan="1">
         <meta><title lang="en">visualise</title></meta>
-    </property>
-    <property name="classes" type="text_line" colspan="6">
-        <meta><title lang="en">classes</title></meta>
     </property>
 
 </properties>

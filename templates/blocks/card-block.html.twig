@@ -1,7 +1,7 @@
 {% set openingTag = (data.link) ? 'a href=' ~ data.link : 'div' %}
 {% set closingTag = (data.link) ? 'a' : 'div' %}
 
-<{{ openingTag }} class="card {{ data.link ? 'link' : '' }} {{ data.classes }} {{ data.darkSection ? 'dark-section' : '' }}" style="{{ data.aspectRatio ? 'aspect-ratio: ' ~ data.aspectRatio ~ ';' : '' }}" {{ sulu_block_preview(data) }}>
+<{{ openingTag }} class="card {{ data.link ? 'link' : '' }} {{ data.classes }} {{ data.darkSection ? 'dark-section' : '' }} fill-{{ data.fill|default('white') }}{{ data.border and data.border != 'none' ? ' border-' ~ data.border : '' }}{{ data.shadow ? ' shadow' : '' }}" style="{{ data.aspectRatio ? 'aspect-ratio: ' ~ data.aspectRatio ~ ';' : '' }}" {{ sulu_block_preview(data) }}>
     {% if data.backgroundTablet or data.background %}
         <picture class="background-image">
             {% if data.backgroundTablet %}
@@ -18,6 +18,30 @@
             {% endif %}
         </picture>
     {% endif %}
+
+    {% for element in data.backgroundElements|default([]) %}
+        {% if element.type == 'glow-block' %}
+            {# the card crops everything (overflow:hidden), so glows are always cropped → no parallax #}
+            {% include 'blocks/_glow.html.twig' with { glow: element, cropped: true } only %}
+        {% elseif element.type == 'pattern-block' %}
+            {% include 'blocks/_pattern.html.twig' with { pattern: element, cropped: true } only %}
+        {% elseif element.type == 'image-block' %}
+            {% set s = [] %}
+            {% if element.top %}{% set s = s|merge(['top: ' ~ element.top]) %}{% endif %}
+            {% if element.left %}{% set s = s|merge(['left: ' ~ element.left]) %}{% endif %}
+            {% if element.right %}{% set s = s|merge(['right: ' ~ element.right]) %}{% endif %}
+            {% if element.bottom %}{% set s = s|merge(['bottom: ' ~ element.bottom]) %}{% endif %}
+            {% if element.width %}{% set s = s|merge(['width: ' ~ element.width]) %}{% endif %}
+            {% if element.height %}{% set s = s|merge(['height: ' ~ element.height]) %}{% endif %}
+            {% if element.opacity %}{% set s = s|merge(['opacity: ' ~ element.opacity]) %}{% endif %}
+            {% if element.fit %}{% set s = s|merge(['--media-fit: ' ~ element.fit]) %}{% endif %}
+            <div class="background-image is-partial" aria-hidden="true" style="{{ s|join('; ') }}">
+                {% if element.image %}
+                    <img src="{{ element.image.thumbnails['full'] }}" alt="">
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
 
     {% for cardBlock in data.content %}
         {% if cardBlock.type == 'image-block' %}

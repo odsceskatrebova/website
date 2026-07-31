@@ -10,29 +10,30 @@
     </meta>
 
     <properties>
-        <property name="sulu-display-name" type="text_line" colspan="4">
+        <property name="sulu-display-name" type="text_line" colspan="3">
             <meta>
-                <title lang="en">Sulu display name</title>
+                <title lang="en">sulu display name</title>
             </meta>
             <tag name="sulu.block_preview" priority="512"/>
         </property>
-        <property name="classes" type="text_line" colspan="4">
-            <meta><title lang="en">classes</title></meta>
-        </property>
-        <property name="id" type="text_line" colspan="4">
+        <property name="id" type="text_line" colspan="3">
             <meta><title lang="en">id</title></meta>
         </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta><title lang="en">classes</title></meta>
+        </property>
+
         <property name="text" type="text_editor">
             <meta>
-                <title lang="en">Text</title>
+                <title lang="en">text</title>
             </meta>
         </property>
-        <property name="ctaText" type="text_line" colspan="3">
+        <property name="ctaText" type="text_line" colspan="4">
             <meta>
                 <title lang="en">CTA text</title>
             </meta>
         </property>
-        <property name="ctaColor" type="single_select" colspan="2">
+        <property name="ctaColor" type="single_select" colspan="4">
             <meta>
                 <title lang="en">CTA color</title>
             </meta>

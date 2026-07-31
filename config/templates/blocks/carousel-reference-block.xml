@@ -10,10 +10,18 @@
     </meta>
 
     <properties>
-
-        <property name="classes" type="text_line" colspan="4">
+        <property name="sulu-display-name" type="text_line" colspan="3">
             <meta>
-                <title lang="en">Classes</title>
+                <title lang="en">sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta><title lang="en">id</title></meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">classes</title>
             </meta>
         </property>
 
@@ -36,17 +44,17 @@
                     </meta>
                     <properties>
                         <property name="text" type="text_editor">
-                            <meta><title lang="en">Text</title></meta>
+                            <meta><title lang="en">text</title></meta>
                             <tag name="sulu.block_preview" priority="1024"/>
                             <tag name="sulu.search.field" />
                         </property>
                         <property name="name" type="text_line" colspan="3">
-                            <meta><title lang="en">Name</title></meta>
+                            <meta><title lang="en">name</title></meta>
                             <tag name="sulu.block_preview" priority="512"/>
                             <tag name="sulu.search.field" />
                         </property>
                         <property name="about" type="text_line" colspan="3">
-                            <meta><title lang="en">About</title></meta>
+                            <meta><title lang="en">about</title></meta>
                         </property>
                     </properties>
                 </type>

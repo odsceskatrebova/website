@@ -10,14 +10,17 @@
     </meta>
 
     <properties>
-        <property name="sulu-display-name" type="text_line" colspan="6">
+        <property name="sulu-display-name" type="text_line" colspan="3">
             <meta>
-                <title lang="en">Sulu display name</title>
+                <title lang="en">sulu display name</title>
             </meta>
             <tag name="sulu.block_preview" priority="512"/>
         </property>
-        <property name="id" type="text_line" colspan="6">
+        <property name="id" type="text_line" colspan="3">
             <meta><title lang="en">id</title></meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta><title lang="en">classes</title></meta>
         </property>
 
         <property name="justify" type="single_select" colspan="3">
@@ -48,10 +51,10 @@
         <property name="gap" type="single_select" colspan="3">
             <meta><title lang="en">gap</title></meta>
             <params>
-                <param name="default_value" value=""/>
+                <param name="default_value" value="gap-0h"/>
                 <param name="values" type="collection">
                     <param name="gap-0"><meta><title lang="en">0</title></meta></param>
-                    <param name=""><meta><title lang="en">.5rem</title></meta></param>
+                    <param name="gap-0h"><meta><title lang="en">.5rem</title></meta></param>
                     <param name="gap-1"><meta><title lang="en">1rem</title></meta></param>
                     <param name="gap-2"><meta><title lang="en">2rem</title></meta></param>
                     <param name="gap-3"><meta><title lang="en">3rem</title></meta></param>
@@ -67,9 +70,6 @@
                     <param name="wrap"><meta><title lang="en">wrap</title></meta></param>
                 </param>
             </params>
-        </property>
-        <property name="classes" type="text_line" colspan="6">
-            <meta><title lang="en">Classes</title></meta>
         </property>
 
         <block name="content" default-type="button-block">
@@ -88,15 +88,26 @@
                 <type ref="button-block" />
                 <type ref="text-block" />
                 <type ref="image-block" />
+                <type ref="icon-block" />
 
                 <type name="line-block">
                     <meta>
                         <title lang="en">line</title>
                     </meta>
                     <properties>
+                        <property name="sulu-display-name-line" type="text_line" colspan="6">
+                            <meta>
+                                <title lang="en">sulu display name</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="512"/>
+                        </property>
+                        <property name="lineClasses" type="text_line" colspan="6">
+                            <meta><title lang="en">classes</title></meta>
+                        </property>
+
                         <property name="orientation" type="single_select" colspan="3">
                             <meta>
-                                <title lang="en">Orientation</title>
+                                <title lang="en">orientation</title>
                             </meta>
                             <params>
                                 <param name="default_value" value="vertical"/>
@@ -107,8 +118,7 @@
                             </params>
                         </property>
                         <property name="style" type="single_select" colspan="3">
-                            <meta><title lang="en">Style</title></meta>
-                            <tag name="sulu.block_preview" priority="1024"/>
+                            <meta><title lang="en">style</title></meta>
                             <params>
                                 <param name="default_value" value="default"/>
                                 <param name="values" type="collection">
@@ -118,8 +128,7 @@
                             </params>
                         </property>
                         <property name="color" type="single_select" colspan="3">
-                            <meta><title lang="en">Color</title></meta>
-                            <tag name="sulu.block_preview" priority="516"/>
+                            <meta><title lang="en">color</title></meta>
                             <params>
                                 <param name="default_value" value="default"/>
                                 <param name="values" type="collection">
@@ -128,13 +137,14 @@
                                     <param name="black"><meta><title lang="en">black</title></meta></param>
                                     <param name="primary"><meta><title lang="en">primary</title></meta></param>
                                     <param name="accent"><meta><title lang="en">accent</title></meta></param>
+                                    <param name="grad-blue"><meta><title lang="en">Blue gradient</title></meta></param>
                                 </param>
                             </params>
                         </property>
-                        <property name="length" type="text_line" colspan="4">
-                            <meta><title lang="en">Length</title></meta>
+                        <property name="length" type="text_line" colspan="2">
+                            <meta><title lang="en">length</title></meta>
                         </property>
-                        <property name="stretch" type="checkbox" colspan="2">
+                        <property name="stretch" type="checkbox" colspan="1">
                             <meta><title lang="en">is stretched</title></meta>
                         </property>
                         <property name="class" type="text_line" colspan="4">

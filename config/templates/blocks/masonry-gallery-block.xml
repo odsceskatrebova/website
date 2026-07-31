@@ -10,13 +10,19 @@
     </meta>
 
     <properties>
+        <property name="sulu-display-name" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta><title lang="en">id</title></meta>
+        </property>
         <property name="classes" type="text_line" colspan="6">
             <meta>
-                <title lang="en">Classes</title>
+                <title lang="en">classes</title>
             </meta>
-        </property>
-        <property name="id" type="text_line" colspan="6">
-            <meta><title lang="en">id</title></meta>
         </property>
 
         <block name="images" default-type="image">
@@ -35,12 +41,12 @@
                         <title lang="en">image</title>
                     </meta>
                     <properties>
-                        <property name="image" type="single_media_selection" colspan="4">
+                        <property name="image" type="single_media_selection" colspan="8">
                             <meta>
-                                <title lang="en">Image</title>
+                                <title lang="en">image</title>
                             </meta>
                         </property>
-                        <property name="large" type="checkbox">
+                        <property name="large" type="checkbox" colspan="4">
                             <meta>
                                 <title lang="en">large</title>
                             </meta>

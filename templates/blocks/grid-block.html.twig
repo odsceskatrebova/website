@@ -8,6 +8,8 @@
           {% include 'blocks/text-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
         {% elseif block.type == 'image-block' %}
           {% include 'blocks/image-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
+        {% elseif block.type == 'icon-block' %}
+          {% include 'blocks/icon-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
         {% elseif block.type == 'divider-block' %}
           {% include 'blocks/divider-block.html.twig' with { data: block, dataView: blockView, placement: placement } %}
         {% elseif block.type == 'button-block' %}

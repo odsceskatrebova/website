@@ -19,7 +19,11 @@
     }
 
     &.outline {
-      border: solid 1px variables.$lightGrey;
+      border: solid 1px variables.$border;
+    }
+
+    &.contain {
+      object-fit: contain;
     }
   }
 }

@@ -10,28 +10,73 @@
     </meta>
 
     <properties>
+        <property name="sulu-display-name" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta><title lang="en">id</title></meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">classes</title>
+            </meta>
+        </property>
+
         <property name="background" type="single_media_selection" colspan="4">
             <meta>
-                <title lang="en">Background</title>
+                <title lang="en">background image phone</title>
             </meta>
         </property>
         <property name="backgroundTablet" type="single_media_selection" colspan="4">
             <meta>
-                <title lang="en">Background tablet</title>
+                <title lang="en">background image tablet +</title>
             </meta>
+        </property>
+        <property name="background_style" type="single_select" colspan="4">
+            <meta>
+                <title lang="en">background color</title>
+            </meta>
+            <params>
+                <param name="values" type="collection">
+                    <param name="">
+                        <meta><title lang="en">White (default)</title></meta>
+                    </param>
+                    <param name="bordered">
+                        <meta><title lang="en">White + border + hover</title></meta>
+                    </param>
+                    <param name="background-soft">
+                        <meta><title lang="en">Soft blue</title></meta>
+                    </param>
+                    <param name="accent">
+                        <meta><title lang="en">Accent blue</title></meta>
+                    </param>
+                    <param name="grad-blue">
+                        <meta><title lang="en">Blue gradient</title></meta>
+                    </param>
+                    <param name="primary">
+                        <meta><title lang="en">Dark navy</title></meta>
+                    </param>
+                    <param name="glass">
+                        <meta><title lang="en">Glass (for dark sections)</title></meta>
+                    </param>
+                </param>
+            </params>
         </property>
         <property name="aspectRatio" type="number" colspan="4">
             <meta>
-                <title lang="en">Aspect ratio</title>
+                <title lang="en">aspect ratio</title>
             </meta>
             <params>
                 <param name="min" value=".2"/>
                 <param name="max" value="5"/>
             </params>
         </property>
-        <property name="link" type="link" colspan="6">
+        <property name="hoverable" type="checkbox" colspan="3">
             <meta>
-                <title lang="en">Link</title>
+                <title lang="en">hover rise effect</title>
             </meta>
         </property>
         <property name="darkSection" type="checkbox" colspan="3">
@@ -39,11 +84,109 @@
                 <title lang="en">dark-section = white text</title>
             </meta>
         </property>
-        <property name="classes" type="text_line" colspan="6">
+        <property name="link" type="link" colspan="6">
             <meta>
-                <title lang="en">Classes</title>
+                <title lang="en">link</title>
+            </meta>
+            <params>
+                <param name="enable_anchor" value="true"/>
+            </params>
+        </property>
+
+        <property name="fill" type="single_select" colspan="3">
+            <meta>
+                <title lang="en">Fill</title>
+            </meta>
+            <params>
+                <param name="default_value" value="white"/>
+                <param name="values" type="collection">
+                    <param name="white"><meta><title lang="en">White</title></meta></param>
+                    <param name="frost"><meta><title lang="en">Frost</title></meta></param>
+                    <param name="soft"><meta><title lang="en">Soft grey</title></meta></param>
+                    <param name="navy"><meta><title lang="en">Navy</title></meta></param>
+                    <param name="navyDeep"><meta><title lang="en">Navy deep</title></meta></param>
+                    <param name="brand"><meta><title lang="en">Brand</title></meta></param>
+                    <param name="brandDeep"><meta><title lang="en">Brand deep</title></meta></param>
+                    <param name="indigo"><meta><title lang="en">Indigo</title></meta></param>
+                    <param name="green"><meta><title lang="en">Green</title></meta></param>
+                    <param name="greenForest"><meta><title lang="en">Green forest</title></meta></param>
+                </param>
+            </params>
+        </property>
+
+        <property name="border" type="single_select" colspan="3">
+            <meta>
+                <title lang="en">Border</title>
+            </meta>
+            <params>
+                <param name="default_value" value="none"/>
+                <param name="values" type="collection">
+                    <param name="none"><meta><title lang="en">None</title></meta></param>
+                    <param name="shine"><meta><title lang="en">Shine (light ring)</title></meta></param>
+                    <param name="light"><meta><title lang="en">Light (translucent white)</title></meta></param>
+                    <param name="border"><meta><title lang="en">Grey border</title></meta></param>
+                    <param name="brand"><meta><title lang="en">Brand</title></meta></param>
+                </param>
+            </params>
+        </property>
+
+        <property name="shadow" type="checkbox" colspan="3">
+            <meta>
+                <title lang="en">floating shadow</title>
             </meta>
         </property>
+
+        <block name="backgroundElements" default-type="glow-block">
+            <meta>
+                <title lang="en">Background elements (cropped to card)</title>
+            </meta>
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title lang="en">Add background element</title>
+                    </meta>
+                </param>
+                <param name="block_id_generator" value="true"/>
+            </params>
+            <types>
+                <type ref="glow-block"/>
+                <type ref="pattern-block"/>
+                <type name="image-block">
+                    <meta>
+                        <title lang="en">image block</title>
+                    </meta>
+                    <properties>
+                        <property name="image" type="single_media_selection" colspan="6">
+                            <meta>
+                                <title lang="en">Image</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="512"/>
+                        </property>
+                        <property name="fit" type="single_select" colspan="3">
+                            <meta>
+                                <title lang="en">fit</title>
+                            </meta>
+                            <params>
+                                <param name="default_value" value="contain"/>
+                                <param name="values" type="collection">
+                                    <param name="contain"><meta><title lang="en">Contain</title></meta></param>
+                                    <param name="cover"><meta><title lang="en">Cover</title></meta></param>
+                                </param>
+                            </params>
+                        </property>
+                        <property name="opacity" type="text_line" colspan="3">
+                            <meta><title lang="en">opacity (0–1)</title></meta>
+                        </property>
+                        <property name="top" type="text_line" colspan="2"><meta><title lang="en">top</title></meta></property>
+                        <property name="left" type="text_line" colspan="2"><meta><title lang="en">left</title></meta></property>
+                        <property name="right" type="text_line" colspan="2"><meta><title lang="en">right</title></meta></property>
+                        <property name="bottom" type="text_line" colspan="2"><meta><title lang="en">bottom</title></meta></property>
+                        <property name="width" type="text_line" colspan="2"><meta><title lang="en">width</title></meta></property>
+                        <property name="height" type="text_line" colspan="2"><meta><title lang="en">height</title></meta></property>
+                    </properties>
+                </type>
+            </types>
+        </block>
 
         <block name="content" default-type="text-block">
             <meta>
@@ -61,8 +204,10 @@
                 <type ref="button-block" />
                 <type ref="text-block" />
                 <type ref="image-block" />
+                <type ref="icon-block" />
                 <type ref="flex-block" />
                 <type ref="video-block" />
+                <type ref="form-block" />
             </types>
         </block>
     </properties>

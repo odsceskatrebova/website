@@ -10,12 +10,12 @@
     </meta>
 
     <properties>
-        <property name="titleOverride" type="text_line">
+        <property name="titleOverride" type="text_line" colspan="6">
             <meta><title lang="en">text</title></meta>
             <tag name="sulu.block_preview" priority="1024"/>
             <tag name="sulu.search.field" />
         </property>
-        <property name="classes" type="text_line" colspan="8">
+        <property name="classes" type="text_line" colspan="6">
             <meta><title lang="en">classes</title></meta>
         </property>
     </properties>

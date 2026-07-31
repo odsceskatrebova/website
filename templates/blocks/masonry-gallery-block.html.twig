@@ -1,5 +1,6 @@
 <div id="{{ data.id }}" class="masonry-gallery-block {{ data.classes }}" {{ sulu_block_preview(data) }}>
     {% for image in data.images %}
+        {% if image.image %}
         <picture class="image {{ image.large ? 'large' : '' }}">
             {% if 'svg' in image.image.fileVersion.mimeType %}
                 <img
@@ -21,5 +22,6 @@
                 <img srcset="{{ image.image.thumbnails['full.webp'] }}, {{ image.image.thumbnails['full@2x.webp'] }} 2x"/>
             {% endif %}
         </picture>
+        {% endif %}
     {% endfor %}
 </div>

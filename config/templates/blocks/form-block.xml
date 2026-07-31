@@ -10,10 +10,41 @@
     </meta>
 
     <properties>
-        <property name="ctaText" type="text_line" colspan="3">
+        <property name="sulu-display-name" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">sulu display name</title>
+            </meta>
+            <tag name="sulu.block_preview" priority="512"/>
+        </property>
+        <property name="id" type="text_line" colspan="3">
+            <meta><title lang="en">id</title></meta>
+        </property>
+        <property name="classes" type="text_line" colspan="6">
+            <meta>
+                <title lang="en">classes</title>
+            </meta>
+        </property>
+
+        <property name="ctaText" type="text_line" colspan="4">
             <meta>
                 <title lang="en">CTA text</title>
             </meta>
+        </property>
+        <property name="ctaColor" type="single_select" colspan="4">
+            <meta>
+                <title lang="en">CTA color</title>
+            </meta>
+            <params>
+                <param name="default_value" value="default"/>
+                <param name="values" type="collection">
+                    <param name="default"><meta><title lang="en">Default</title></meta></param>
+                    <param name="white"><meta><title lang="en">White</title></meta></param>
+                    <param name="black"><meta><title lang="en">Black</title></meta></param>
+                    <param name="primary"><meta><title lang="en">Primary</title></meta></param>
+                    <param name="accent"><meta><title lang="en">Accent</title></meta></param>
+                    <param name="grad-blue"><meta><title lang="en">Blue gradient</title></meta></param>
+                </param>
+            </params>
         </property>
         <property name="ctaInline" type="checkbox" colspan="2">
             <meta>
@@ -22,20 +53,6 @@
             <params>
                 <param name="type" value="toggler"/>
                 <param name="default_value" value="false"/>
-            </params>
-        </property>
-        <property name="ctaColor" type="single_select">
-            <meta>
-                <title lang="en">CTA color</title>
-            </meta>
-            <params>
-                <param name="default_value" value="primary"/>
-                <param name="values" type="collection">
-                    <param name="white"><meta><title lang="en">White</title></meta></param>
-                    <param name="black"><meta><title lang="en">Black</title></meta></param>
-                    <param name="primary"><meta><title lang="en">Primary</title></meta></param>
-                    <param name="accent"><meta><title lang="en">Accent</title></meta></param>
-                </param>
             </params>
         </property>
         <property name="debugMode" type="checkbox" colspan="2">
@@ -47,19 +64,9 @@
                 <param name="default_value" value="false"/>
             </params>
         </property>
-        <property name="classes" type="text_line" colspan="3">
-            <meta>
-                <title lang="en">Classes</title>
-            </meta>
-        </property>
-        <property name="id" type="text_line" colspan="3">
-            <meta>
-                <title lang="en">Id</title>
-            </meta>
-        </property>
         <property name="formTemplate" type="single_snippet_selection">
             <meta>
-                <title lang="en">Form template</title>
+                <title lang="en">form template</title>
             </meta>
             <params>
                 <param name="types" value="form"/>

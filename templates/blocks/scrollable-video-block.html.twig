@@ -1,7 +1,7 @@
 {% set debug = (app.request.attributes.get('preview') or data.debug) ? true : false %}
 <div
   id="{{ data.id }}"
-  class="scrollable-video-block {{ data.hero ? 'hero' : '' }}"
+  class="scrollable-video-block {{ data.hero ? 'hero' : '' }} {{ data.classes }}"
   {{ sulu_block_preview(data) }}
 >
   {% if not data.hero %}

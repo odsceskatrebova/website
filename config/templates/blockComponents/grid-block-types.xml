@@ -9,6 +9,8 @@
 
             <type ref="image-block" />
 
+            <type ref="icon-block" />
+
             <type ref="flex-block" />
 
             <type ref="button-block" />
