@@ -24,6 +24,11 @@
                 <title lang="en">classes</title>
             </meta>
         </property>
+        <property name="watermarkNumber" type="text_line" colspan="3">
+            <meta>
+                <title lang="en">watermark number</title>
+            </meta>
+        </property>
 
         <property name="background" type="single_media_selection" colspan="4">
             <meta>

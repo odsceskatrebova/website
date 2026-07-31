@@ -73,9 +73,24 @@
   }
 
   // background elements paint at z-index 0 — lift real content above them
-  & > :not(.glow):not(.background-image) {
+  & > :not(.glow):not(.background-image):not(.card-watermark) {
     position: relative;
     z-index: 1;
+  }
+
+  // oversized index number bleeding off the top-right corner, sat behind the
+  // real content (z-index 16) — e.g. a numbered-step card showing "01"
+  .card-watermark {
+    position: absolute;
+    z-index: 1;
+    top: -1.625rem;
+    right: -.625rem;
+    font-size: 7.5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: rgba(variables.$primaryColor, .07);
+    pointer-events: none;
+    user-select: none;
   }
 
   // positioned image / vector element (box + opacity come from inline styles)

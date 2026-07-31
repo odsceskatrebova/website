@@ -87,6 +87,7 @@
                     <param name="black"><meta><title lang="en">black</title></meta></param>
                     <param name="primary"><meta><title lang="en">primary</title></meta></param>
                     <param name="accent"><meta><title lang="en">accent</title></meta></param>
+                    <param name="warning"><meta><title lang="en">warning</title></meta></param>
                     <param name="grad-blue"><meta><title lang="en">blue gradient</title></meta></param>
                 </param>
             </params>

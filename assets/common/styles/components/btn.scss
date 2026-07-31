@@ -192,6 +192,46 @@ button, a.btn, .btn {
     }
   }
 
+  &.warning {
+    color: variables.$warning;
+
+    &:hover {
+      border-color: color-mix(in srgb, #{variables.$warning} 80%, transparent);
+    }
+
+    &.outline {
+      color: variables.$warning;
+      border-color: color-mix(in srgb, #{variables.$warning} 80%, transparent);
+
+      &:hover {
+        border-color: variables.$warning;
+      }
+    }
+
+    &.fill {
+      background: variables.$warning;
+      color: variables.$textHighlightColor;
+
+      &:hover {
+        background: color-mix(in srgb, #{variables.$warning} 95%, #{variables.$textHighlightColor});
+      }
+    }
+
+    &.circle {
+      border-color: color-mix(in srgb, #{variables.$warning} 30%, transparent);
+
+      &:hover {
+        border-color: color-mix(in srgb, #{variables.$warning} 50%, transparent);
+      }
+
+      &.active {
+        background: variables.$warning;
+        border-color: variables.$warning;
+        color: variables.$textHighlightColor;
+      }
+    }
+  }
+
   &.primary {
     color: variables.$primaryColor;
 

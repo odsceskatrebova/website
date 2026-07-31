@@ -41,6 +41,10 @@
         {% endif %}
     {% endfor %}
 
+    {% if data.watermarkNumber %}
+        <div class="card-watermark" aria-hidden="true">{{ data.watermarkNumber }}</div>
+    {% endif %}
+
     {% for cardBlock in data.content %}
         {% if cardBlock.type == 'image-block' %}
             {% include 'blocks/image-block.html.twig' with { data: cardBlock } %}
