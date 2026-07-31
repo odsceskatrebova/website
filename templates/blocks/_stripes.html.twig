@@ -1,0 +1,23 @@
+{#
+  Renders one stripes background element from its fields — a repeating
+  diagonal wash or a two-tone hazard strip, included from the
+  background-block background loop. See
+  assets/common/styles/components/stripes.scss.
+  Params:
+    stripes — block data (variant, stripeColor, angle, stripeWidth,
+              opacity, top/left/right/bottom/width/height, depth)
+#}
+{% set s = [] %}
+{% set hasBox = stripes.top or stripes.left or stripes.right or stripes.bottom or stripes.width or stripes.height %}
+{% if stripes.top %}{% set s = s|merge(['top: ' ~ stripes.top]) %}{% endif %}
+{% if stripes.left %}{% set s = s|merge(['left: ' ~ stripes.left]) %}{% endif %}
+{% if stripes.right %}{% set s = s|merge(['right: ' ~ stripes.right]) %}{% endif %}
+{% if stripes.bottom %}{% set s = s|merge(['bottom: ' ~ stripes.bottom]) %}{% endif %}
+{% if stripes.width %}{% set s = s|merge(['width: ' ~ stripes.width]) %}{% endif %}
+{% if stripes.height %}{% set s = s|merge(['height: ' ~ stripes.height]) %}{% endif %}
+{% if stripes.angle %}{% set s = s|merge(['--stripe-angle: ' ~ stripes.angle]) %}{% endif %}
+{% if stripes.stripeWidth %}{% set s = s|merge(['--stripe-width: ' ~ stripes.stripeWidth]) %}{% endif %}
+{% if stripes.opacity %}{% set s = s|merge(['--stripe-opacity: ' ~ stripes.opacity]) %}{% endif %}
+{% if stripes.depth %}{% set s = s|merge(['--depth: ' ~ stripes.depth]) %}{% endif %}
+<div class="stripes-block stripes-{{ stripes.variant|default('wash') }} stripes-color-{{ stripes.stripeColor|default('white') }}{{ hasBox ? ' is-partial' : '' }}{{ stripes.depth ? ' parallax' : '' }}"
+     aria-hidden="true" style="{{ s|join('; ') }}"></div>

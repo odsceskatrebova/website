@@ -1,0 +1,42 @@
+@use "../base/variables.scss";
+
+// repeating diagonal stripes — either a subtle full-cover wash or a two-tone
+// hazard strip; a composable background element used by background-block.
+// full-cover by default, partial via .is-partial + inline box (see the
+// analogous .color-block pattern in blocks/background-block.scss).
+.stripes-block {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  &.is-partial { inset: auto; }
+
+  // wash — a single colour at low alpha, a subtle full-cover diagonal texture
+  &.stripes-wash {
+    background: repeating-linear-gradient(
+      var(--stripe-angle, -55deg),
+      var(--stripe-color, #{variables.$white}) 0 var(--stripe-width, 4.375rem),
+      transparent var(--stripe-width, 4.375rem) calc(var(--stripe-width, 4.375rem) * 2)
+    );
+    opacity: var(--stripe-opacity, .03);
+  }
+
+  // hazard — opaque two-colour alternating strip: selected colour + a fixed
+  // navyDeep-style dark band (not user-selectable)
+  &.stripes-hazard {
+    background: repeating-linear-gradient(
+      var(--stripe-angle, -45deg),
+      var(--stripe-color, #{variables.$warning}) 0 var(--stripe-width, 1.375rem),
+      #{variables.$navyDeep} var(--stripe-width, 1.375rem) calc(var(--stripe-width, 1.375rem) * 2)
+    );
+    opacity: var(--stripe-opacity, 1);
+  }
+
+  // colour tokens — map the XML select value to a --stripe-color
+  &.stripes-color-white   { --stripe-color: #{variables.$white}; }
+  &.stripes-color-brand   { --stripe-color: #{variables.$brand}; }
+  &.stripes-color-accent  { --stripe-color: #{variables.$accentColor}; }
+  &.stripes-color-warning { --stripe-color: #{variables.$warning}; }
+  &.stripes-color-dark    { --stripe-color: #{variables.$navyDeep}; }
+}

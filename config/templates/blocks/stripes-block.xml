@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>stripes-block</key>
+
+    <meta>
+        <title lang="en">stripes</title>
+    </meta>
+
+    <properties>
+        <property name="variant" type="single_select" colspan="3">
+            <meta><title lang="en">variant</title></meta>
+            <tag name="sulu.block_preview" priority="512"/>
+            <params>
+                <param name="default_value" value="wash"/>
+                <param name="values" type="collection">
+                    <param name="wash"><meta><title lang="en">wash</title></meta></param>
+                    <param name="hazard"><meta><title lang="en">hazard</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="stripeColor" type="single_select" colspan="3">
+            <meta><title lang="en">stripe colour</title></meta>
+            <params>
+                <param name="default_value" value="white"/>
+                <param name="values" type="collection">
+                    <param name="white"><meta><title lang="en">white</title></meta></param>
+                    <param name="brand"><meta><title lang="en">brand</title></meta></param>
+                    <param name="accent"><meta><title lang="en">accent</title></meta></param>
+                    <param name="warning"><meta><title lang="en">warning</title></meta></param>
+                    <param name="dark"><meta><title lang="en">dark</title></meta></param>
+                </param>
+            </params>
+        </property>
+        <property name="angle" type="text_line" colspan="3"><meta><title lang="en">angle (blank = -55deg wash / -45deg hazard)</title></meta></property>
+        <property name="stripeWidth" type="text_line" colspan="3"><meta><title lang="en">stripe width (blank = 4.375rem wash / 1.375rem hazard)</title></meta></property>
+        <property name="opacity" type="text_line" colspan="3"><meta><title lang="en">opacity (blank = variant default)</title></meta></property>
+
+        <!-- Leave the box empty for FULL cover. Set any of top/left/right/bottom/
+             width/height to make it a PARTIAL box (e.g. the makat hazard bar). -->
+        <property name="top" type="text_line" colspan="2"><meta><title lang="en">top</title></meta></property>
+        <property name="left" type="text_line" colspan="2"><meta><title lang="en">left</title></meta></property>
+        <property name="right" type="text_line" colspan="2"><meta><title lang="en">right</title></meta></property>
+        <property name="bottom" type="text_line" colspan="2"><meta><title lang="en">bottom</title></meta></property>
+        <property name="width" type="text_line" colspan="2"><meta><title lang="en">width</title></meta></property>
+        <property name="height" type="text_line" colspan="2"><meta><title lang="en">height</title></meta></property>
+
+        <property name="depth" type="text_line" colspan="3">
+            <meta><title lang="en">parallax depth (0–1, blank = none)</title></meta>
+        </property>
+    </properties>
+
+</template>

@@ -72,6 +72,7 @@
                 <type ref="color-block"/>
                 <type ref="glow-block"/>
                 <type ref="line-block"/>
+                <type ref="stripes-block"/>
 
                 <type name="image-block">
                     <meta>

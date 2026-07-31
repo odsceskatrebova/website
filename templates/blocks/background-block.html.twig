@@ -273,6 +273,9 @@
       {% if element.depth %}{% set s = s|merge(['--depth: ' ~ element.depth]) %}{% endif %}
       <div class="line-block line-{{ element.lineColor|default('border') }}{{ element.depth ? ' parallax' : '' }}"
            aria-hidden="true" style="{{ s|join('; ') }}"></div>
+
+    {% elseif element.type == 'stripes-block' %}
+      {% include 'blocks/_stripes.html.twig' with { stripes: element } only %}
     {% endif %}
   {% endfor %}
   <div
