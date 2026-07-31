@@ -1,2 +1,29 @@
 // Webspace-specific overrides — add `with ($var: value)` to customize per-webspace
-@forward '../../../common/styles/base/variables.scss';
+@forward '../../../common/styles/base/variables.scss' with (
+  /*
+   * Theme tokens — ODS Česká Třebová brand
+   */
+  $primaryColor: #04408f,
+  $contrastToPrimaryColor: #fff,
+  $accentColor: #f28c1e,
+  $contrastToAccentColor: #3a2405,
+  $backgroundSoftColor: #f2f0e9,
+  $footerBackgroundColor: #14181f,
+  $contrastToFooterBackgroundColor: #e8ecf2,
+  $background: #fbfaf7,
+
+  /*
+   * Fill / element tokens — read by the composable background elements
+   * (color/glow/line) in background-block, card-block and stripes-block,
+   * remapped so dark sections and glows render in odsct colors
+   */
+  $brand: #04408f, // primary brand blue
+  $brandDeep: #072a58, // deeper CTA blue (darkened $brand)
+  $navy: #14181f, // dark sections + footer
+  $navyDeep: #0d1117, // deepest navy (map/marker panels)
+  $indigo: #1a5cb8, // accent / glow inside dark sections
+  $soft: #f2f0e9, // soft section bg + icon tiles
+  $frost: #edf3fb, // frosted header bar / light placeholder tone
+  $border: #d6dae2, // hairline borders
+  $ink: #14181f, // headings
+);
