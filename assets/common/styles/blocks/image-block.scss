@@ -1,5 +1,19 @@
 @use "../base/variables.scss";
 
+// Shown instead of the <picture> when no image is selected, so page
+// structure stays visible before photos exist.
+.image-placeholder {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 2 / 3;
+  background: repeating-linear-gradient(
+    45deg,
+    variables.$soft 0 1rem,
+    variables.$frost 1rem 2rem
+  );
+}
+
 .image-block {
   margin: 0 auto;
   position: relative;

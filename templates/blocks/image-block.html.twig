@@ -70,4 +70,15 @@
             />
         {% endif %}
     </picture>
+{% else %}
+    {% set maxWidth = data.maxWidth ? 'max-width: ' ~ data.maxWidth ~ ';' : '' %}
+    {% set maxHeight = data.maxHeight ? 'max-height: ' ~ data.maxHeight ~ ';' : '' %}
+    {% set aspectRatio = data.aspectRatio ? 'aspect-ratio: ' ~ data.aspectRatio ~ ';' : 'aspect-ratio: 2 / 3;' %}
+    <div
+            id="{{ data.id }}"
+            class="image-placeholder {{ data.classes }}"
+            style="{{ maxWidth }} {{ maxHeight }} {{ aspectRatio }}"
+            aria-hidden="true"
+            {{ sulu_block_preview(data) }}
+    ></div>
 {% endif %}
