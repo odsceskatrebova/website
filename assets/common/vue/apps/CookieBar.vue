@@ -102,8 +102,10 @@ const updateConsentPreferencesInGtm = (types: string[]): void => {
   bottom: 5rem;
   transform: translateX(-50%);
   z-index: 75000;
-  background: vars.$accentColor;
-  color: vars.$contrastToAccentColor;
+  // A webspace can recolor the bar by setting these custom properties; the
+  // fallback keeps the default look for any webspace that doesn't.
+  background: var(--cookie-bar-bg, #{vars.$accentColor});
+  color: var(--cookie-bar-fg, #{vars.$contrastToAccentColor});
   width: 120%;
   max-width: min(60rem, calc(100vw - 2rem));
   padding: 2rem 4rem 2rem 2rem;
