@@ -12,16 +12,18 @@
 <footer class="site-footer">
     <div class="site-footer__glow" aria-hidden="true"></div>
 
-    <div class="site-footer__principles container">
-        <div class="site-footer__principles-grid">
-            {% for point in config.valuePoints %}
-                <div class="site-footer__principle">
-                    <div class="site-footer__principle-title">{{ point.pointTitle }}</div>
-                    <div class="site-footer__principle-text">{{ point.pointText }}</div>
-                </div>
-            {% endfor %}
+    {% if config.valuePoints %}
+        <div class="site-footer__principles container">
+            <div class="site-footer__principles-grid">
+                {% for point in config.valuePoints %}
+                    <div class="site-footer__principle">
+                        <div class="site-footer__principle-title">{{ point.pointTitle }}</div>
+                        <div class="site-footer__principle-text">{{ point.pointText }}</div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    </div>
+    {% endif %}
 
     <div class="site-footer__main container">
         <div class="site-footer__brand">
