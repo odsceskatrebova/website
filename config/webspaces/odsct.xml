@@ -7,8 +7,7 @@
     <key>odsct</key>
 
     <localizations>
-        <localization language="en" default="true"/>
-        <localization language="cs"/>
+        <localization language="cs" default="true"/>
     </localizations>
 
     <default-templates>
@@ -27,10 +26,12 @@
 
     <navigation>
         <contexts>
-            <context key="header"><meta><title lang="en">Header</title></meta></context>
-            <context key="footer1"><meta><title lang="en">Footer 1</title></meta></context>
-            <context key="footer2"><meta><title lang="en">Footer 2</title></meta></context>
-            <context key="footer-legal"><meta><title lang="en">Footer Legal</title></meta></context>
+            <context key="header">
+                <meta>
+                    <title lang="en">Header</title>
+                    <title lang="cs">Hlavička</title>
+                </meta>
+            </context>
         </contexts>
     </navigation>
 
@@ -42,17 +43,17 @@
             <environments>
                 <environment type="prod">
                     <urls>
-                        <url>{host}/{localization}</url>
+                        <url language="cs">{host}</url>
                     </urls>
                 </environment>
                 <environment type="stage">
                     <urls>
-                        <url>{host}/{localization}</url>
+                        <url language="cs">{host}</url>
                     </urls>
                 </environment>
                 <environment type="dev">
                     <urls>
-                        <url>odsct.local/{localization}</url>
+                        <url language="cs">odsct.local</url>
                     </urls>
                 </environment>
             </environments>

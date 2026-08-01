@@ -11,7 +11,10 @@
 
     <areas>
         <area key="welcomePopup">
-            <meta><title>Welcome Popup area</title></meta>
+            <meta>
+                <title lang="en">Welcome Popup area</title>
+                <title lang="cs">Uvítací okno</title>
+            </meta>
         </area>
     </areas>
 
