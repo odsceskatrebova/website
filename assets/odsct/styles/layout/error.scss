@@ -1,0 +1,66 @@
+@use '../../../common/styles/base/variables.scss';
+
+/* odsct campaign error page (404 etc.) — echoes the site-header badge visual
+   language for the big status code, with a Czech message and CTA back to the
+   homepage. Bespoke to this webspace; used by templates/error/error.html.twig,
+   which renders inside the shared odsct header/footer chrome and must not
+   depend on any websiteConfig field. */
+
+.error-page {
+  display: flex;
+  padding: 5rem 0;
+
+  @media (min-width: variables.$tablet) {
+    padding: 8rem 0;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__code {
+    display: inline-block;
+    background: variables.$primaryColor;
+    color: variables.$contrastToPrimaryColor;
+    font-family: variables.$displayFont;
+    font-size: 3.5rem;
+    line-height: 1;
+    padding: 1rem 1.75rem;
+
+    @media (min-width: variables.$tablet) {
+      font-size: 5.5rem;
+      padding: 1.25rem 2.25rem;
+    }
+  }
+
+  &__title {
+    max-width: 40rem;
+  }
+
+  &__text {
+    max-width: 30rem;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    background: variables.$accentColor;
+    color: variables.$contrastToAccentColor;
+    font-weight: 900;
+    font-size: .9375rem;
+    padding: .875rem 1.75rem;
+    border-radius: .625rem;
+    text-decoration: none;
+    transition: background .2s;
+
+    &:hover {
+      background: color-mix(in srgb, #{variables.$accentColor} 92%, #{variables.$contrastToAccentColor});
+      color: variables.$contrastToAccentColor;
+    }
+  }
+}

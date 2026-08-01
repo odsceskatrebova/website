@@ -19,6 +19,8 @@
 // layout/header.scss + header-menu.scss + footer.scss for this webspace.
 @use 'styles/layout/header.scss';
 @use 'styles/layout/footer.scss';
+// odsct campaign-styled error page (templates/error/error.html.twig).
+@use 'styles/layout/error.scss';
 @use "../common/styles/layout/welcome-popup.scss";
 
 // components
