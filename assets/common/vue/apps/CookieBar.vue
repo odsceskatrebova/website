@@ -108,7 +108,7 @@ const updateConsentPreferencesInGtm = (types: string[]): void => {
   max-width: min(60rem, calc(100vw - 2rem));
   padding: 2rem 4rem 2rem 2rem;
   border-radius: vars.$borderRadius;
-  box-shadow: 0 0 2rem #aaaaaa;
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, .18);
   align-items: center;
   display: flex;
   gap: 1rem;
