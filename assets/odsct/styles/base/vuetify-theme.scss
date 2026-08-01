@@ -1,0 +1,16 @@
+@use './variables.scss' as vars;
+
+// Campaign theming for Vuetify-rendered UI (cookie settings dialog, form blocks).
+// Vuetify 3 resolves colors as rgb triplets from --v-theme-* custom properties
+// scoped on .v-theme--light, so overriding them here rebrands every control
+// without a JS theme config.
+.v-theme--light {
+  --v-theme-primary: 4, 64, 143; // $primaryColor #04408f
+  --v-theme-on-primary: 255, 255, 255;
+}
+
+// Vuetify ships its own font stack; surfaces must use the campaign font.
+.v-card,
+.v-overlay-container {
+  font-family: vars.$defaultFont;
+}
