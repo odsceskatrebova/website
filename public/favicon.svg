@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg version="1.1" width="512" height="512" viewBox="286 0.3 130 130" xmlns="http://www.w3.org/2000/svg">
+  <rect x="286" y="0.3" width="130" height="130" rx="26" fill="#04408f"/>
+  <path d="m 2632.41,1219.65 c -48.03,43.26 -209.49,115.28 -382.6,75.04 159.84,-27.35 304.53,-117.72 382.6,-234.68 78.04,116.96 222.73,207.33 382.59,234.68 -173.12,40.24 -334.58,-31.78 -382.59,-75.04"
+        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+        transform="matrix(0.13333333,0,0,-0.13333333,0,223.33333)" />
+</svg>
