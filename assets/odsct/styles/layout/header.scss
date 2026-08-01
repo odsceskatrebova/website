@@ -206,13 +206,16 @@
       visibility: visible;
       pointer-events: auto;
     }
-  }
-}
 
-/* Locks page scroll while the mobile menu overlay is open; toggled on <body>
-   by assets/odsct/js/header-menu.ts. */
-body.site-header-menu-open {
-  overflow: hidden;
+    /* Locks page scroll while the mobile menu overlay is open; toggled on <body>
+       by assets/odsct/js/header-menu.ts. Scoped inside the breakpoint so that
+       resizing past 34rem (e.g. a phone rotating to landscape) with the menu
+       still open releases the lock — above 34rem the overlay is hidden and there
+       is no toggle to reopen it, so the lock would otherwise strand the page. */
+    body.site-header-menu-open {
+      overflow: hidden;
+    }
+  }
 }
 
 /* The header now sits in normal flow (not fixed), so the hero no longer needs
