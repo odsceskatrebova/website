@@ -11,6 +11,7 @@ import '@fontsource/ibm-plex-mono/500.css';
 import '@fontsource/caveat/400.css';
 import '@fontsource/caveat/700.css';
 import './app.scss';
+import '@odsct/js/header-menu.ts';
 import '@common/js/layout/header.ts';
 import '@common/js/layout/carousel.ts';
 import '@common/js/layout/row-edge.ts';

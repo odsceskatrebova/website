@@ -10,6 +10,8 @@
   z-index: 10;
 
   &__inner {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,6 +44,10 @@
     color: #3d4654;
     letter-spacing: .0625rem;
     line-height: 1.4;
+  }
+
+  &__tagline-date {
+    white-space: nowrap;
   }
 
   &__nav {
@@ -79,17 +85,134 @@
     }
   }
 
-  /* Tighter gaps + hidden tagline on small screens keep the bar on one row. */
+  /* Mobile menu toggle — hidden on desktop, shown under the 34rem breakpoint
+     below. Sits above &__menu (z-index 2 vs 1) so it stays visible/clickable
+     as an X once the overlay is open. */
+  &__menu-toggle {
+    display: none;
+    position: relative;
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .3125rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+
+    &[aria-expanded='true'] {
+      .site-header__menu-toggle-bar {
+        &:nth-child(1) {
+          transform: translateY(.4375rem) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: translateY(-.4375rem) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &__menu-toggle-bar {
+    display: block;
+    width: 1.5rem;
+    height: .125rem;
+    border-radius: .125rem;
+    background: variables.$primaryColor;
+    transition: transform .2s, opacity .2s;
+  }
+
+  /* Full-viewport campaign-styled overlay for the mobile nav + CTA. Hidden by
+     default at every breakpoint; only &__menu--open (added by JS, and only
+     reachable from the toggle that's visible under 34rem) shows it — see the
+     media query below, where the visibility is scoped to small screens too. */
+  &__menu {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background: variables.$footerBackgroundColor;
+    padding: 6rem 1.5rem 3rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .25s ease, visibility .25s ease;
+  }
+
+  &__menu-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  &__menu-link {
+    font-family: variables.$displayFont;
+    font-size: 1.5rem;
+    color: variables.$contrastToFooterBackgroundColor;
+    text-decoration: none;
+    transition: color .2s;
+
+    &:hover {
+      color: variables.$accentColor;
+    }
+  }
+
+  &__menu-cta {
+    margin-top: .5rem;
+    background: variables.$accentColor;
+    color: variables.$contrastToAccentColor;
+    font-weight: 900;
+    font-size: 1.0625rem;
+    padding: .875rem 1.75rem;
+    border-radius: .625rem;
+    text-decoration: none;
+    transition: background .2s;
+
+    &:hover {
+      background: color-mix(in srgb, #{variables.$accentColor} 92%, #{variables.$contrastToAccentColor});
+      color: variables.$contrastToAccentColor;
+    }
+  }
+
+  /* Tighter gaps + hidden tagline on small screens keep the bar on one row;
+     the inline nav is replaced by the hamburger toggle + full-viewport menu. */
   @media (max-width: 34rem) {
     &__tagline {
       display: none;
     }
 
     &__nav {
-      gap: 1rem;
-      font-size: .875rem;
+      display: none;
+    }
+
+    &__menu-toggle {
+      display: inline-flex;
+    }
+
+    &__menu--open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
   }
+}
+
+/* Locks page scroll while the mobile menu overlay is open; toggled on <body>
+   by assets/odsct/js/header-menu.ts. */
+body.site-header-menu-open {
+  overflow: hidden;
 }
 
 /* The header now sits in normal flow (not fixed), so the hero no longer needs

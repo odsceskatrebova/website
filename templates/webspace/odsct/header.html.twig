@@ -1,18 +1,55 @@
-{# odsct campaign header — static, transparent bar on the page background.
+{# odsct campaign header — wired to the websiteConfig snippet (badge/tagline/CTA)
+   and the "header" navigation context, plus a mobile menu overlay below 34rem.
    Bespoke to the odsct webspace (see design/ODS Web odsct.cz). Replaces the
-   generic layout/header.html.twig for this webspace; wired from webspace/odsct.html.twig. #}
+   generic layout/header.html.twig for this webspace; wired from
+   webspace/odsct.html.twig. #}
+{% set navLinks = sulu_page_navigation_root_flat('header', 1, {
+    'title': 'title',
+    'uuid': 'object.resource.uuid',
+}) %}
+{% set hasCta = config.ctaText and config.ctaLink %}
+{% set dateRange = election_date_range(config.electionDateStart, config.electionDateEnd) %}
+{% set taglineLine2 = dateRange %}
+{% if config.cityText %}
+    {% set taglineLine2 = taglineLine2 ? taglineLine2 ~ ' · ' ~ config.cityText : config.cityText %}
+{% endif %}
 <header class="site-header">
     <div class="site-header__inner container">
         <a class="site-header__brand" href="/{{ app.request.locale }}">
-            <span class="site-header__badge">ODS 2026</span>
-            <span class="site-header__tagline">KOMUNÁLNÍ VOLBY<br>25.–26.&nbsp;9.&nbsp;2026 · ČESKÁ TŘEBOVÁ</span>
+            <span class="site-header__badge">{{ config.badgeText }}</span>
+            {% if config.electionLabel or taglineLine2 %}
+                <span class="site-header__tagline">
+                    {{- config.electionLabel -}}
+                    {%- if config.electionLabel and taglineLine2 %}<br>{% endif -%}
+                    {%- if taglineLine2 -%}
+                        <span class="site-header__tagline-date">{{ taglineLine2 }}</span>
+                    {%- endif -%}
+                </span>
+            {% endif %}
         </a>
         <nav class="site-header__nav">
-            <a href="#program" class="site-header__link">Program</a>
-            <a href="#bilance" class="site-header__link">Zúčtování</a>
-            <a href="#tym" class="site-header__link">Tým</a>
-            <a href="#dira" class="site-header__link">Vyfoť díru</a>
-            <a href="#volit" class="site-header__cta">Přijďte volit</a>
+            {% for link in navLinks %}
+                <sulu-link href="{{ link.uuid }}" class="site-header__link">{{ link.title }}</sulu-link>
+            {% endfor %}
+            {% if hasCta %}
+                <sulu-link href="{{ config.ctaLink.uuid }}" class="site-header__cta">{{ config.ctaText }}</sulu-link>
+            {% endif %}
+        </nav>
+        <button type="button" class="site-header__menu-toggle" aria-expanded="false" aria-controls="site-header-menu" aria-label="Menu">
+            <span class="site-header__menu-toggle-bar"></span>
+            <span class="site-header__menu-toggle-bar"></span>
+            <span class="site-header__menu-toggle-bar"></span>
+        </button>
+    </div>
+
+    <div class="site-header__menu" id="site-header-menu">
+        <nav class="site-header__menu-nav">
+            {% for link in navLinks %}
+                <sulu-link href="{{ link.uuid }}" class="site-header__menu-link">{{ link.title }}</sulu-link>
+            {% endfor %}
+            {% if hasCta %}
+                <sulu-link href="{{ config.ctaLink.uuid }}" class="site-header__menu-cta">{{ config.ctaText }}</sulu-link>
+            {% endif %}
         </nav>
     </div>
 </header>
