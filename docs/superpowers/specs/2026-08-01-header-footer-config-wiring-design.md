@@ -174,12 +174,18 @@ error page (the base template already guards with the error-box branch).
 - Admin build is untouched (no new content types); XML changes need website
   cache clear only. npm/composer run via their containers per project rules.
 
+## 9. Favicon
+
+Download the ODS bird logo from the official ODS website and generate a full
+favicon set: `favicon.ico` (multi-size), PNG sizes, `apple-touch-icon.png`,
+placed in `public/` (ico at the webroot) and linked from the odsct head.
+
 ## Out of scope (publish checklist, tracked separately)
 
 - Search page (`search/search.html.twig`) is generic English — decide whether
   search is reachable at all; style or remove the route before publish.
 - Welcome popup content check (snippet area exists and is wired).
-- Favicon set + verify OG/SEO defaults (OG image path already fixed).
+- Verify OG/SEO defaults (OG image path already fixed).
 - Analytics configuration in admin (Sulu analytics templates present).
 - robots.txt / sitemap sanity check on prod domain.
 - Production content entry (handled by the user directly on prod).
