@@ -283,6 +283,9 @@
                         <info_text lang="en">Optional — the photo section is hidden when empty</info_text>
                         <info_text lang="cs">Nepovinné — bez obrázku se sekce nezobrazí</info_text>
                     </meta>
+                    <params>
+                        <param name="types" value="image"/>
+                    </params>
                 </property>
 
                 <property name="copyrightText" type="text_line" colspan="3">
