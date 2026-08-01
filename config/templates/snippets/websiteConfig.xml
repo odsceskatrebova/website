@@ -7,12 +7,14 @@
 
     <meta>
         <title lang="en">Website config</title>
+        <title lang="cs">Konfigurace webu</title>
     </meta>
 
     <areas>
         <area key="websiteConfig" cache-invalidation="true">
             <meta>
-                <title>Website config area</title>
+                <title lang="en">Website config area</title>
+                <title lang="cs">Konfigurace webu</title>
             </meta>
         </area>
     </areas>
@@ -20,31 +22,75 @@
     <properties>
         <property name="title" type="text_line" mandatory="true" colspan="6">
             <meta>
-                <title lang="en">Title</title>
+                <title lang="en">title</title>
+                <title lang="cs">název</title>
             </meta>
             <tag name="sulu.node.name"/>
         </property>
-        <property name="logo" type="text_area" colspan="6">
-            <meta>
-                <title lang="en">Logo</title>
-                <info_text lang="en">Use svg as text</info_text>
-            </meta>
-        </property>
 
+        <section name="brand">
+            <meta>
+                <title lang="en">Brand</title>
+                <title lang="cs">Značka</title>
+            </meta>
+            <properties>
+                <property name="badgeText" type="text_line" mandatory="true" colspan="3">
+                    <meta>
+                        <title lang="en">badge text</title>
+                        <title lang="cs">text odznaku</title>
+                        <info_text lang="en">Shown in header and footer, e.g. "ODS 2026"</info_text>
+                        <info_text lang="cs">Zobrazuje se v hlavičce a patičce, např. „ODS 2026“</info_text>
+                    </meta>
+                </property>
+                <property name="electionLabel" type="text_line" colspan="3">
+                    <meta>
+                        <title lang="en">election label</title>
+                        <title lang="cs">popisek voleb</title>
+                        <info_text lang="en">e.g. "KOMUNÁLNÍ VOLBY"</info_text>
+                        <info_text lang="cs">např. „KOMUNÁLNÍ VOLBY“</info_text>
+                    </meta>
+                </property>
+                <property name="electionDateStart" type="date" colspan="2">
+                    <meta>
+                        <title lang="en">election date start</title>
+                        <title lang="cs">začátek voleb</title>
+                    </meta>
+                </property>
+                <property name="electionDateEnd" type="date" colspan="2">
+                    <meta>
+                        <title lang="en">election date end</title>
+                        <title lang="cs">konec voleb</title>
+                        <info_text lang="en">Leave empty for single-day elections</info_text>
+                        <info_text lang="cs">Pro jednodenní volby nechte prázdné</info_text>
+                    </meta>
+                </property>
+                <property name="cityText" type="text_line" colspan="2">
+                    <meta>
+                        <title lang="en">city</title>
+                        <title lang="cs">město</title>
+                        <info_text lang="en">e.g. "ČESKÁ TŘEBOVÁ"</info_text>
+                        <info_text lang="cs">např. „ČESKÁ TŘEBOVÁ“</info_text>
+                    </meta>
+                </property>
+            </properties>
+        </section>
 
         <section name="header">
             <meta>
                 <title lang="en">Header</title>
+                <title lang="cs">Hlavička</title>
             </meta>
             <properties>
                 <property name="ctaText" type="text_line" mandatory="true" colspan="3">
                     <meta>
                         <title lang="en">CTA text</title>
+                        <title lang="cs">text CTA tlačítka</title>
                     </meta>
                 </property>
                 <property name="ctaLink" type="single_page_selection" colspan="3">
                     <meta>
-                        <title lang="en">Link</title>
+                        <title lang="en">CTA link</title>
+                        <title lang="cs">odkaz CTA tlačítka</title>
                     </meta>
                     <params>
                         <param name="properties" type="collection">
@@ -52,13 +98,7 @@
                             <param name="excerptTitle" value="excerpt.title"/>
                             <param name="uuid" value="object.resource.id"/>
                         </param>
-
                     </params>
-                </property>
-                <property name="mainContact" type="text_editor" colspan="6">
-                    <meta>
-                        <title lang="en">Main contact</title>
-                    </meta>
                 </property>
             </properties>
         </section>
@@ -66,83 +106,199 @@
         <section name="footer">
             <meta>
                 <title lang="en">Footer</title>
+                <title lang="cs">Patička</title>
             </meta>
             <properties>
-                <property name="copyrightText" type="text_line" colspan="3">
+                <block name="valuePoints" default-type="point">
                     <meta>
-                        <title lang="en">Copyright text</title>
-                        <info_text lang="en">Use %Y% as variable for year.</info_text>
-                    </meta>
-                </property>
-                <property name="gdprLink" type="link" colspan="3">
-                    <meta>
-                        <title lang="en">GDPRLink</title>
-                    </meta>
-                </property>
-
-                <block name="footerSocialIcons" default-type="socialIcon">
-                    <meta>
-                        <title lang="en">Social icons</title>
+                        <title lang="en">value points</title>
+                        <title lang="cs">hodnotové body</title>
+                        <info_text lang="en">Design counts on 6 points (3×2 grid); more wrap to extra rows</info_text>
+                        <info_text lang="cs">Design počítá se 6 body (mřížka 3×2); další se zalomí do dalších řádků</info_text>
                     </meta>
                     <params>
                         <param name="add_button_text">
                             <meta>
-                                <title lang="en">Add social icon</title>
+                                <title lang="en">Add value point</title>
+                                <title lang="cs">Přidat hodnotový bod</title>
                             </meta>
                         </param>
                         <param name="block_id_generator" value="true"/>
                     </params>
                     <types>
-                        <type name="socialIcon">
+                        <type name="point">
                             <meta>
-                                <title lang="en">Social icon</title>
+                                <title lang="en">value point</title>
+                                <title lang="cs">hodnotový bod</title>
                             </meta>
                             <properties>
-                                <property name="icon" type="text_area" colspan="6">
+                                <property name="pointTitle" type="text_line" mandatory="true" colspan="6">
                                     <meta>
-                                        <title lang="en">Icon</title>
-                                        <info_text lang="en">Use svg as text</info_text>
-                                    </meta>
-                                </property>
-                                <property name="link" type="link" colspan="6">
-                                    <meta>
-                                        <title lang="en">Link</title>
+                                        <title lang="en">title</title>
+                                        <title lang="cs">titulek</title>
                                     </meta>
                                     <tag name="sulu.block_preview" priority="1024"/>
-                                    <params>
-                                        <param name="types" type="collection">
-                                            <param name="external"/>
-                                        </param>
-                                    </params>
+                                </property>
+                                <property name="pointText" type="text_area" colspan="6">
+                                    <meta>
+                                        <title lang="en">text</title>
+                                        <title lang="cs">text</title>
+                                    </meta>
                                 </property>
                             </properties>
                         </type>
                     </types>
                 </block>
 
-                <block name="footerContent" default-type="text-block">
+                <property name="brandDescription" type="text_area" colspan="6">
                     <meta>
-                        <title lang="en">Footer content</title>
+                        <title lang="en">brand description</title>
+                        <title lang="cs">popis pod odznakem</title>
+                        <info_text lang="en">Line breaks are preserved</info_text>
+                        <info_text lang="cs">Zalomení řádků se zachovává</info_text>
+                    </meta>
+                </property>
+
+                <block name="footerQuickLinks" default-type="link">
+                    <meta>
+                        <title lang="en">quick links</title>
+                        <title lang="cs">rychlé odkazy</title>
                     </meta>
                     <params>
                         <param name="add_button_text">
                             <meta>
-                                <title lang="en">Add content</title>
+                                <title lang="en">Add link</title>
+                                <title lang="cs">Přidat odkaz</title>
                             </meta>
                         </param>
                         <param name="block_id_generator" value="true"/>
                     </params>
                     <types>
-                        <type ref="text-block" />
-                        <type ref="image-block" />
-                        <type ref="grid-block" />
-                        <type ref="flex-block" />
-                        <type ref="button-block" />
-                        <type ref="content-snippet-block" />
-                        <type ref="divider-block" />
+                        <type name="link">
+                            <meta>
+                                <title lang="en">link</title>
+                                <title lang="cs">odkaz</title>
+                            </meta>
+                            <properties>
+                                <property name="text" type="text_line" mandatory="true" colspan="2">
+                                    <meta>
+                                        <title lang="en">text</title>
+                                        <title lang="cs">text</title>
+                                    </meta>
+                                    <tag name="sulu.block_preview" priority="1024"/>
+                                </property>
+                                <property name="highlightText" type="text_line" colspan="2">
+                                    <meta>
+                                        <title lang="en">highlighted part</title>
+                                        <title lang="cs">zvýrazněná část</title>
+                                        <info_text lang="en">Appended to the text in accent color, e.g. "/program"</info_text>
+                                        <info_text lang="cs">Připojí se k textu v akcentní barvě, např. „/program“</info_text>
+                                    </meta>
+                                </property>
+                                <property name="link" type="link" mandatory="true" colspan="2">
+                                    <meta>
+                                        <title lang="en">link</title>
+                                        <title lang="cs">odkaz</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
                     </types>
                 </block>
 
+                <block name="footerElsewhereLinks" default-type="link">
+                    <meta>
+                        <title lang="en">elsewhere links</title>
+                        <title lang="cs">odkazy jinde</title>
+                        <info_text lang="en">External links incl. social networks, e.g. "facebook.com/odsct"</info_text>
+                        <info_text lang="cs">Externí odkazy včetně sociálních sítí, např. „facebook.com/odsct“</info_text>
+                    </meta>
+                    <params>
+                        <param name="add_button_text">
+                            <meta>
+                                <title lang="en">Add link</title>
+                                <title lang="cs">Přidat odkaz</title>
+                            </meta>
+                        </param>
+                        <param name="block_id_generator" value="true"/>
+                    </params>
+                    <types>
+                        <type name="link">
+                            <meta>
+                                <title lang="en">link</title>
+                                <title lang="cs">odkaz</title>
+                            </meta>
+                            <properties>
+                                <property name="text" type="text_line" mandatory="true" colspan="2">
+                                    <meta>
+                                        <title lang="en">text</title>
+                                        <title lang="cs">text</title>
+                                    </meta>
+                                    <tag name="sulu.block_preview" priority="1024"/>
+                                </property>
+                                <property name="highlightText" type="text_line" colspan="2">
+                                    <meta>
+                                        <title lang="en">highlighted part</title>
+                                        <title lang="cs">zvýrazněná část</title>
+                                        <info_text lang="en">Appended to the text in accent color</info_text>
+                                        <info_text lang="cs">Připojí se k textu v akcentní barvě</info_text>
+                                    </meta>
+                                </property>
+                                <property name="link" type="link" mandatory="true" colspan="2">
+                                    <meta>
+                                        <title lang="en">link</title>
+                                        <title lang="cs">odkaz</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+
+                <property name="contactEmail" type="text_line" colspan="3">
+                    <meta>
+                        <title lang="en">contact e-mail</title>
+                        <title lang="cs">kontaktní e-mail</title>
+                    </meta>
+                </property>
+                <property name="contactPhone" type="text_line" colspan="3">
+                    <meta>
+                        <title lang="en">contact phone</title>
+                        <title lang="cs">kontaktní telefon</title>
+                    </meta>
+                </property>
+                <property name="footerQuote" type="text_line" colspan="6">
+                    <meta>
+                        <title lang="en">handwritten quote</title>
+                        <title lang="cs">ručně psaný dovětek</title>
+                        <info_text lang="en">e.g. "Uvidíme se na náměstí."</info_text>
+                        <info_text lang="cs">např. „Uvidíme se na náměstí.“</info_text>
+                    </meta>
+                </property>
+
+                <property name="footerPicture" type="single_media_selection" colspan="3">
+                    <meta>
+                        <title lang="en">footer picture</title>
+                        <title lang="cs">obrázek v patičce</title>
+                        <info_text lang="en">Optional — the photo section is hidden when empty</info_text>
+                        <info_text lang="cs">Nepovinné — bez obrázku se sekce nezobrazí</info_text>
+                    </meta>
+                </property>
+
+                <property name="copyrightText" type="text_line" colspan="3">
+                    <meta>
+                        <title lang="en">copyright text</title>
+                        <title lang="cs">text copyrightu</title>
+                        <info_text lang="en">Use %Y% as variable for year.</info_text>
+                        <info_text lang="cs">Použijte %Y% jako proměnnou pro rok.</info_text>
+                    </meta>
+                </property>
+                <property name="gdprLink" type="link" colspan="3">
+                    <meta>
+                        <title lang="en">GDPR link</title>
+                        <title lang="cs">odkaz na GDPR</title>
+                    </meta>
+                </property>
             </properties>
         </section>
     </properties>
