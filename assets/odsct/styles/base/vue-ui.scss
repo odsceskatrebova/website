@@ -1,0 +1,36 @@
+@use 'sass:color';
+@use './variables.scss' as vars;
+
+// Campaign theming for Vue-rendered UI whose styles live in CSS-module SFC
+// blocks (CookieBar, CookieSettings). Each SFC `<style>` is compiled as its own
+// Sass entry that `@use`s the *common* variables, so odsct's
+// `@forward … with (…)` token overrides never reach it. We bridge the campaign
+// tokens two ways.
+
+// 1. Cookie bar surface — the SFC reads `var(--cookie-bar-*, <common default>)`,
+//    so setting the custom properties here recolors the bar to the campaign
+//    accent while other webspaces keep the common default.
+:root {
+  --cookie-bar-bg: #{vars.$accentColor};
+  --cookie-bar-fg: #{vars.$contrastToAccentColor};
+}
+
+// 2. Cookie settings dialog (Vuetify 4.0.3). Vuetify resolves control colors from
+//    `--v-theme-*` rgb triplets scoped on `.v-theme--light` and wraps its own
+//    runtime theme CSS in `@layer vuetify-utilities`; an un-layered override here
+//    therefore wins the cascade regardless of source order. (This @layer behaviour
+//    is specific to Vuetify 4 — in un-layered Vuetify 3 this technique would lose.)
+.v-theme--light {
+  --v-theme-primary:
+    #{color.channel(vars.$primaryColor, "red", $space: rgb)},
+    #{color.channel(vars.$primaryColor, "green", $space: rgb)},
+    #{color.channel(vars.$primaryColor, "blue", $space: rgb)};
+  --v-theme-on-primary: 255, 255, 255;
+}
+
+// Vuetify ships Roboto and the dialog title sets its own font-family; override
+// the whole card to the brand font. `:not(.v-icon)` leaves icon elements on their
+// glyph font, and the two-class-plus-:not specificity beats the SFC title rule.
+.v-overlay-container .v-card :not(.v-icon) {
+  font-family: vars.$defaultFont;
+}

@@ -24,8 +24,8 @@
 @use "../common/styles/layout/welcome-popup.scss";
 
 // components
-// odsct: rebrand Vuetify-rendered UI (cookie settings, form blocks)
-@use 'styles/base/vuetify-theme.scss';
+// odsct: rebrand Vue-rendered UI (cookie bar + settings dialog)
+@use 'styles/base/vue-ui.scss';
 @use "../common/styles/components/btn.scss";
 @use "../common/styles/components/card.scss";
 @use "../common/styles/components/carousel-navigation.scss";
