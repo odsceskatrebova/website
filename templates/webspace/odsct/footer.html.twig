@@ -1,71 +1,103 @@
-{# odsct campaign footer — dark band with 6 principles, brand/quick-links/contact,
-   and a closing group-photo placeholder. Bespoke to the odsct webspace (see
-   design/ODS Web odsct.cz). Replaces the generic layout/footer.html.twig here;
-   wired from webspace/odsct.html.twig. #}
+{# odsct campaign footer — wired to the websiteConfig snippet (principles, brand,
+   quick/elsewhere links, contact, closing group photo) plus a slim legal row.
+   Bespoke to the odsct webspace (see design/ODS Web odsct.cz). Replaces the
+   generic layout/footer.html.twig here; wired from webspace/odsct.html.twig. #}
+{% set dateRange = election_date_range(config.electionDateStart, config.electionDateEnd) %}
+{% set brandSub = config.electionLabel %}
+{% if config.electionLabel and dateRange %}
+    {% set brandSub = config.electionLabel ~ ' · ' ~ dateRange %}
+{% elseif dateRange %}
+    {% set brandSub = dateRange %}
+{% endif %}
 <footer class="site-footer">
     <div class="site-footer__glow" aria-hidden="true"></div>
 
     <div class="site-footer__principles container">
         <div class="site-footer__principles-grid">
-            <div class="site-footer__principle">
-                <div class="site-footer__principle-title">Držíme slovo.</div>
-                <div class="site-footer__principle-text">Slibujeme jen to, co má termín a rozpočet. A když to nestíháme, řekneme proč.</div>
-            </div>
-            <div class="site-footer__principle">
-                <div class="site-footer__principle-title">Hospodaříme jako doma.</div>
-                <div class="site-footer__principle-text">Vyrovnaný rozpočet není ideologie, ale slušnost k dalším generacím. Každá faktura veřejně.</div>
-            </div>
-            <div class="site-footer__principle">
-                <div class="site-footer__principle-title">Město před stranou.</div>
-                <div class="site-footer__principle-text">Dobrý nápad podpoříme, ať přijde odkudkoliv. Špatný odmítneme, i kdyby byl náš.</div>
-            </div>
-            <div class="site-footer__principle">
-                <div class="site-footer__principle-title">Mluvíme bez obalu.</div>
-                <div class="site-footer__principle-text">Přiznáme chybu, řekneme nepříjemnou pravdu a odpovíme i na to, co se nehodí.</div>
-            </div>
-            <div class="site-footer__principle">
-                <div class="site-footer__principle-title">Jsme odtud.</div>
-                <div class="site-footer__principle-text">Bydlíme tu, venčíme tu psy a vozíme děti do zdejších škol. Rozhodujeme o vlastním městě.</div>
-            </div>
-            <div class="site-footer__principle">
-                <div class="site-footer__principle-title">Svoboda a odpovědnost.</div>
-                <div class="site-footer__principle-text">Město má lidem sloužit, ne je řídit. Méně zákazů, více důvěry — a jasná zodpovědnost za výsledek.</div>
-            </div>
+            {% for point in config.valuePoints %}
+                <div class="site-footer__principle">
+                    <div class="site-footer__principle-title">{{ point.pointTitle }}</div>
+                    <div class="site-footer__principle-text">{{ point.pointText }}</div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 
     <div class="site-footer__main container">
         <div class="site-footer__brand">
-            <span class="site-footer__badge">ODS 2026</span>
-            <div class="site-footer__brand-sub">KOMUNÁLNÍ VOLBY · 25.–26.&nbsp;9.&nbsp;2026</div>
-            <div class="site-footer__brand-desc">Místní sdružení ODS Česká Třebová.<br>Držíme město, ne funkce.</div>
+            <span class="site-footer__badge">{{ config.badgeText }}</span>
+            {% if brandSub %}
+                <div class="site-footer__brand-sub">{{ brandSub }}</div>
+            {% endif %}
+            {% if config.brandDescription %}
+                <div class="site-footer__brand-desc">{{ config.brandDescription|nl2br }}</div>
+            {% endif %}
         </div>
 
         <div class="site-footer__links">
-            <div class="site-footer__links-label">RYCHLÉ ODKAZY</div>
-            <a class="site-footer__link" href="#program">odsct.cz<span>/program</span></a>
-            <a class="site-footer__link" href="#bilance">odsct.cz<span>/zuctovani</span></a>
-            <a class="site-footer__link" href="#ferove">odsct.cz<span>/ferove</span></a>
-            <a class="site-footer__link" href="#dira">odsct.cz<span>/dira</span></a>
-            <a class="site-footer__link" href="#tym">odsct.cz<span>/tym</span></a>
-            <div class="site-footer__links-label site-footer__links-label--spaced">JINDE</div>
-            <a class="site-footer__link" href="https://www.ods.cz">ods.cz</a>
-            <a class="site-footer__link" href="https://www.ceska-trebova.cz">ceska-trebova.cz</a>
-            <a class="site-footer__link" href="https://facebook.com/odsct">facebook.com/odsct</a>
-            <a class="site-footer__link" href="https://instagram.com/odsct">instagram.com/odsct</a>
+            {% if config.footerQuickLinks %}
+                <div class="site-footer__links-label">RYCHLÉ ODKAZY</div>
+                {% for item in config.footerQuickLinks %}
+                    <a class="site-footer__link" href="{{ item.link }}">{{ item.text }}{% if item.highlightText %}<span>{{ item.highlightText }}</span>{% endif %}</a>
+                {% endfor %}
+            {% endif %}
+            {% if config.footerElsewhereLinks %}
+                <div class="site-footer__links-label{% if config.footerQuickLinks %} site-footer__links-label--spaced{% endif %}">JINDE</div>
+                {% for item in config.footerElsewhereLinks %}
+                    <a class="site-footer__link" href="{{ item.link }}">{{ item.text }}{% if item.highlightText %}<span>{{ item.highlightText }}</span>{% endif %}</a>
+                {% endfor %}
+            {% endif %}
         </div>
 
         <div class="site-footer__contact">
             <div class="site-footer__contact-label">KONTAKT</div>
-            <a class="site-footer__contact-line" href="mailto:info@odsct.cz">info@odsct.cz</a>
-            <a class="site-footer__contact-line" href="tel:+420604026026">604 026 026</a>
-            <div class="site-footer__handwritten">Uvidíme se na náměstí.</div>
+            {% if config.contactEmail %}
+                <a class="site-footer__contact-line" href="mailto:{{ config.contactEmail }}">{{ config.contactEmail }}</a>
+            {% endif %}
+            {% if config.contactPhone %}
+                <a class="site-footer__contact-line" href="tel:{{ config.contactPhone|replace({' ': ''}) }}">{{ config.contactPhone }}</a>
+            {% endif %}
+            {% if config.footerQuote %}
+                <div class="site-footer__handwritten">{{ config.footerQuote }}</div>
+            {% endif %}
         </div>
     </div>
 
-    <div class="site-footer__photo container">
-        <div class="site-footer__photo-inner">
-            <span>foto: celá kandidátka pohromadě na nástupišti, civilní, smích</span>
+    {% if config.footerPicture %}
+        <div class="site-footer__photo container">
+            <div class="site-footer__photo-inner">
+                <picture>
+                    <source
+                        srcset="{{ config.footerPicture.thumbnails['full-page.webp'] }}, {{ config.footerPicture.thumbnails['full-page@2x.webp'] }} 2x"
+                        media="(min-width: 120rem)"
+                    >
+                    <source
+                        srcset="{{ config.footerPicture.thumbnails['full-desktop.webp'] }}, {{ config.footerPicture.thumbnails['full-desktop@2x.webp'] }} 2x"
+                        media="(min-width: 73rem)"
+                    >
+                    <source
+                        srcset="{{ config.footerPicture.thumbnails['full-tablet.webp'] }}, {{ config.footerPicture.thumbnails['full-tablet@2x.webp'] }} 2x"
+                        media="(min-width: 55rem)"
+                    >
+                    <img
+                        class="site-footer__photo-img"
+                        srcset="{{ config.footerPicture.thumbnails['full.webp'] }}, {{ config.footerPicture.thumbnails['full@2x.webp'] }} 2x"
+                        alt="{{ config.footerPicture.title }}"
+                    >
+                </picture>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="site-footer__legal container">
+        {% if config.copyrightText %}
+            <p class="site-footer__legal-copyright">{{ config.copyrightText|replace({'%Y%': 'now'|date('Y')}) }}</p>
+        {% endif %}
+        <div class="site-footer__legal-links">
+            {% if config.gdprLink %}
+                <a class="site-footer__legal-link" href="{{ config.gdprLink }}">Ochrana osobních údajů</a>
+            {% endif %}
+            <a class="site-footer__legal-link" href="#" data-cookie-settings-trigger>{{ 'cookieSettings.openLink'|trans }}</a>
         </div>
     </div>
 </footer>
