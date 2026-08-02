@@ -44,7 +44,7 @@ class Lead
     /**
      * @var mixed[]
      */
-    #[ORM\Column(type: 'json', options: ['default' => '{}'])]
+    #[ORM\Column(type: 'json')]
     private array $payload = [];
 
     public function __construct(?Uuid $id = null)
