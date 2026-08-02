@@ -8,7 +8,6 @@ RUN apt-get update && \
         libjpeg62-turbo-dev \
         libicu-dev \
         libpng-dev \
-        libpq-dev \
         libzip-dev \
         librabbitmq-dev \
         libssh-dev \
@@ -26,7 +25,7 @@ RUN pecl install apcu amqp redis imagick && \
     docker-php-ext-install \
         intl \
         pdo \
-        pdo_pgsql \
+        pdo_mysql \
         zip \
         bcmath \
         exif \
