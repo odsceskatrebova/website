@@ -15,6 +15,36 @@
   --cookie-bar-fg: #{vars.$contrastToAccentColor};
 }
 
+// 1b. Cookie bar action buttons. The shared CookieBar SFC renders them as
+//     `.btn.primary` (brand blue) — legible on the common default surface, but
+//     unreadable on odsct's dark berry bar (blue on berry). Scope a light,
+//     on-surface treatment to the bar's mount point so only odsct's cookie bar
+//     changes, never the shared component or other `.btn.primary` on the page.
+//     Driven by the same `--cookie-bar-*` tokens as the surface, so buttons
+//     track the accent automatically.
+#vue-cookie-bar-app .btn.primary {
+  color: var(--cookie-bar-fg, #{vars.$contrastToAccentColor});
+
+  &.outline {
+    color: var(--cookie-bar-fg, #{vars.$contrastToAccentColor});
+    border-color: color-mix(in srgb, #fff 45%, transparent);
+
+    &:hover {
+      border-color: var(--cookie-bar-fg, #{vars.$contrastToAccentColor});
+    }
+  }
+
+  // Primary CTA ("accept all") — solid light pill with berry text for emphasis.
+  &.fill {
+    background: var(--cookie-bar-fg, #{vars.$contrastToAccentColor});
+    color: var(--cookie-bar-bg, #{vars.$accentColor});
+
+    &:hover {
+      background: color-mix(in srgb, #fff 90%, #{vars.$accentColor});
+    }
+  }
+}
+
 // 2. Cookie settings dialog (Vuetify 4.0.3). Vuetify resolves control colors from
 //    `--v-theme-*` rgb triplets scoped on `.v-theme--light` and wraps its own
 //    runtime theme CSS in `@layer vuetify-utilities`; an un-layered override here
