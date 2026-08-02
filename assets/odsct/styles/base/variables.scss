@@ -5,8 +5,11 @@
    */
   $primaryColor: #04408f,
   $contrastToPrimaryColor: #fff,
-  $accentColor: #f28c1e,
-  $contrastToAccentColor: #3a2405,
+  // Secondary accent — malinová. The single source for every accent surface
+  // (accent chips, cookie bar, accent glows). Yellow is NOT the accent — it
+  // stays reserved for the hazard / "under construction" stripe ($warning).
+  $accentColor: #C2185B,
+  $contrastToAccentColor: #fff, // malinová is dark → white text (5.9:1, AA)
   $backgroundSoftColor: #f2f0e9,
   $footerBackgroundColor: #14181f,
   $contrastToFooterBackgroundColor: #e8ecf2,
