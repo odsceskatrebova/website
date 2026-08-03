@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity(repositoryClass: LeadRepository::class)]
+#[ORM\Table(name: '`lead`')]
 #[ORM\HasLifecycleCallbacks]
 class Lead
 {
