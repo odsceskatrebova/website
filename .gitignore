@@ -8,7 +8,6 @@
 /tmp/
 /vendor/
 /volumes/
-packages
 /design/
 ###< symfony/framework-bundle ###
 ###> phpunit/phpunit ###
