@@ -101,10 +101,9 @@
     &.fill-brand       { --fill: #{variables.$brand}; }
     &.fill-brandDeep   { --fill: #{variables.$brandDeep}; }
     &.fill-indigo      { --fill: #{variables.$indigo}; }
-    &.fill-green       { --fill: #{variables.$green}; }
-    &.fill-greenForest { --fill: #{variables.$greenForest}; }
     &.fill-soft        { --fill: #{variables.$soft}; }
     &.fill-frost       { --fill: #{variables.$frost}; }
+    &.fill-tint        { --fill: #{variables.$tint}; }
     &.fill-white       { --fill: #{variables.$white}; }
   }
 
@@ -122,7 +121,6 @@
     // colour tokens — map the XML select value to a --line-color
     &.line-brand  { --line-color: #{variables.$brand}; }
     &.line-indigo { --line-color: #{variables.$indigo}; }
-    &.line-green  { --line-color: #{variables.$green}; }
     &.line-border { --line-color: #{variables.$border}; }
     &.line-ink    { --line-color: #{variables.$ink}; }
     &.line-white  { --line-color: #{variables.$white}; }

@@ -18,7 +18,6 @@
                 <param name="values" type="collection">
                     <param name="brand"><meta><title lang="en">Brand</title></meta></param>
                     <param name="indigo"><meta><title lang="en">Indigo</title></meta></param>
-                    <param name="green"><meta><title lang="en">Green</title></meta></param>
                     <param name="border"><meta><title lang="en">Hairline</title></meta></param>
                     <param name="ink"><meta><title lang="en">Ink</title></meta></param>
                     <param name="white"><meta><title lang="en">White</title></meta></param>

@@ -19,7 +19,6 @@
 
   &.color-primary { color: variables.$primaryColor; }
   &.color-accent  { color: variables.$accentColor; }
-  &.color-green   { color: variables.$darkAccent; }
   &.color-white   { color: #fff; }
 }
 
@@ -38,5 +37,4 @@
   &.wrapper-color-glass   { background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(2rem); }
   &.wrapper-color-primary { background-color: variables.$primaryColor; }
   &.wrapper-color-accent  { background-color: variables.$accentColor; }
-  &.wrapper-color-grad-blue { background: variables.$gradBlue; }
 }

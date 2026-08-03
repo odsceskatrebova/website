@@ -15,7 +15,6 @@
 
   &.is-brand   { background: radial-gradient(circle, #{variables.$brand}       0%, rgba(variables.$brand,       0) 70%); }
   &.is-indigo  { background: radial-gradient(circle, #{variables.$indigo}      0%, rgba(variables.$indigo,      0) 70%); }
-  &.is-green   { background: radial-gradient(circle, #{variables.$green}       0%, rgba(variables.$green,       0) 70%); }
   &.is-accent  { background: radial-gradient(circle, #{variables.$accentColor} 0%, rgba(variables.$accentColor, 0) 70%); }
   &.is-warning { background: radial-gradient(circle, #{variables.$warning}     0%, rgba(variables.$warning,     0) 70%); }
   &.is-shadow  { background: radial-gradient(circle, rgba(variables.$ink, .9)  0%, rgba(variables.$ink,         0) 70%); }

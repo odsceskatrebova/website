@@ -36,8 +36,6 @@
   &.fill-brand       { --card-fill: #{variables.$brand}; }
   &.fill-brandDeep   { --card-fill: #{variables.$brandDeep}; }
   &.fill-indigo      { --card-fill: #{variables.$indigo}; }
-  &.fill-green       { --card-fill: #{variables.$green}; }
-  &.fill-greenForest { --card-fill: #{variables.$greenForest}; }
 
   // configurable border — `light` matches the footer product cards
   // (1px translucent white on a dark fill); `shine` draws a top-lit gradient

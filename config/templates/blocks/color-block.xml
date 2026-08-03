@@ -21,10 +21,9 @@
                     <param name="brand"><meta><title lang="en">Brand</title></meta></param>
                     <param name="brandDeep"><meta><title lang="en">Brand deep</title></meta></param>
                     <param name="indigo"><meta><title lang="en">Indigo</title></meta></param>
-                    <param name="green"><meta><title lang="en">Green</title></meta></param>
-                    <param name="greenForest"><meta><title lang="en">Green forest</title></meta></param>
                     <param name="soft"><meta><title lang="en">Soft grey</title></meta></param>
                     <param name="frost"><meta><title lang="en">Frost</title></meta></param>
+                    <param name="tint"><meta><title lang="en">Warm tint</title></meta></param>
                     <param name="white"><meta><title lang="en">White</title></meta></param>
                 </param>
             </params>

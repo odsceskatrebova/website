@@ -64,7 +64,6 @@
                     <param name="default"><meta><title lang="en">Default (inherit)</title></meta></param>
                     <param name="primary"><meta><title lang="en">Primary</title></meta></param>
                     <param name="accent"><meta><title lang="en">Accent</title></meta></param>
-                    <param name="green"><meta><title lang="en">Green</title></meta></param>
                     <param name="white"><meta><title lang="en">White</title></meta></param>
                 </param>
             </params>
@@ -103,7 +102,6 @@
                     <param name="glass"><meta><title lang="en">Glass</title></meta></param>
                     <param name="primary"><meta><title lang="en">Primary</title></meta></param>
                     <param name="accent"><meta><title lang="en">Accent</title></meta></param>
-                    <param name="grad-blue"><meta><title lang="en">Blue gradient</title></meta></param>
                 </param>
             </params>
         </property>

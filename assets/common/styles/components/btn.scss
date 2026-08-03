@@ -312,17 +312,5 @@ button, a.btn, .btn {
     }
   }
 
-  &.grad-blue {
-    color: variables.$primaryColor;
-
-    &.fill {
-      background: variables.$gradBlue;
-      color: variables.$primaryColor;
-
-      &:hover {
-        filter: brightness(1.06);
-      }
-    }
-  }
 }
 

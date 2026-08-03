@@ -40,36 +40,6 @@
                 <title lang="en">background image tablet +</title>
             </meta>
         </property>
-        <property name="background_style" type="single_select" colspan="4">
-            <meta>
-                <title lang="en">background color</title>
-            </meta>
-            <params>
-                <param name="values" type="collection">
-                    <param name="">
-                        <meta><title lang="en">White (default)</title></meta>
-                    </param>
-                    <param name="bordered">
-                        <meta><title lang="en">White + border + hover</title></meta>
-                    </param>
-                    <param name="background-soft">
-                        <meta><title lang="en">Soft blue</title></meta>
-                    </param>
-                    <param name="accent">
-                        <meta><title lang="en">Accent blue</title></meta>
-                    </param>
-                    <param name="grad-blue">
-                        <meta><title lang="en">Blue gradient</title></meta>
-                    </param>
-                    <param name="primary">
-                        <meta><title lang="en">Dark navy</title></meta>
-                    </param>
-                    <param name="glass">
-                        <meta><title lang="en">Glass (for dark sections)</title></meta>
-                    </param>
-                </param>
-            </params>
-        </property>
         <property name="aspectRatio" type="number" colspan="4">
             <meta>
                 <title lang="en">aspect ratio</title>
@@ -121,8 +91,6 @@
                     <param name="brand"><meta><title lang="en">Brand</title></meta></param>
                     <param name="brandDeep"><meta><title lang="en">Brand deep</title></meta></param>
                     <param name="indigo"><meta><title lang="en">Indigo</title></meta></param>
-                    <param name="green"><meta><title lang="en">Green</title></meta></param>
-                    <param name="greenForest"><meta><title lang="en">Green forest</title></meta></param>
                 </param>
             </params>
         </property>

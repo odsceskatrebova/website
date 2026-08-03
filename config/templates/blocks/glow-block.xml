@@ -18,8 +18,7 @@
                 <param name="values" type="collection">
                     <param name="brand"><meta><title lang="en">Brand (blue)</title></meta></param>
                     <param name="indigo"><meta><title lang="en">Indigo</title></meta></param>
-                    <param name="green"><meta><title lang="en">Green</title></meta></param>
-                    <param name="accent"><meta><title lang="en">Accent (orange)</title></meta></param>
+                    <param name="accent"><meta><title lang="en">Accent (malinová)</title></meta></param>
                     <param name="warning"><meta><title lang="en">Warning (yellow)</title></meta></param>
                     <param name="shadow"><meta><title lang="en">Shadow (dark)</title></meta></param>
                 </param>
