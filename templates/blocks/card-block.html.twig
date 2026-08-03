@@ -1,7 +1,7 @@
 {% set openingTag = (data.link) ? 'a href=' ~ data.link : 'div' %}
 {% set closingTag = (data.link) ? 'a' : 'div' %}
 
-<{{ openingTag }} class="card {{ data.link ? 'link' : '' }} {{ data.classes }} {{ data.darkSection ? 'dark-section' : '' }} fill-{{ data.fill|default('white') }}{{ data.border and data.border != 'none' ? ' border-' ~ data.border : '' }}{{ data.shadow ? ' shadow' : '' }}" style="{{ data.aspectRatio ? 'aspect-ratio: ' ~ data.aspectRatio ~ ';' : '' }}" {{ sulu_block_preview(data) }}>
+<{{ openingTag }} class="card {{ data.link ? 'link' : '' }} {{ data.classes }} {{ (data.theme|default('auto')) != 'auto' ? data.theme : (data.darkSection|default(false) ? 'dark-section' : '') }} fill-{{ data.fill|default('white') }}{{ data.border and data.border != 'none' ? ' border-' ~ data.border : '' }}{{ data.shadow ? ' shadow' : '' }}" style="{{ data.aspectRatio ? 'aspect-ratio: ' ~ data.aspectRatio ~ ';' : '' }}" {{ sulu_block_preview(data) }}>
     {% if data.backgroundTablet or data.background %}
         <picture class="background-image">
             {% if data.backgroundTablet %}

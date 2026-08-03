@@ -84,10 +84,18 @@
                 <title lang="en">hover rise effect</title>
             </meta>
         </property>
-        <property name="darkSection" type="checkbox" colspan="3">
+        <property name="theme" type="single_select" colspan="3">
             <meta>
-                <title lang="en">dark-section = white text</title>
+                <title lang="en">Text theme</title>
             </meta>
+            <params>
+                <param name="default_value" value="auto"/>
+                <param name="values" type="collection">
+                    <param name="auto"><meta><title lang="en">Auto (inherit)</title></meta></param>
+                    <param name="dark-section"><meta><title lang="en">On dark (white text)</title></meta></param>
+                    <param name="light-section"><meta><title lang="en">On light (dark text)</title></meta></param>
+                </param>
+            </params>
         </property>
         <property name="link" type="link" colspan="6">
             <meta>

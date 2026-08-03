@@ -1,16 +1,28 @@
 @use 'variables.scss';
 
+/* Neutral text tokens — every typographic rule below reads these instead of the
+ * SCSS variables directly, so a `.dark-section` / `.light-section` wrapper can
+ * remap them per section (see odsct styles/base/dark-section.scss). */
+:root {
+  --text-ink: #{variables.$textHighlightColor};
+  --text-body: #{variables.$textColor};
+  --text-muted: #{variables.$grey};
+  --text-primary: #{variables.$primaryColor};
+  --text-accent: #{variables.$accentColor};
+  --hairline: #{variables.$lineColor};
+}
+
 a, .a {
-  color: variables.$textHighlightColor;
+  color: var(--text-ink);
   text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, variables.$textHighlightColor 20%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--text-ink) 20%, transparent);
   font-weight: 400;
 
   &:hover {
-    color: color-mix(in srgb, variables.$textHighlightColor 60%, transparent);
+    color: color-mix(in srgb, var(--text-ink) 60%, transparent);
     cursor: pointer;
     text-decoration: underline;
-    text-decoration-color: color-mix(in srgb, variables.$textHighlightColor 20%, transparent);
+    text-decoration-color: color-mix(in srgb, var(--text-ink) 20%, transparent);
   }
 }
 
@@ -21,14 +33,14 @@ p {
   font-size: 1rem;
   line-height: 150%;
   font-weight: 300;
-  color: variables.$textColor;
+  color: var(--text-body);
 
   &.accent {
-    color: variables.$accentColor;
+    color: var(--text-accent);
   }
 
   &.highlight {
-    color: variables.$textHighlightColor;
+    color: var(--text-ink);
   }
 
 
@@ -58,8 +70,8 @@ mark {
   background: none;
 }
 
-mark.pen-primary { color: variables.$primaryColor; font-weight: 700; }
-mark.pen-accent  { color: variables.$accentColor;  font-weight: 700; }
+mark.pen-primary { color: var(--text-primary); font-weight: 700; }
+mark.pen-accent  { color: var(--text-accent);  font-weight: 700; }
 
 
 ul, ol {
@@ -74,7 +86,7 @@ ul, ol {
     font-size: 1rem;
     font-weight: 300;
     line-height: 150%;
-    color: variables.$textColor;
+    color: var(--text-body);
   }
 }
 
@@ -86,7 +98,7 @@ h1, .h1 {
   line-height: 100%;
   font-weight: 300;
   padding: 0 0 1.5rem;
-  color: variables.$textHighlightColor;
+  color: var(--text-ink);
   @media (min-width: variables.$tablet) {
     font-size: 3rem;
   }
@@ -95,11 +107,11 @@ h1, .h1 {
   }
 
   &.highlight, .highlight {
-    color: variables.$grey;
+    color: var(--text-muted);
   }
 
   &.accent {
-    color: variables.$accentColor;
+    color: var(--text-accent);
   }
 }
 
@@ -110,17 +122,17 @@ h2, .h2 {
   line-height: 100%;
   font-weight: 700;
   padding: 0 0 1.2rem;
-  color: variables.$textHighlightColor;
+  color: var(--text-ink);
   @media (min-width: variables.$tablet) {
     font-size: 2rem;
   }
 
   &.highlight, .highlight {
-    color: variables.$grey;
+    color: var(--text-muted);
   }
 
   &.accent {
-    color: variables.$accentColor;
+    color: var(--text-accent);
   }
 }
 
@@ -131,17 +143,17 @@ h3, .h3 {
   line-height: 100%;
   font-weight: 700;
   padding: 0 0 1rem;
-  color: variables.$textHighlightColor;
+  color: var(--text-ink);
   @media (min-width: variables.$tablet) {
     font-size: 1.7rem;
   }
 
   &.highlight, .highlight {
-    color: variables.$grey;
+    color: var(--text-muted);
   }
 
   &.accent {
-    color: variables.$accentColor;
+    color: var(--text-accent);
   }
 }
 
@@ -152,18 +164,18 @@ h4, .h4 {
   line-height: 150%;
   font-weight: 700;
   padding: 0 0 1rem;
-  color: variables.$textHighlightColor;
+  color: var(--text-ink);
 
   @media (min-width: variables.$tablet) {
     font-size: 1.5rem;
   }
 
   &.highlight, .highlight {
-    color: variables.$grey;
+    color: var(--text-muted);
   }
 
   &.accent {
-    color: variables.$accentColor;
+    color: var(--text-accent);
   }
 }
 
@@ -174,18 +186,18 @@ h5, .h5 {
   line-height: 150%;
   font-weight: 700;
   padding: 0 0 1rem;
-  color: variables.$textHighlightColor;
+  color: var(--text-ink);
 
   @media (min-width: variables.$tablet) {
     font-size: 1.25rem;
   }
 
   &.highlight, .highlight {
-    color: variables.$grey;
+    color: var(--text-muted);
   }
 
   &.accent {
-    color: variables.$accentColor;
+    color: var(--text-accent);
   }
 }
 
@@ -197,13 +209,13 @@ h5, .h5 {
   line-height: 150%;
   font-weight: 700;
   padding: 0 0 1rem;
-  color: variables.$textHighlightColor;
+  color: var(--text-ink);
   @media (min-width: variables.$tablet) {
     font-size: 1.5rem;
   }
 
   &.highlight, .highlight {
-    color: variables.$grey;
+    color: var(--text-muted);
   }
 }
 
@@ -212,7 +224,7 @@ hr {
   margin: 0 auto 1rem;
   max-width: calc(#{variables.$pageMaxWidth} - 4 * #{variables.$padding});
   border: none;
-  background: variables.$lineColor;
+  background: var(--hairline);
   height: 1px;
 }
 
@@ -289,11 +301,11 @@ hr {
 
 .text-primary {
 
-  color: variables.$primaryColor;
+  color: var(--text-primary);
 }
 
 .text-secondary {
-  color: variables.$accentColor;
+  color: var(--text-accent);
 }
 
 .text-mono {

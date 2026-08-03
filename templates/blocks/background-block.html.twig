@@ -7,7 +7,7 @@
 {% set containerImage = false %}
 
 <div id="{{ data.id }}"
-  class="background-block {{ data.classes }} {{ data.hero ? 'hero' : '' }} {{ data.darkSection ? 'dark-section' : '' }}"
+  class="background-block {{ data.classes }} {{ data.hero ? 'hero' : '' }} {{ (data.theme|default('auto')) != 'auto' ? data.theme : (data.darkSection|default(false) ? 'dark-section' : '') }}"
   style="{{ styles | join('; ') }}"
   {{ sulu_block_preview(data) }}
 >

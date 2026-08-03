@@ -1,7 +1,7 @@
 <div id="{{ data.id }}" class="row {{ data.colWidth }} {{ data.align }} {{ data.gap }} {{ (data.visualise) ? 'visualise' : '' }} {{ (data.dense) ? 'dense' : '' }} {{ data.classes }}" {{ sulu_block_preview(data) }}>
   {% for coln, col in data.cols %}
     {% set colView = dataView.cols[coln] %}
-    <div class="{{ col.col | join(' ') }} {{ col.order | join(' ') }} {{ col.colStart | join(' ') }} {{ col.row | join(' ') }} {{ col.classes }} " {{ sulu_block_preview(col) }}>
+    <div class="{{ col.col | join(' ') }} {{ col.order | join(' ') }} {{ col.colStart | join(' ') }} {{ col.row | join(' ') }} {{ (col.theme|default('auto')) != 'auto' ? col.theme : '' }} {{ col.classes }} " {{ sulu_block_preview(col) }}>
       {% for blockn, block in col.content %}
         {% set blockView = colView.content[blockn] %}
         {% if block.type == 'text-block' %}

@@ -1,0 +1,47 @@
+@use 'variables.scss';
+
+/* Section theming — the editor marks one section (background-block, card, text
+ * block or grid column) as sitting on a dark background via the `theme` select,
+ * and its copy flips to the on-dark text ramp. This is NOT an OS-level dark
+ * theme (`prefers-color-scheme`) — it only remaps the neutral text tokens
+ * declared in common/styles/base/typography.scss, within the light theme.
+ *
+ * Custom properties inherit, so a `.light-section` card nested inside a
+ * `.dark-section` band flips its copy back automatically.
+ *
+ * Must stay the LAST import in app.scss so these overrides win. */
+
+@mixin text-on-dark {
+  --text-ink: #fff;
+  --text-body: #9fa8b6; // design: gray-dark-text
+  --text-muted: #6f7989; // design: gray-dark-muted
+  --text-primary: #6aa2e8; // design: blue-link — brand blue readable on dark
+  --text-accent: #ea7cae; // malinová lightened for dark surfaces
+  --hairline: rgba(255, 255, 255, .16);
+}
+
+@mixin text-on-light {
+  --text-ink: #{variables.$textHighlightColor};
+  --text-body: #{variables.$textColor};
+  --text-muted: #{variables.$grey};
+  --text-primary: #{variables.$primaryColor};
+  --text-accent: #{variables.$accentColor};
+  --hairline: #{variables.$lineColor};
+}
+
+.dark-section {
+  @include text-on-dark;
+}
+
+.light-section {
+  @include text-on-light;
+}
+
+// On blue fills the design uses blue-tinted copy instead of the neutral greys
+// (only when the panel covers the whole section, not a partial strip).
+.dark-section:has(> .color-block.fill-brand:not(.is-partial)),
+.dark-section:has(> .color-block.fill-brandDeep:not(.is-partial)),
+.dark-section:has(> .color-block.fill-indigo:not(.is-partial)) {
+  --text-body: #c3d8f5; // design: blue-tint
+  --text-muted: #9cc0f0; // design: blue-pale
+}

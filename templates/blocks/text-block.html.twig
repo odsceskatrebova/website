@@ -1,3 +1,3 @@
-<div id="{{ data.id }}" class="{{ data.classes }} {{ data.noPaddings ? 'no-text-paddings' : '' }}" {{ sulu_block_preview(data) }}>
+<div id="{{ data.id }}" class="{{ (data.theme|default('auto')) != 'auto' ? data.theme : '' }} {{ data.classes }} {{ data.noPaddings ? 'no-text-paddings' : '' }}" {{ sulu_block_preview(data) }}>
   {{ data.text | raw }}
 </div>

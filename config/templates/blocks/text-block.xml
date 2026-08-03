@@ -35,6 +35,17 @@
                 <param name="type" value="toggler"/>
             </params>
         </property>
+        <property name="theme" type="single_select" colspan="4">
+            <meta><title lang="en">Text theme</title></meta>
+            <params>
+                <param name="default_value" value="auto"/>
+                <param name="values" type="collection">
+                    <param name="auto"><meta><title lang="en">Auto (inherit)</title></meta></param>
+                    <param name="dark-section"><meta><title lang="en">On dark (white text)</title></meta></param>
+                    <param name="light-section"><meta><title lang="en">On light (dark text)</title></meta></param>
+                </param>
+            </params>
+        </property>
     </properties>
 
 </template>
