@@ -61,12 +61,12 @@ class FormMailerService
             'data' => $contactForm,
             'source' => $source,
             'formTemplate' => $snippetContent['formBlocks'] ?? [],
-            'lang' => 'en',
+            'lang' => $contactForm->getLocale(),
         ];
 
         $this->sendEmail(
             to: $staffEmail,
-            subject: $this->translator->trans('form.formEmailToStaff.subject', [], 'email'),
+            subject: $this->translator->trans('form.formEmailToStaff.subject', [], 'email', $contactForm->getLocale()),
             text: $this->twig->render('email/formEmailToStaff.txt.twig', $options),
             html: $this->twig->render('email/formEmailToStaff.html.twig', $options),
             replyTo: $customerEmail,
@@ -90,7 +90,7 @@ class FormMailerService
 
         $this->sendEmail(
             to: $customerEmail,
-            subject: $this->translator->trans('form.formConfirmationEmail.subject', [], 'email'),
+            subject: $this->translator->trans('form.formConfirmationEmail.subject', [], 'email', $contactForm->getLocale()),
             text: $this->twig->render('email/formConfirmationEmail.txt.twig', $options),
             html: $this->twig->render('email/formConfirmationEmail.html.twig', $options),
         );
@@ -113,7 +113,7 @@ class FormMailerService
 
         $this->sendEmail(
             to: $customerEmail,
-            subject: $this->translator->trans('form.subscribeConfirmationEmail.subject', [], 'email'),
+            subject: $this->translator->trans('form.subscribeConfirmationEmail.subject', [], 'email', $contactForm->getLocale()),
             text: $this->twig->render('email/subscribeConfirmationEmail.txt.twig', $options),
             html: $this->twig->render('email/subscribeConfirmationEmail.html.twig', $options),
         );
