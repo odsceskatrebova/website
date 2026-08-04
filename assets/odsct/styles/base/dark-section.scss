@@ -18,6 +18,12 @@
   --text-primary: #6aa2e8; // design: blue-link — brand blue readable on dark
   --text-accent: #ea7cae; // malinová lightened for dark surfaces
   --hairline: rgba(255, 255, 255, .16);
+  // Vuetify bridge (see below) — RGB triplets, matching vuetify's dark theme
+  --vuetify-on-surface: 255, 255, 255;
+  --vuetify-border: 255, 255, 255;
+  --vuetify-high-emphasis: 1;
+  --vuetify-medium-emphasis: .7;
+  --vuetify-error: 207, 102, 121;
 }
 
 @mixin text-on-light {
@@ -27,6 +33,12 @@
   --text-primary: #{variables.$primaryColor};
   --text-accent: #{variables.$accentColor};
   --hairline: #{variables.$lineColor};
+  // Vuetify bridge — vuetify's light theme defaults
+  --vuetify-on-surface: 0, 0, 0;
+  --vuetify-border: 0, 0, 0;
+  --vuetify-high-emphasis: .87;
+  --vuetify-medium-emphasis: .6;
+  --vuetify-error: 176, 0, 32;
 }
 
 .dark-section {
@@ -35,6 +47,21 @@
 
 .light-section {
   @include text-on-light;
+}
+
+// Vuetify components (the form block's fields) paint from their own theme
+// variables, which vuetify's runtime stylesheet sets directly on every
+// component root via the .v-theme--light class — the text tokens above never
+// reach them. Re-point those variables inside themed sections; the values are
+// the inherited bridge tokens, so the nearest section wins and a light card
+// nested in a dark band flips back correctly.
+.dark-section .v-theme--light,
+.light-section .v-theme--light {
+  --v-theme-on-surface: var(--vuetify-on-surface);
+  --v-border-color: var(--vuetify-border);
+  --v-high-emphasis-opacity: var(--vuetify-high-emphasis);
+  --v-medium-emphasis-opacity: var(--vuetify-medium-emphasis);
+  --v-theme-error: var(--vuetify-error);
 }
 
 // On blue fills the design uses blue-tinted copy instead of the neutral greys

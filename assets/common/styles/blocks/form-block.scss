@@ -4,6 +4,12 @@
   position: relative;
   padding: 0;
 
+  // Vuetify field text, labels and outlines all paint with currentColor at
+  // varying emphasis opacities — they'd otherwise inherit the body color,
+  // resolved outside any dark-section token remap. Re-resolve ink here so the
+  // whole form follows the section theme.
+  color: var(--text-ink);
+
   .vue-form-block {
     position: relative;
 
