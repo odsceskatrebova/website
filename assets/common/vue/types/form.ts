@@ -52,7 +52,7 @@ export interface FormTemplate {
     source: string
     targetEmail: string
     formBlocks: FormField[]
-    gdprLink?: Record<string, unknown> | null
+    gdprLink?: string | null
 }
 
 export interface FormBlockConfig {

@@ -195,7 +195,7 @@ const submit = handleSubmit(async (values) => {
 
         <p v-if="config.formTemplate.gdprLink" class="gdpr-notice">
             {{ t('formBlock.gdpr') }}
-            <a :href="(config.formTemplate.gdprLink as Record<string, string>)?.href" target="_blank">
+            <a :href="config.formTemplate.gdprLink" target="_blank">
                 {{ t('formBlock.gdprLink') }}
             </a>.
         </p>
