@@ -1,6 +1,6 @@
 form:
     formEmailToStaff:
-        subject: "New form submission from %host%"
+        subject: "New form submission"
         title: "New form submission from %host%"
         datetime: "Date sent: %date%"
     formConfirmationEmail:

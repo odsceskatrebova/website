@@ -1,2 +1,5 @@
 cookieSettings:
     openLink: Cookie Settings
+
+error:
+    formConfigurationNotFound: Form configuration not found. Please try again later.

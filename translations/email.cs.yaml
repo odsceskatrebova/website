@@ -1,0 +1,20 @@
+form:
+    formEmailToStaff:
+        subject: "Nový dotaz z webu"
+        title: "Nový dotaz z webu %host%"
+        datetime: "Odesláno: %date%"
+    formConfirmationEmail:
+        subject: "Děkujeme za Vaši zprávu"
+        title: "Děkujeme za Vaši zprávu"
+        paragraph: "Ozveme se Vám co nejdříve."
+    subscribeConfirmationEmail:
+        subject: "Potvrzení přihlášení k odběru novinek"
+        title: "Vítejte v odběru novinek"
+        paragraph: "Tímto e-mailem potvrzujeme, že jste byli zařazeni do seznamu odběratelů novinek."
+        unsubscribe: "Pokud se jednalo o omyl, dejte nám prosím vědět a z odběru Vás odhlásíme."
+
+footer:
+    paragraph: ""
+    greetings:
+        line1: "S pozdravem,"
+        line2: "Váš tým"

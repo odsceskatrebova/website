@@ -1,2 +1,5 @@
 cookieSettings:
     openLink: Nastavení cookies
+
+error:
+    formConfigurationNotFound: Konfigurace formuláře nebyla nalezena. Zkuste to prosím později.
