@@ -9,8 +9,8 @@
         <div class="error-page__inner container">
             <span class="error-page__code">{{ status_code }}</span>
             {% if status_code == 404 %}
-                <h1 class="error-page__title">Tahle stránka tu není. Jako ta lávka u nádraží.</h1>
-                <p class="error-page__text">Zkuste to z hlavní stránky.</p>
+                <h1 class="error-page__title">Tahle stránka tu není.</h1>
+                <p class="error-page__text">Nejspíš se přesunula nebo je v adrese překlep. Zkuste to z hlavní stránky.</p>
             {% else %}
                 <h1 class="error-page__title">Něco se pokazilo. Pracujeme na tom.</h1>
             {% endif %}
