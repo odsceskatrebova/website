@@ -19,8 +19,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN pecl install apcu amqp redis imagick && \
-    docker-php-ext-enable apcu amqp redis imagick opcache && \
+RUN docker-php-ext-enable opcache && \
     docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp && \
     docker-php-ext-install \
         intl \
@@ -30,6 +29,15 @@ RUN pecl install apcu amqp redis imagick && \
         bcmath \
         exif \
         gd
+
+# PIE (PHP Installer for Extensions) - replaces the deprecated pecl
+COPY --from=ghcr.io/php/pie:1.5.2-bin /pie /usr/bin/pie
+
+RUN pie install apcu/apcu:5.1.28 && \
+    pie install php-amqp/php-amqp:2.2.0 && \
+    pie install phpredis/phpredis:6.3.0 && \
+    pie install imagick/imagick:3.8.1 && \
+    rm -rf /root/.config/pie /root/.pie
 
 WORKDIR /srv
 
