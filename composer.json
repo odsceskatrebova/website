@@ -27,7 +27,7 @@
         "chat": "https://sulu.io/services-and-support#chat"
     },
     "require": {
-        "php": "^8.2",
+        "php": "8.4.27",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/doctrine-orm": "^4.3",

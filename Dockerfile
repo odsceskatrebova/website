@@ -1,5 +1,5 @@
 # Base: PHP + extensions, no app code, no composer
-FROM php:8.4-fpm AS base
+FROM php:8.4.27-fpm AS base
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \

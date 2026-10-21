@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6800e1839cd1d809821108300b874a62",
+    "content-hash": "53b8fbb3265e5b7ed895508e854cc09d",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -1636,12 +1636,12 @@
             "version": "v1.18.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/DeepLcom/deepl-php.git",
+                "url": "https://github.com/DeepL/deepl-php.git",
                 "reference": "ca53d6e6907a71c47729ab160f0bbcbc059bed02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DeepLcom/deepl-php/zipball/ca53d6e6907a71c47729ab160f0bbcbc059bed02",
+                "url": "https://api.github.com/repos/DeepL/deepl-php/zipball/ca53d6e6907a71c47729ab160f0bbcbc059bed02",
                 "reference": "ca53d6e6907a71c47729ab160f0bbcbc059bed02",
                 "shasum": ""
             },
@@ -17189,7 +17189,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2",
+        "php": "8.4.27",
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
